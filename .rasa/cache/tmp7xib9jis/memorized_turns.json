@@ -1,0 +1,15 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhODGntCS/tjYWAAZKHAY=": "utter_saluto",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhODGntCS/loAhpSUlqUXxULU4zYgFAPA0Nho=": "action_listen",
+    "eJyLrq7VUahOTC7JLEuNz8nPL7BSqM5LzE21UkguSk2syszPS41Pzi8qzo9Pyy/KBaotKEotiwepz8+zgmjMz4vHo6M2FgBqaSaX": "action_listen",
+    "eJytjUEKgCAQRa/iATqBV4kYRCYQdL6M5iLp7hm5btXywXv/r/1aTHe+hsYUgWxNF5fYGq/szgBh8tAC2qFpuFm50eND7BtC6KP4b35CDKWyDPUorMMJMrBaUyryvNxupaZSsw==": "action_deactivate_loop",
+    "eJytjkEKwzAMBL/iB/QF/koIwjgKGGytkZUcYvr3uk0ht/TS48Ls7E79+XA9REs7Uwaqd11CYe+icjgShClCG2iFlsFW5Z3ePMSfRQjdNP6n/4acmrEMdGusg0kyonnXDPWa/O1Z+HMr2HnsVji/AL/Ace0=": "ripetizione_esercizi_form",
+    "eJytj1EKAjEMRK/SA3iCXkWklDpCYDcpadwPi3c3WmF/dNcP/zIwbzJz7PdD6LkYLUiTSI2hc54RQ1HkGwkjFdEm6SI6u7cqlvT0C8cBCqcN4n/xbzFRM7Bbrw3qHmKXFkMzqevL/ZwzXrWyjWJ7gZ82KFUYjRVwuPj9w5At7HuH0wO5zqVJ": "action_listen",
+    "eJyLrq7VUahOTC7JLEuNz8nPL7BSqM5LzE21Uigoyi/ILy5JjM/JzMuOT8svygWqLChKLYsHqc7Ps4Joy8+Lx6m+NhYA2HAlFw==": "action_listen",
+    "eJytzMEJgDAMheFVOoATZBWRUCVCsU1KG3sp3d2IXr15/OF7b+5jct1vGhphFMngOvtE4HKRLFU9xsAH7lKSyVyo4a2F4ZkJ46f/6/qNGKoSGz0rFTOBLRVc87gS0xjLBSaST2o=": "action_deactivate_loop",
+    "eJytjksKgDAMRK/SA3iCXkUkRI1QrElpYzfFu1s/W3XjcuDNm2nL1piCg7pM4EWCNYVxIWtClCBJEbzjGSaJSyVDpAwHLWyvmjA88n+p7+BdUuKKroliZRzXqNZkhJ6Yzrlvy0jnJdTr1Iuu2wFYYG2b": "utter_submit",
+    "eJytjlEKAjEMRK/SA3iCXkUkZNcIwTYpadqf4t2tu/urgvg58ObNnMfjFAauzp0gqZYYhmCmGIpp0eoIieUON7U8yWLU4UWrxL2mAm/5f6mPkLg6yURbJZsMy4weQ0dYSGib+2650nYJfT/1s665k0FtS2b/ILk8AXWYh+M=": "action_listen"
+  }
+}

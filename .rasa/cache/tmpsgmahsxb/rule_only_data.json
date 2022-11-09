@@ -1,0 +1,7 @@
+{
+  "rule_only_slots": [],
+  "rule_only_loops": [
+    "proposta_link_form",
+    "ripetizione_esercizi_form"
+  ]
+}

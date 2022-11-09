@@ -1,0 +1,38 @@
+version: "3.1"
+
+stories:
+
+- story: crea corso
+  steps:
+    - intent: saluto
+    - action: utter_saluto
+
+
+     
+      
+- story: stop primo form + stop
+  steps:
+     
+      - action: creazione_corso_form
+      - active_loop: creazione_corso_form
+      - intent: stop_form
+      - action: action_deactivate_loop
+      - active_loop: null
+      - action: utter_summary
+
+
+
+
+
+
+
+ 
+      
+      
+
+
+     
+
+
+
+
