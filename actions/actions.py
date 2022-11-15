@@ -9,12 +9,20 @@
 from typing import Any, Text, Dict, List
 #
 from rasa_sdk import Action, Tracker
+from rasa_sdk.events import FollowupAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormValidationAction
 from rasa_sdk import Action
 from rasa_sdk.types import DomainDict
 from rasa_sdk.events import SlotSet
+from deep_translator import GoogleTranslator
+from autocorrect import Speller
+from sentence_transformers import SentenceTransformer, util
 import re
+import torch
+import time
+import json
+import requests
 
 
 
@@ -360,7 +368,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
             if j<1 or j>4:
                 return {"formati":None}
             
-        dispatcher.utter_message(text=create_responses("formati",tracker))
+        dispatcher.utter_message(text=create_responses("formati",tracker, dispatcher))
         return {"formati": formati_list}
         
 
@@ -378,7 +386,6 @@ class ValidatePropostaLinkForm(FormValidationAction):
        
         videlezioni_num = re.findall('[0-9]+', slot_value)
         dispatcher.utter_message(text="desideri aggiungere altre videolezioni?")
-       
         return {"videolezioni": videlezioni_num}
     
     def validate_aggiunta_videolezioni(
@@ -399,7 +406,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
 
         elif tracker.get_intent_of_latest_message() == "negazione":
             if formati[len(formati)-1] != "videolezioni":
-                dispatcher.utter_message(text=create_responses("videolezioni",tracker))
+                dispatcher.utter_message(text=create_responses("videolezioni",tracker,dispatcher))
             return {"aggiunta_videolezioni": False}
 
         else:
@@ -441,7 +448,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
 
         elif tracker.get_intent_of_latest_message() == "negazione":
             if formati[len(formati)-1] != "esercizi":
-                dispatcher.utter_message(text=create_responses("esercizi",tracker))
+                dispatcher.utter_message(text=create_responses("esercizi",tracker,dispatcher))
             return {"aggiunta_esercizi": False}
 
         else:
@@ -484,7 +491,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
 
         elif tracker.get_intent_of_latest_message() == "negazione":
             if formati[len(formati)-1] != "quiz":
-                dispatcher.utter_message(text=create_responses("quiz",tracker))
+                dispatcher.utter_message(text=create_responses("quiz",tracker , dispatcher))
             return {"aggiunta_quiz": False}
 
         else:
@@ -523,7 +530,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
 
         elif tracker.get_intent_of_latest_message() == "negazione":
             if formati[len(formati)-1] != "documenti":
-                dispatcher.utter_message(text=create_responses("documenti",tracker))
+                dispatcher.utter_message(text=create_responses("documenti",tracker, dispatcher))
             return {"aggiunta_documenti": False}
 
         else:
@@ -533,12 +540,29 @@ class ValidatePropostaLinkForm(FormValidationAction):
     
     
 
-def create_responses (slot, tracker):
+def create_responses (slot, tracker: Tracker, dispatcher: CollectingDispatcher):
     mapping =  {1: 'videolezioni', 2: 'esercizi', 3: 'quiz', 4: 'documenti'}
     next_slot= None
     formati= tracker.slots.get("formati")
+    request = tracker.get_slot("recommend_query")
     if slot=="formati":
-        return f"Ora ti indicherò dei link a siti contenenti {mapping.get(int(formati[0]))}. Indica il numero di quelli che desideri. "
+        
+        #RECOMMENDER LOGIC
+
+        needs_removing = tracker.get_slot(f"aggiunta_{mapping.get(int(formati[0]))}")
+        request["type"] = mapping.get(int(formati[0]))
+        request["remove"] = needs_removing
+        request["public"] = ""
+        print(request)
+        response = requests.post('http://127.0.0.1:8080/recommend', json = request)
+        parsed = json.loads(response.content)
+        dispatcher.utter_message(f"Ora ti indicherò dei link a siti contenenti {mapping.get(int(formati[0]))}.")
+        text_to_save = ""
+        for i in range(len(parsed)):
+            text_to_save += f'Titolo: {parsed[i][0]} \nLink {parsed[i][1]} \n'
+            dispatcher.utter_message(f'-{i}) Titolo: {parsed[i][0]},\nLink{parsed[i][1]}')
+        SlotSet(f"{mapping.get(int(formati[0]))}", text_to_save)
+        return (f"Indica il numero di quelli che desideri. ")
     else:
         for i in range(len(formati)):
             if formati[i]==slot and i < len(formati)-1:
@@ -546,7 +570,22 @@ def create_responses (slot, tracker):
             elif formati[i]==slot and i == len(formati)-1:
                 next_slot = None
             
-        return f"Ora ti indicherò dei link a siti contenenti {next_slot}. Indica il numero di quelli che desideri. "
+
+        #RECOMMENDER LOGIC
+
+        needs_removing = tracker.get_slot(f"aggiunta_{next_slot}")
+        request["type"] = next_slot
+        request["remove"] = needs_removing
+        request["public"] = ""
+        response = requests.post('http://127.0.0.1:8080/recommend', json = request)
+        parsed = json.loads(response.content)
+        dispatcher.utter_message(f"Ora ti indicherò dei link a siti contenenti {next_slot}.")
+        text_to_save = ""
+        for i in range(len(parsed)):
+            text_to_save += f'Titolo: {parsed[i][0]} \nLink {parsed[i][1]} \n'
+            dispatcher.utter_message(f'-{i}) Titolo: {parsed[i][0]},\nLink{parsed[i][1]}')
+        SlotSet(f"{next_slot}", text_to_save)
+        return (f"Indica il numero di quelli che desideri.")
 
 
 class ActionParseAll(Action):
@@ -558,14 +597,6 @@ class ActionParseAll(Action):
         #Step 1: for all slots get the value, spell it and translate it, save to a dict nomemetadato:metadato
         #Step 2: iterate over the dict keys and parse
         #Step 3: add every parsed result to a Json called request.json and send it to the recsys, save it locally
-        
-        #####
-        #####
-        #####
-        #Controllare la velocità di risposta senza usare speller fast
-        #####
-        #####
-        #####
         
         #instantiate speller, translator and embedder
         spell = Speller('it')
@@ -635,39 +666,41 @@ class ActionParseAll(Action):
             #placeholder print,, not needed in production
             print(json.dumps(request))
 
-            #save the request as a json file named: sender_id_currenttime.json
-            currtime = time.localtime()
-            year = currtime.tm_year
-            mon= currtime.tm_mon
-            day=currtime.tm_mday
-            hour=currtime.tm_hour
-            minute = currtime.tm_min
-            timestr = f'{year}_{mon}_{day}_{hour}_{minute}'
-            f = open(f'C:\\Users\\Mixy\\Documents\\{tracker.sender_id}_{timestr}.json', "w")
-            json.dump(request, f, indent=4)
-            #insert httpx POST request to RS server
-        #response = requests.post('http://127.0.0.1:8080/recommend', json = request)
-        #print(response.content)
-        return []
+        return [SlotSet("recommend_query", request)]
 
-class ActionRecommend(Action):
-    
-    def name(self) -> Text:
-        return "action_recommend"
-    
-    def run(self, dispatcher: "CollectingDispatcher", tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message("Aspetta qualche secondo, sto interrogando il mio sistema per proporti delle risorse")
-        ## Creare gli embedding di Disciplina, Keyword, language e duration, questi sono le relazioni del grafo usao come model
-        # Capire bene il model e scrivere una funzione di interrogazione per ottenere la raccomandazione
-        # Salvare le reccomendation su uno storage remoto sotto forma di Json, per poi usarlo nel processo
-        # Dei diagrammi 3 e 4
-        return []
-
-    def recommend(self, recommeder_model, user_embedding, item_embedding):
-        return[]
+#UNIFICARE CON LO SLOT {FORMATI}, e settare gli slot {videolezioni}{documenti}{quiz} e {esercizi}
 
 
+# class ActionRecommendLezioni(Action):
+#     def name(self) -> Text:
+#         return "action_recommend_lezioni"
 
+#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         #recommend with the locally saved JSON
+#         #prendere lo slot che chiede se vuole altri esercizi/quiz ecc, aggiunge il parametro remove
+#         choosen_formats = tracker.get_slot("formati")
+#         numbers = [int(x) for x in choosen_formats.split() if x.isdigit()]
+#         mapping =  {1: 'videolezioni', 2: 'esercizi', 3: 'quiz', 4: 'documenti'}
+#         mapped_list = []
+#         #crea una lista di parole dei formati scelti e itera su quelle
+#         for i in range(numbers):
+#             mapped_list.append(mapping[numbers[i]])
+#         #itera sulla lista di formati scelti (da gestire il formato nel recommender system)
+#         for format in mapped_list:
+
+#             request = tracker.get_slot("recommend_query")
+#             needs_removing = tracker.get_slot(f"aggiunta_{format}")
+#             request["type"] = format
+#             request["remove"] = needs_removing
+#             response = requests.post('http://127.0.0.1:8080/recommend', json = request)
+#             parsed = json.loads(response.content)
+#             dispatcher.utter_message("Eccoi i link che vorrei proporti")
+#             text_to_save = ""
+#             for i in range(len(parsed)):
+#                 text_to_save += f'Titolo: {parsed[i][0]} \nLink {parsed[i][1]} \n'
+#                 dispatcher.utter_message(f'Titolo: {parsed[i][0]},\nLink{parsed[i][1]}')
+#             SlotSet(f"{format}", text_to_save)
+#         return
   
         
         

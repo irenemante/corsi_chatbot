@@ -1,0 +1,2700 @@
+Category:Virtualization
+Category:Download websites
+Category:Network software
+Category:Smart devices
+Category:Network operating systems
+Category:Online services
+Category:Network service
+Category:Flow control (data)
+Category:Net neutrality
+Category:Tunneling protocols
+Category:Computer network stubs
+Category:Computer networks
+Category:Network booting
+Category:Computer networking conferences
+Category:Computer networking people
+Category:Networking algorithms
+Category:Computer buses
+Category:Networking companies
+Category:Windows communication and services
+Category:Network architecture
+Category:Wireless networking
+Category:Networking standards
+Category:Computer network security
+Category:Computer network organizations
+Category:Network management
+Category:Networking hardware
+Category:Graph description languages
+Category:Workflow languages
+Category:Architecture description language
+Category:Test items in computer languages
+Category:Markup languages
+Category:Lists of computer languages
+Category:Data modeling languages
+Category:Stylesheet languages
+Category:Programming languages
+Category:Transformation languages
+Category:Specification languages
+Category:Computing by year
+Category:History of cryptography
+Category:Hacking by decade
+Category:19th century in computing
+Category:21st century in computing
+Category:History of computer companies
+Category:History of software
+Category:Computing by century
+Category:20th century in computing
+Category:Social network analysis
+Category:Network scientists
+Category:Blockmodeling
+Category:Crossword software
+Category:Software obfuscation
+Category:Software by decade
+Category:Software by institution
+Category:Lists of software
+Category:Open-source software converted to a proprietary license
+Category:Software by century
+Category:Software law
+Category:Software comparisons
+Category:Software by library used
+Category:Software by type
+Category:Software by platform
+Category:Criticisms of software and websites
+Category:Software stubs
+Category:Wikipedia categories named after software
+Category:Software logos
+Category:Screenshots of software
+Category:Software covers
+Category:Software by year
+Category:Software by programming language
+Category:Software by license
+Category:Software features
+Category:Software by company
+Category:Software by operating system
+Category:Software industry
+Category:History of software
+Category:Software projects
+Category:Software distribution
+Category:Quantum computing
+Category:Error detection and correction
+Category:Information geometry
+Category:Similarity measures
+Category:Measures of complexity
+Category:String metrics
+Category:Units of information
+Category:Data differencing
+Category:Entropy and information
+Category:Network performance
+Category:Information theorists
+Category:Algorithmic information theory
+Category:Coding theory
+Category:Detection theory
+Category:Data compression
+Category:Quantum information theory
+Category:Real-time technology
+Category:Control engineering
+Category:Resonance
+Category:Transfer functions
+Category:Control theorists
+Category:Feedback
+Category:Motion control
+Category:Servomechanisms
+Category:Variational analysis
+Category:Stochastic control
+Category:Stability theory
+Category:Control theory publications
+Category:Optimal control
+Category:Nonlinear control
+Category:Richard E. Bellman Control Heritage Award recipients
+Category:Classical control theory
+Category:Filter theory
+Category:Computer algebra systems
+Category:Computer networking
+Category:Integrated circuits
+Category:Control engineering
+Category:Application-specific integrated circuits
+Category:Signal processing
+Category:Computer hardware
+Category:Gate arrays
+Category:Embedded systems
+Category:Electronic engineering
+Category:Software engineering
+Category:Professional certifications in computer engineering
+Category:Computer architecture
+Category:Computer engineering stubs
+Category:Computer systems
+Category:Streaming media systems
+Category:Classes of computers
+Category:Email systems
+Category:Fault-tolerant computer systems
+Category:Hardware acceleration
+Category:Capability systems
+Category:Cold War military computer systems of the United States
+Category:Computer hardware
+Category:Satellite navigation systems
+Category:Embedded systems
+Category:Centralized computing
+Category:Legacy systems
+Category:Embedded Linux
+Category:Avionics computers
+Category:Ada (programming language)
+Category:Smart devices
+Category:System on a chip
+Category:Software related to embedded Linux
+Category:Robots
+Category:Digital cameras
+Category:Single-board computers
+Category:Windows Embedded Automotive devices
+Category:Onboard computers
+Category:Automotive software
+Category:Engine control systems
+Category:Synchronous programming languages
+Category:Embedded microprocessors
+Category:Firmware
+Category:Graphing calculators
+Category:Avionics
+Category:Information appliances
+Category:Real-time computing
+Category:Embedded operating systems
+Category:Microcontrollers
+Category:Robotics
+Category:Hardware testing
+Category:Classes of computers
+Category:Computer terminals
+Category:Hardware acceleration
+Category:Computer hardware logos
+Category:Computer hardware by type
+Category:Hardware partitioning
+Category:Lists of computer hardware
+Category:Hardware in Linux
+Category:Computer hardware stubs
+Category:Benchmarks (computing)
+Category:Computer hardware standards
+Category:Hardware virtualization
+Category:Clock signal
+Category:Computer hardware researchers
+Category:Hardware bugs
+Category:Computer hardware companies
+Category:Computer hardware tuning
+Category:History of computing hardware
+Category:Unsolved problems in computer science
+Category:Theory of computation
+Category:Theoretical computer science
+Category:Software engineering
+Category:Soft computing
+Category:Programming language theory
+Category:Mathematical optimization
+Category:Human–computer interaction
+Category:Human-based computation
+Category:Formal methods
+Category:Database theory
+Category:Concurrency (computer science)
+Category:Computer security
+Category:Computer graphics
+Category:Computer architecture
+Category:Computational science
+Category:Artificial intelligence
+Category:Algorithms and data structures
+Category:Fictional computer scientists
+Category:Lists of computer scientists
+Category:Computer scientists at the University of Cambridge
+Category:Non-binary computer scientists
+Category:Women computer scientists
+Category:Computer science award winners
+Category:IBM Research computer scientists
+Category:Computer architects
+Category:Computer scientist stubs
+Category:Computer scientists by award
+Category:Computer science educators
+Category:Fellows of the Association for Computing Machinery
+Category:Computer science writers
+Category:Computer scientists by field of research
+Category:Computer scientists by nationality
+Category:Substring indices
+Category:String metrics
+Category:Pattern matching
+Category:String data structures
+Category:Algorithms on strings
+Category:Computer science in the United Kingdom
+Category:Computer science in Azerbaijan
+Category:Computer science in the Netherlands
+Category:Computer science in Bangladesh
+Category:Computer science in Switzerland
+Category:Computer science in South Korea
+Category:Computer science in China
+Category:Computer science in Belgium
+Category:Computer science institutes by country
+Category:Computer science in India
+Category:Computer magazines by country
+Category:Computer science education by country
+Category:Computer science in France
+Category:Computer programmers by nationality
+Category:Computer scientists by nationality
+Category:Geometric data structures
+Category:Geometric intersection
+Category:Geometric algorithms
+Category:Triangulation (geometry)
+Category:Professional certification in computing
+Category:Computer science textbooks
+Category:Educational programming languages
+Category:Information technology education
+Category:Computer science education by country
+Category:Diversity in computing
+Category:Computer science educators
+Category:Computer science departments
+Category:Computer graphics stubs
+Category:Computational science stubs
+Category:Computer science stub templates
+Category:Computer science journal stubs
+Category:Computer engineering stubs
+Category:Algorithms and data structures stubs
+Category:Computer scientist stubs
+Category:Database stubs
+Category:Formal methods stubs
+Category:Programming language topic stubs
+Category:Artificial intelligence stubs
+Category:Cryptography stubs
+Category:Software engineering stubs
+Category:Theoretical computer science stubs
+Category:Operating system stubs
+Category:Signal processing conferences
+Category:Information systems conferences
+Category:Programming languages conferences
+Category:Electronic design automation conferences
+Category:Logic conferences
+Category:Computer networking conferences
+Category:Theoretical computer science conferences
+Category:Cryptography conferences
+Category:Distributed computing conferences
+Category:Artificial intelligence conferences
+Category:Software engineering conferences
+Category:Computer science award winners
+Category:Computer scientists by award
+Category:Information science awards
+Category:Seymour Cray Computer Engineering Award recipients
+Category:Formal methods publications
+Category:Bibliographic databases in computer science
+Category:Computer science writers
+Category:Computer science papers
+Category:Computer science journals
+Category:Computer science books
+Category:Computer science societies
+Category:Computer science education
+Category:Computer science research organizations
+Category:Computer science-related professional associations
+Category:Computer science competitions
+Category:Bioinformatics organizations
+Category:Artificial intelligence associations
+Category:Computer science institutes
+Category:Computer science departments
+Category:Software engineering organizations
+Category:Computer science conferences
+Category:British Computer Society
+Category:Philosophy of artificial intelligence
+Category:Bytecodes
+Category:Virtualization software
+Category:Free music download websites
+Category:Tucows
+Category:Network mappers
+Category:Network software comparisons
+Category:Groupware
+Category:Fax software
+Category:Content-control software
+Category:Networking software companies
+Category:Virtualization software
+Category:Internet Protocol based network software
+Category:Devices capable of speech recognition
+Category:Smart grid
+Category:Smart speakers
+Category:Smartphones
+Category:Smart TV
+Category:Thin clients
+Category:Radio-frequency identification
+Category:Internet of things
+Category:Smart cards
+Category:Smartwatches
+Category:MacOS Server
+Category:Windows Server
+Category:Novell NetWare
+Category:E-commerce websites
+Category:URL-shortening services
+Category:Online payments
+Category:Online integrated development environments
+Category:Online publishing
+Category:Online support groups
+Category:Tor onion services
+Category:Virtual private network services
+Category:Online dictionaries
+Category:Computer-mediated communication
+Category:Online games
+Category:Instant messaging
+Category:Online companies
+Category:Online archives
+Category:Academic journal online publishing platforms
+Category:Video on demand
+Category:Internet radio
+Category:Streaming television
+Category:Online bookmarking services
+Category:Online encyclopedias
+Category:Web directories
+Category:Web fiction
+Category:Online chat
+Category:Cloud computing
+Category:Web hosting
+Category:Pre–World Wide Web online services
+Category:Social networking services
+Category:Online dating services
+Category:Online backup services
+Category:Online video game services
+Category:Online analytical processing
+Category:Online advertising services and affiliate networks
+Category:Online office suites
+Category:Online help
+Category:Virtual museums
+Category:Online magazines
+Category:Online content distribution
+Category:Internet hosting
+Category:Online journalism
+Category:Online databases
+Category:Online services comparisons
+Category:Push technology
+Category:Sensor network
+Category:Internet mirror services
+Category:Network file systems
+Category:Usenet
+Category:Email
+Category:Servers (computing)
+Category:DNS software
+Category:Directory services
+Category:Web services
+Category:Video on demand
+Category:Net neutrality by country
+Category:Internet stubs
+Category:Network software stubs
+Category:Computer network technology
+Category:History of computer networks
+Category:Internet culture
+Category:File sharing networks
+Category:CAN bus
+Category:Distributed data storage
+Category:Computer networks by scale
+Category:Meteorological data and networks
+Category:Network scheduling algorithms
+Category:Routing algorithms
+Category:S-100 machines
+Category:Peripheral Component Interconnect
+Category:AT Attachment
+Category:Computer storage buses
+Category:Motherboard expansion slot
+Category:ExpressCards
+Category:PCMCIA
+Category:Fibre Channel
+Category:Serial buses
+Category:SCSI
+Category:Networking companies of the United States
+Category:Networking companies of Canada
+Category:Storage Area Network companies
+Category:Networking hardware companies
+Category:VoIP companies
+Category:Internet technology companies
+Category:Defunct networking companies
+Category:Garlic routing
+Category:Onion routing
+Category:Key-based routing
+Category:Mix networks
+Category:Network protocols
+Category:Overlay networks
+Category:Network addressing
+Category:OSI model
+Category:Systems Network Architecture
+Category:Virtual private networks
+Category:Distributed computing architecture
+Category:Cyberinfrastructure
+Category:Local loop
+Category:Internet architecture
+Category:Network topology
+Category:MPLS networking
+Category:Netgear
+Category:D-Link
+Category:Mobile web
+Category:Wireless Application Protocol
+Category:WiMAX
+Category:Mesh networking
+Category:Indoor positioning system
+Category:Wireless display technologies
+Category:Wireless networking standards
+Category:Wireless networking hardware
+Category:Packet radio
+Category:Wireless sensor network
+Category:Bluetooth
+Category:Wi-Fi
+Category:Wireless network organizations
+Category:IEEE 802
+Category:Network protocols
+Category:Wireless display technologies
+Category:Internet Standards
+Category:Wireless networking standards
+Category:FOSSIL
+Category:Ethernet standards
+Category:Network mappers
+Category:Internet security
+Category:Firewall software
+Category:Antivirus software
+Category:Spam filtering
+Category:Virtual private networks
+Category:Email authentication
+Category:Network analyzers
+Category:Internet-related organizations
+Category:Wireless network organizations
+Category:Academic computer network organizations
+Category:Routing
+Category:Free network management software
+Category:Out-of-band management
+Category:Radio resource management
+Category:Network performance
+Category:Computer network analysis
+Category:Server hardware
+Category:Power-line communication Internet access
+Category:Ethernet cables
+Category:Routers (computing)
+Category:Networking hardware companies
+Category:Avaya products
+Category:Wireless networking hardware
+Category:Network acceleration
+Category:Fiber optics
+Category:Telephone exchanges
+Category:Nortel products
+Category:Diskless workstations
+Category:Fiber-optic communications
+Category:Cisco products
+Category:Modems
+Category:Hardware routers
+Category:Wikipedia categories named after markup languages
+Category:Lists of markup languages
+Category:JSON
+Category:Markup language comparisons
+Category:Markup language stubs
+Category:Mathematical markup languages
+Category:XML markup languages
+Category:SyncML
+Category:Knowledge representation languages
+Category:Web syndication formats
+Category:Text Encoding Initiative
+Category:Musical markup languages
+Category:Lightweight markup languages
+Category:DocBook
+Category:GIS file formats
+Category:Playlist markup languages
+Category:Page description markup languages
+Category:Declarative markup languages
+Category:Vector graphics markup languages
+Category:Troff
+Category:XML
+Category:TeX
+Category:User interface markup languages
+Category:HTML
+Category:Lists of markup languages
+Category:Lists of programming languages
+Category:SPARQL
+Category:Unified Modeling Language
+Category:XML
+Category:Cascading Style Sheets
+Category:Creative coding
+Category:Programming languages supporting units of measure
+Category:Data-centric programming languages
+Category:Compilers by programming language
+Category:Microsoft programming languages
+Category:Criticisms of programming languages
+Category:Digital Research languages
+Category:Software by programming language
+Category:Programming language families
+Category:Lists of programming languages
+Category:Shading languages
+Category:Programming language syntax
+Category:Algebraic modeling languages
+Category:Constraint programming languages
+Category:Programming languages conferences
+Category:Programming languages with an ISO standard
+Category:Programming languages created by women
+Category:Dynamically typed programming languages
+Category:Process termination functions
+Category:Wikipedia categories named after programming languages
+Category:Dependently typed languages
+Category:Low-level programming languages
+Category:High-level programming languages
+Category:Academic programming languages
+Category:Programming language standards
+Category:Discontinued programming languages
+Category:Statically typed programming languages
+Category:Nondeterministic programming languages
+Category:Pattern matching programming languages
+Category:Agent-oriented programming languages
+Category:Programming languages by creation date
+Category:Reactive programming languages
+Category:High Integrity Programming Language
+Category:Experimental programming languages
+Category:Domain-specific programming languages
+Category:Data-structured programming languages
+Category:Visual programming languages
+Category:Synchronous programming languages
+Category:Esoteric programming languages
+Category:Formula manipulation languages
+Category:Functional languages
+Category:Object-based programming languages
+Category:Secure programming languages
+Category:Agent-based programming languages
+Category:Set theoretic programming languages
+Category:Extensible syntax programming languages
+Category:Procedural programming languages
+Category:Multi-paradigm programming languages
+Category:Text-oriented programming languages
+Category:Dynamic programming languages
+Category:Concatenative programming languages
+Category:XML-based programming languages
+Category:Term-rewriting programming languages
+Category:Prototype-based programming languages
+Category:Concurrent programming languages
+Category:Function-level languages
+Category:Non-English-based programming languages
+Category:Declarative programming languages
+Category:Macro programming languages
+Category:Software for modeling software
+Category:Software modeling language
+Category:Dependently typed languages
+Category:Algorithm description languages
+Category:Data modeling languages
+Category:Formal specification languages
+Category:Unified Modeling Language
+Category:Hardware description languages
+Category:1924 in computing
+Category:2023 in computing
+Category:1919 in computing
+Category:1910 in computing
+Category:1932 in computing
+Category:1914 in computing
+Category:Computer-related introductions by year
+Category:Software by year
+Category:1934 in computing
+Category:1936 in computing
+Category:1937 in computing
+Category:1938 in computing
+Category:1939 in computing
+Category:1940 in computing
+Category:1941 in computing
+Category:1942 in computing
+Category:1943 in computing
+Category:1944 in computing
+Category:1945 in computing
+Category:1946 in computing
+Category:1947 in computing
+Category:1948 in computing
+Category:1949 in computing
+Category:1950 in computing
+Category:1951 in computing
+Category:1952 in computing
+Category:1953 in computing
+Category:1954 in computing
+Category:1955 in computing
+Category:1956 in computing
+Category:1957 in computing
+Category:1958 in computing
+Category:1959 in computing
+Category:1960 in computing
+Category:1961 in computing
+Category:1962 in computing
+Category:1963 in computing
+Category:1964 in computing
+Category:1965 in computing
+Category:1966 in computing
+Category:1967 in computing
+Category:1968 in computing
+Category:1969 in computing
+Category:1970 in computing
+Category:1971 in computing
+Category:1972 in computing
+Category:1973 in computing
+Category:1974 in computing
+Category:1975 in computing
+Category:1976 in computing
+Category:1977 in computing
+Category:1978 in computing
+Category:1979 in computing
+Category:1980 in computing
+Category:1981 in computing
+Category:1982 in computing
+Category:1983 in computing
+Category:1984 in computing
+Category:1985 in computing
+Category:1986 in computing
+Category:1987 in computing
+Category:1988 in computing
+Category:1989 in computing
+Category:1990 in computing
+Category:1991 in computing
+Category:1992 in computing
+Category:1993 in computing
+Category:1994 in computing
+Category:1995 in computing
+Category:1996 in computing
+Category:1997 in computing
+Category:1998 in computing
+Category:1999 in computing
+Category:2000 in computing
+Category:2001 in computing
+Category:2002 in computing
+Category:2003 in computing
+Category:2004 in computing
+Category:2005 in computing
+Category:2006 in computing
+Category:2007 in computing
+Category:2008 in computing
+Category:2009 in computing
+Category:2010 in computing
+Category:2011 in computing
+Category:2012 in computing
+Category:2013 in computing
+Category:2014 in computing
+Category:2015 in computing
+Category:2016 in computing
+Category:2017 in computing
+Category:2018 in computing
+Category:2019 in computing
+Category:2020 in computing
+Category:2021 in computing
+Category:2022 in computing
+Category:Riverbank Laboratories
+Category:World War II Japanese cryptography
+Category:Code talkers
+Category:Signals intelligence of World War I
+Category:Signals intelligence of World War II
+Category:Cipher Bureau (Poland)
+Category:Venona project
+Category:Bletchley Park
+Category:Rotor machines
+Category:Undeciphered historical codes and ciphers
+Category:Hacking in the 2020s
+Category:Hacking in the 2010s
+Category:Hacking in the 2000s
+Category:Hacking in the 1990s
+Category:Hacking in the 1980s
+Category:Computer-related introductions in the 19th century
+Category:21st-century software
+Category:Programming languages created in the 21st century
+Category:Computer-related introductions in the 21st century
+Category:2020s in computing
+Category:2010s in computing
+Category:2000s in computing
+Category:History of Wikipedia
+Category:Computer companies by year of establishment
+Category:History of Apple Inc.
+Category:History of Google
+Category:Defunct computer companies
+Category:Computer companies by year of disestablishment
+Category:Works about computer and internet companies
+Category:Works about computer and internet entrepreneurs
+Category:History of Microsoft
+Category:Programming languages by creation date
+Category:History of video games
+Category:History of free and open-source software
+Category:Software version histories
+Category:Apple Inc. operating systems
+Category:Apple Inc. software
+Category:Macintosh operating systems
+Category:History of web browsers
+Category:Computing timelines
+Category:Discontinued software
+Category:History of human–computer interaction
+Category:History of artificial intelligence
+Category:Emulation software
+Category:Unix history
+Category:Software wars
+Category:21st century in computing
+Category:20th century in computing
+Category:19th century in computing
+Category:1920s in computing
+Category:1910s in computing
+Category:20th-century software
+Category:Programming languages created in the 20th century
+Category:Computer-related introductions in the 20th century
+Category:1990s in computing
+Category:1980s in computing
+Category:1970s in computing
+Category:1960s in computing
+Category:1950s in computing
+Category:1940s in computing
+Category:1930s in computing
+Category:Social network analysis software
+Category:Crossword video games
+Category:Video games by decade
+Category:2020s software
+Category:2010s software
+Category:2000s software
+Category:1990s software
+Category:1980s software
+Category:1970s software
+Category:1960s software
+Category:1950s software
+Category:1940s software
+Category:CERN software
+Category:SRI International software
+Category:University of Minnesota software
+Category:Massachusetts Institute of Technology software
+Category:Carnegie Mellon University software
+Category:Lists of bioinformatics software
+Category:Video game lists
+Category:Lists of operating systems
+Category:Lists of mobile apps
+Category:Software comparisons
+Category:Lists of software add-ons
+Category:Lists of database management software
+Category:Software version histories
+Category:Free software lists and comparisons
+Category:Microsoft lists
+Category:21st-century software
+Category:20th-century software
+Category:Video games by century
+Category:Software patent law
+Category:Software licenses
+Category:Layout engine comparisons
+Category:Security software comparisons
+Category:Comparisons of computer file formats
+Category:Multimedia software comparisons
+Category:Network software comparisons
+Category:Database software comparisons
+Category:Operating system comparisons
+Category:Word processor comparisons
+Category:Web browser comparisons
+Category:Comparisons of mathematical software
+Category:Free software lists and comparisons
+Category:Software that uses SQLite
+Category:Software that uses VTK
+Category:Software that uses GTK
+Category:Software that uses GLib
+Category:X Window programs
+Category:Software that uses GStreamer
+Category:Software that uses FFmpeg
+Category:Software that uses S-Lang
+Category:Software that uses Motif (software)
+Category:Software that uses Clutter (software)
+Category:Software that uses Scintilla
+Category:Software that uses PyGObject
+Category:Software that uses ncurses
+Category:Software that uses Cairo (graphics)
+Category:Software that uses Mono (software)
+Category:Software that uses QML
+Category:Software that uses XUL
+Category:Software that uses GNUstep
+Category:Software that uses Tk (software)
+Category:Software that uses FLTK
+Category:X-based libraries
+Category:Software that uses wxWidgets
+Category:Software based on WebKit
+Category:Software that uses Qt
+Category:Gecko-based software
+Category:Timeline Software
+Category:Engineering software
+Category:Open source
+Category:Business software
+Category:Productivity software
+Category:Mobile applications
+Category:Personal information managers
+Category:Internet bots
+Category:Free software by type
+Category:Date-matching software
+Category:Ad blocking software
+Category:Interactive fiction
+Category:Utility software by type
+Category:Malware by type
+Category:Kickstarter-funded software
+Category:System software
+Category:Network software
+Category:Software add-ons
+Category:Portable software
+Category:Malware
+Category:Software clones
+Category:Custom software projects
+Category:Fictional software
+Category:Programming tools
+Category:Software type stubs
+Category:Console applications
+Category:User interfaces
+Category:Peer-to-peer software
+Category:Location-based software
+Category:Political software
+Category:Security software
+Category:Application software
+Category:Xbox software
+Category:Mobile software
+Category:Mainframe computer software
+Category:Java platform software
+Category:Multimedia software by platform
+Category:Video games by platform
+Category:Amstrad PCW software
+Category:Malware by platform
+Category:Software appliances
+Category:Personal digital assistant software
+Category:Microcomputer software
+Category:Web software
+Category:Robotics software
+Category:Criticism of Google
+Category:Criticisms of programming languages
+Category:Facebook criticisms and controversies
+Category:Criticism of Wikipedia
+Category:Video game controversies
+Category:Microsoft criticisms and controversies
+Category:Operating system criticisms
+Category:Software stub templates
+Category:Software type stubs
+Category:Business software stubs
+Category:Web software stubs
+Category:Mobile software stubs
+Category:Free software stubs
+Category:Video game stubs
+Category:Text editor stubs
+Category:Storage software stubs
+Category:Simulation software stubs
+Category:Science software stubs
+Category:Network software stubs
+Category:Music software stubs
+Category:Multimedia software stubs
+Category:Graphics software stubs
+Category:Software engineering stubs
+Category:Emulation software stubs
+Category:Desktop environment stubs
+Category:Content management system stubs
+Category:Computer-aided design stubs
+Category:Computer library stubs
+Category:Operating system stubs
+Category:Malware stubs
+Category:Installation software stubs
+Category:Database software stubs
+Category:Computer security software stubs
+Category:Windows software stubs
+Category:Unix stubs
+Category:Microsoft software stubs
+Category:Macintosh software stubs
+Category:DOS stubs
+Category:Messenger (software)
+Category:.NET
+Category:Hadoop
+Category:GNU GRUB
+Category:LilyPond
+Category:Vulkan (API)
+Category:Mantle (API)
+Category:Scintilla (software)
+Category:Motif (software)
+Category:Tk (software)
+Category:WeChat
+Category:Java API for XML
+Category:BibTeX
+Category:Web 2.0
+Category:Ajax (programming)
+Category:Semantic Web
+Category:Wikipedia categories named after markup languages
+Category:HTML
+Category:OpenGL
+Category:WebGL
+Category:Mozilla Application Suite
+Category:Mozilla
+Category:GNOME Kids
+Category:Symbian OS
+Category:S60 (software platform)
+Category:KDE software
+Category:KDE Platform
+Category:KDE Plasma
+Category:KDE Frameworks
+Category:KDE Education Project
+Category:KDE Applications
+Category:KDE
+Category:Social Desktop
+Category:GNOME Mobile
+Category:GLib
+Category:GTK
+Category:GNOME Accessibility
+Category:GNOME
+Category:Mono (software)
+Category:TikTok
+Category:Nextcloud
+Category:TeX
+Category:AlphaGo
+Category:Vocaloid
+Category:Line TV
+Category:Microsoft Silverlight
+Category:Vi
+Category:Emacs
+Category:Telegram (software)
+Category:Duolingo
+Category:Wine (software)
+Category:Mozilla Thunderbird
+Category:RenderMan
+Category:AutoCAD
+Category:Clutter (software)
+Category:Apache Subversion
+Category:Git (software)
+Category:Eclipse (software)
+Category:Snapchat
+Category:WhatsApp
+Category:Skype
+Category:QuickTime
+Category:Firefox
+Category:Google Chrome
+Category:Steam (service)
+Category:Telnet
+Category:ARPANET
+Category:Great Internet Mersenne Prime Search
+Category:Microsoft Edge
+Category:Arduino
+Category:MediaWiki
+Category:Extragear
+Category:SQLite
+Category:Microsoft Office
+Category:OpenOffice
+Category:WxWidgets
+Category:SharePoint
+Category:Qt (software)
+Category:PostgreSQL
+Category:Microsoft Visual Studio
+Category:Microsoft Expression products
+Category:Microsoft Dynamics
+Category:Microsoft BASIC
+Category:IBM Lotus SmartSuite
+Category:Kdepim
+Category:KDE Software Compilation
+Category:ITunes
+Category:Internet Explorer
+Category:Dpkg
+Category:DirectX
+Category:Calligra Suite
+Category:Asterisk (PBX)
+Category:ASP.NET
+Category:Adobe Photoshop
+Category:Adobe Flex
+Category:Adobe Flash
+Category:Adobe Creative Suite
+Category:Ableton Live
+Category:Wikipedia categories named after programming languages
+Category:Wikipedia categories named after operating systems
+Category:Linux distribution logos
+Category:IBM logos
+Category:Atlassian logos
+Category:Non-free icon media
+Category:Microsoft logos
+Category:Mozilla logos
+Category:Screenshots of web browsers
+Category:Screenshots of Netscape software
+Category:Screenshots of preboot environments
+Category:Screenshots of software by operating system
+Category:Screenshots of CAD software
+Category:Screenshots of web-based software
+Category:Screenshots of Opera software
+Category:Screenshots of video games
+Category:Free screenshots
+Category:2023 software
+Category:2022 software
+Category:1949 software
+Category:1948 software
+Category:1947 software
+Category:1959 software
+Category:1958 software
+Category:1957 software
+Category:1956 software
+Category:1955 software
+Category:1953 software
+Category:1952 software
+Category:1951 software
+Category:1950 software
+Category:1969 software
+Category:1968 software
+Category:1967 software
+Category:1966 software
+Category:1965 software
+Category:1964 software
+Category:1963 software
+Category:1962 software
+Category:1961 software
+Category:1960 software
+Category:1979 software
+Category:1978 software
+Category:1977 software
+Category:1976 software
+Category:1975 software
+Category:1974 software
+Category:1973 software
+Category:1972 software
+Category:1971 software
+Category:1970 software
+Category:1989 software
+Category:1988 software
+Category:1987 software
+Category:1986 software
+Category:1985 software
+Category:1984 software
+Category:1983 software
+Category:1982 software
+Category:1981 software
+Category:1980 software
+Category:1999 software
+Category:1998 software
+Category:1997 software
+Category:1996 software
+Category:1995 software
+Category:1994 software
+Category:1993 software
+Category:1992 software
+Category:1991 software
+Category:1990 software
+Category:2000 software
+Category:2001 software
+Category:2002 software
+Category:2003 software
+Category:2004 software
+Category:2005 software
+Category:2006 software
+Category:2007 software
+Category:2008 software
+Category:2009 software
+Category:2020 software
+Category:2019 software
+Category:2018 software
+Category:2017 software
+Category:2016 software
+Category:2015 software
+Category:2014 software
+Category:2013 software
+Category:2012 software
+Category:2011 software
+Category:2010 software
+Category:2021 software
+Category:Video games by year
+Category:.NET software
+Category:JavaScript software
+Category:XML software
+Category:Rust (programming language) software
+Category:Java (programming language) software
+Category:BASIC software
+Category:Objective-C software
+Category:Pascal (programming language) software
+Category:Go (programming language) software
+Category:.NET Framework software
+Category:Vala software
+Category:Free software by programming language
+Category:Assembly language software
+Category:C Sharp software
+Category:C (programming language) software
+Category:Lua (programming language) software
+Category:C++ software
+Category:OCaml software
+Category:Fortran software
+Category:Lisp (programming language) software
+Category:Haskell software
+Category:Python (programming language) software
+Category:Java platform software
+Category:PHP software
+Category:Perl software
+Category:Shareware
+Category:Freeware
+Category:Freemium
+Category:Database management systems by license
+Category:Free software
+Category:Commercial software with available source code
+Category:Video games by software license
+Category:Free software by license
+Category:Public-domain software
+Category:Public-domain software with source code
+Category:Proprietary software
+Category:Easter egg (media)
+Category:Incremental computing
+Category:Compaq software
+Category:Tymshare software
+Category:Open source projects
+Category:Fujitsu software
+Category:NEC software
+Category:Tencent software
+Category:Yahoo! software
+Category:Yandex software
+Category:LinkedIn software
+Category:Google software
+Category:Microsoft software
+Category:State-sponsored Linux distributions
+Category:Facebook software
+Category:Advanced Micro Devices software
+Category:Opera Software
+Category:Samsung software
+Category:Rational Software software
+Category:Cisco software
+Category:HP software
+Category:Intel software
+Category:Nvidia software
+Category:Red Hat software
+Category:Stardock software
+Category:Qualcomm software
+Category:Caldera (company) software
+Category:NetIQ software
+Category:Optimized Systems Software
+Category:Llamasoft software
+Category:Cray software
+Category:Sharp Corporation software
+Category:Norsk Data software
+Category:Avaya products
+Category:Digital Research software
+Category:Siemens software products
+Category:Lotus Software software
+Category:Free software projects
+Category:Aldus software
+Category:Esri software
+Category:Nuance software
+Category:Atlassian products
+Category:Magix software
+Category:Video games by company
+Category:Unisys software
+Category:Control Data Corporation software
+Category:Sony software
+Category:Intuit software
+Category:UNIVAC software
+Category:Ulead software
+Category:NortonLifeLock software
+Category:Sun Microsystems software
+Category:Roxio software
+Category:Oracle software
+Category:Novell software
+Category:Macromedia software
+Category:IBM software
+Category:FXhome software
+Category:Corel software
+Category:CBM software
+Category:Borland software
+Category:Barco Graphics software
+Category:Apple Inc. software
+Category:Adobe software
+Category:Nortel products
+Category:PlayStation 5 software
+Category:Multics software
+Category:Macintosh software
+Category:Xbox Series X and Series S software
+Category:Screenshots of software by operating system
+Category:IPadOS software
+Category:Mobile software by operating system
+Category:Video games by platform
+Category:Wear OS software
+Category:Android Auto software
+Category:Malware by platform
+Category:PlayStation 4 software
+Category:GEM software
+Category:Xbox One software
+Category:TvOS software
+Category:WatchOS software
+Category:OpenVMS software
+Category:NeXTSTEP software
+Category:Android (operating system) software
+Category:RISC OS software
+Category:Bada software
+Category:Windows Phone software
+Category:Wii software
+Category:Xbox 360 software
+Category:AROS software
+Category:BlackBerry software
+Category:Symbian software
+Category:Pocket PC software
+Category:Palm OS software
+Category:OpenSolaris-derived software distributions
+Category:Single-platform software
+Category:Cross-platform software
+Category:IOS software
+Category:TI-83&4 series Zilog Z80 software
+Category:CP/M software
+Category:Atari ST software
+Category:MorphOS software
+Category:Linux software
+Category:Apple II software
+Category:Windows Mobile software
+Category:Amiga software
+Category:AmigaOS 4 software
+Category:PlayStation 3 software
+Category:BSD software
+Category:Solaris software
+Category:Unix software
+Category:OS/2 software
+Category:BeOS software
+Category:Classic Mac OS software
+Category:Windows software
+Category:DOS software
+Category:Video game industry
+Category:Software companies
+Category:People in software
+Category:Software industry in India
+Category:Upcoming software
+Category:Vaporware
+Category:Programming languages by creation date
+Category:History of video games
+Category:History of free and open-source software
+Category:Software version histories
+Category:Apple Inc. operating systems
+Category:Apple Inc. software
+Category:Macintosh operating systems
+Category:History of web browsers
+Category:Computing timelines
+Category:Discontinued software
+Category:History of human–computer interaction
+Category:History of artificial intelligence
+Category:Emulation software
+Category:Unix history
+Category:Software wars
+Category:Open source projects
+Category:Custom software projects
+Category:Software hosted on CodePlex
+Category:Distributed computing projects
+Category:Free software projects
+Category:Software delivery methods
+Category:Uninstallers for macOS
+Category:Uninstallers for Windows
+Category:Free software distributions
+Category:Software distribution platforms
+Category:Gateway/routing/firewall distribution
+Category:Software licenses
+Category:Usage share
+Category:Package management systems
+Category:Companies involved in quantum computing
+Category:Quantum programming
+Category:Quantum cryptography
+Category:Checksum algorithms
+Category:Cyclic redundancy checks
+Category:Capacity-achieving codes
+Category:Capacity-approaching codes
+Category:Hash functions
+Category:Message authentication codes
+Category:Statistical distance
+Category:Distance
+Category:String metrics
+Category:Software metrics
+Category:Binary prefixes
+Category:Data unit
+Category:File comparison tools
+Category:Random number generation
+Category:Quantum mechanical entropy
+Category:Quality of service
+Category:Network scheduling algorithms
+Category:Teletraffic
+Category:Forward proxy
+Category:WAN optimization
+Category:Reverse proxy
+Category:Queueing theory
+Category:Information theorists by nationality
+Category:Coding theorists
+Category:Error detection and correction
+Category:Neural coding
+Category:Data differencing
+Category:Data compression
+Category:Character encoding
+Category:Detection and estimation theorists
+Category:Image compression
+Category:Compression algorithms
+Category:Data compression software
+Category:Compression file systems
+Category:Video compression
+Category:Codecs
+Category:Archive formats
+Category:Quantum information scientists
+Category:Quantum mechanical entropy
+Category:Home automation
+Category:Real-time gross settlement
+Category:Real-time simulation
+Category:Instant messaging
+Category:Collaborative real-time editors
+Category:Real-time computing
+Category:Air traffic control systems
+Category:Control theory
+Category:Control theorists
+Category:Automation
+Category:Applications of control engineering
+Category:Control devices
+Category:Orbital resonance
+Category:Fellows of the International Federation of Automatic Control
+Category:Variational analysts
+Category:Biofeedback
+Category:Climate change feedbacks
+Category:Electronic feedback
+Category:Motion control photography
+Category:Servos (radio control)
+Category:Variational analysts
+Category:Convex analysis
+Category:Variational principles
+Category:Generalizations of the derivative
+Category:Nonlinear filters
+Category:Filter frequency response
+Category:Linear filters
+Category:Computer algebra system software for Linux
+Category:Computer algebra system software for macOS
+Category:Computer algebra system software for Windows
+Category:Free computer algebra systems
+Category:Virtualization
+Category:Download websites
+Category:Network software
+Category:Smart devices
+Category:Network operating systems
+Category:Online services
+Category:Network service
+Category:Flow control (data)
+Category:Net neutrality
+Category:Tunneling protocols
+Category:Computer network stubs
+Category:Computer networks
+Category:Network booting
+Category:Computer networking conferences
+Category:Computer networking people
+Category:Networking algorithms
+Category:Computer buses
+Category:Networking companies
+Category:Windows communication and services
+Category:Network architecture
+Category:Wireless networking
+Category:Networking standards
+Category:Computer network security
+Category:Computer network organizations
+Category:Network management
+Category:Networking hardware
+Category:Chip shortage
+Category:MOSFETs
+Category:Microprocessors
+Category:Application-specific integrated circuits
+Category:Chipsets
+Category:Field-programmable gate arrays
+Category:Nintendo chips
+Category:Sony semiconductors
+Category:Image sensors
+Category:Graphics chips
+Category:Network on a chip
+Category:System on a chip
+Category:Input/output integrated circuits
+Category:Display drivers
+Category:Upcoming integrated circuits
+Category:Linear integrated circuits
+Category:Chip carriers
+Category:MOS Technology integrated circuits
+Category:Logic families
+Category:Sound chips
+Category:Air traffic control systems
+Category:Control theory
+Category:Control theorists
+Category:Automation
+Category:Applications of control engineering
+Category:Control devices
+Category:Hardware acceleration
+Category:Digital signal processors
+Category:Input/output integrated circuits
+Category:Graphics chips
+Category:Sound chips
+Category:Video compression and decompression ASIC
+Category:Image processing
+Category:Transfer functions
+Category:Encodings
+Category:Geometry processing
+Category:Noise (electronics)
+Category:Statistical signal processing
+Category:Acoustic fingerprinting
+Category:Multidimensional signal processing
+Category:Signal processing metrics
+Category:Signal processing filter
+Category:Signal processing stubs
+Category:Audio electronics
+Category:Wavelets
+Category:Radar signal processing
+Category:Transient response characteristics
+Category:Digital signal processing
+Category:Transducers
+Category:Detection theory
+Category:Hardware testing
+Category:Classes of computers
+Category:Computer terminals
+Category:Hardware acceleration
+Category:Computer hardware logos
+Category:Computer hardware by type
+Category:Hardware partitioning
+Category:Lists of computer hardware
+Category:Hardware in Linux
+Category:Computer hardware stubs
+Category:Benchmarks (computing)
+Category:Computer hardware standards
+Category:Hardware virtualization
+Category:Clock signal
+Category:Computer hardware researchers
+Category:Hardware bugs
+Category:Computer hardware companies
+Category:Computer hardware tuning
+Category:History of computing hardware
+Category:Field-programmable gate arrays
+Category:Embedded Linux
+Category:Avionics computers
+Category:Ada (programming language)
+Category:Smart devices
+Category:System on a chip
+Category:Software related to embedded Linux
+Category:Robots
+Category:Digital cameras
+Category:Single-board computers
+Category:Windows Embedded Automotive devices
+Category:Onboard computers
+Category:Automotive software
+Category:Engine control systems
+Category:Synchronous programming languages
+Category:Embedded microprocessors
+Category:Firmware
+Category:Graphing calculators
+Category:Avionics
+Category:Information appliances
+Category:Real-time computing
+Category:Embedded operating systems
+Category:Microcontrollers
+Category:Robotics
+Category:Electrical and electronic engineering magazines
+Category:Electrical and electronic engineering journals
+Category:Electronic design
+Category:Electronic engineering awards
+Category:Electrical and electronic engineering awards
+Category:Electrical diagrams
+Category:Audio amplifier specifications
+Category:Printed circuit board manufacturing
+Category:Electronics substrates
+Category:Solid state engineering
+Category:Display technology
+Category:History of electronic engineering
+Category:Analog circuits
+Category:Video hardware
+Category:Electrical circuits
+Category:Electronics manufacturing
+Category:Distributed element circuits
+Category:Flexible electronics
+Category:Two-port networks
+Category:Hardware verification languages
+Category:Broadcast engineering
+Category:Power electronics
+Category:Electronics engineers
+Category:Semiconductors
+Category:Electronic circuits
+Category:Hardware description languages
+Category:Digital electronics
+Category:Network access
+Category:Web development
+Category:Software engineers
+Category:Software
+Category:Software testing
+Category:Software engineering folklore
+Category:Software development
+Category:Software for modeling software
+Category:Computer programming
+Category:Version control
+Category:Software requirements
+Category:Software engineering stubs
+Category:Formal methods
+Category:Programming language topics
+Category:Software metrics
+Category:Software maintenance
+Category:Specification languages
+Category:Software design
+Category:Software engineering organizations
+Category:Software engineering publications
+Category:Software quality
+Category:Software engineering terminology
+Category:Software engineering conferences
+Category:Software architecture
+Category:Supercomputers by architecture
+Category:Operating systems by architecture
+Category:Classes of computers
+Category:MSX
+Category:Network computer (brand)
+Category:Computer data storage
+Category:Computer architecture statements
+Category:Computer architecture conferences
+Category:Distributed stream processing
+Category:Capability systems
+Category:Computer architects
+Category:Microarchitectures
+Category:High-level language computer architecture
+Category:Heterogeneous computing
+Category:Flynn's taxonomy
+Category:IBM PC compatibles
+Category:Operating systems
+Category:Consistency models
+Category:Fault-tolerant computer systems
+Category:Distributed computing architecture
+Category:Instruction set architectures
+Category:Interoperability
+Category:Advanced RISC Computing
+Category:Network architecture
+Category:Computer arithmetic
+Category:Central processing unit
+Category:Computer hardware researchers
+Category:Operating system kernels
+Category:Instruction processing
+Category:Interrupts
+Category:Signal processing stubs
+Category:Streaming media systems
+Category:Classes of computers
+Category:Email systems
+Category:Fault-tolerant computer systems
+Category:Hardware acceleration
+Category:Capability systems
+Category:Cold War military computer systems of the United States
+Category:Computer hardware
+Category:Satellite navigation systems
+Category:Embedded systems
+Category:Centralized computing
+Category:Legacy systems
+Category:Smart TV
+Category:Internet radio
+Category:Streaming television
+Category:Quantum computing
+Category:Computers using bit-slice designs
+Category:Serial computers
+Category:8-bit computers
+Category:64-bit computers
+Category:32-bit computers
+Category:48-bit computers
+Category:24-bit computers
+Category:60-bit computers
+Category:16-bit computers
+Category:Human computers
+Category:Decimal computers
+Category:Vector supercomputers
+Category:Guidance computers
+Category:Avionics computers
+Category:36-bit computers
+Category:18-bit computers
+Category:12-bit computers
+Category:Variable word length computers
+Category:Magnetic Core Memory computers
+Category:Smart devices
+Category:Ternary computers
+Category:Classes of mobile computers
+Category:Servers (computing)
+Category:Fault-tolerant computer systems
+Category:Massively parallel computers
+Category:Mobile computers
+Category:Analog computers
+Category:Reconfigurable computing
+Category:One-of-a-kind computers
+Category:Microcomputers
+Category:Military computers
+Category:Minicomputers
+Category:Embedded systems
+Category:Supercomputers
+Category:Mainframe computers
+Category:Early computers
+Category:Error detection and correction
+Category:Backup
+Category:Data synchronization
+Category:Uninterruptible power supply
+Category:High-availability cluster computing
+Category:RAID
+Category:IBM cryptographic coprocessors
+Category:AI accelerators
+Category:Computer systems of the United States Air Force
+Category:Strategic Air Command command and control systems
+Category:Hardware testing
+Category:Classes of computers
+Category:Computer terminals
+Category:Hardware acceleration
+Category:Computer hardware logos
+Category:Computer hardware by type
+Category:Hardware partitioning
+Category:Lists of computer hardware
+Category:Hardware in Linux
+Category:Computer hardware stubs
+Category:Benchmarks (computing)
+Category:Computer hardware standards
+Category:Hardware virtualization
+Category:Clock signal
+Category:Computer hardware researchers
+Category:Hardware bugs
+Category:Computer hardware companies
+Category:Computer hardware tuning
+Category:History of computing hardware
+Category:Satellite-based augmentation systems
+Category:Argos (satellite system)
+Category:Indian Regional Navigation Satellite System
+Category:BeiDou
+Category:Galileo (satellite navigation)
+Category:Global Positioning System
+Category:GLONASS
+Category:Embedded Linux
+Category:Avionics computers
+Category:Ada (programming language)
+Category:Smart devices
+Category:System on a chip
+Category:Software related to embedded Linux
+Category:Robots
+Category:Digital cameras
+Category:Single-board computers
+Category:Windows Embedded Automotive devices
+Category:Onboard computers
+Category:Automotive software
+Category:Engine control systems
+Category:Synchronous programming languages
+Category:Embedded microprocessors
+Category:Firmware
+Category:Graphing calculators
+Category:Avionics
+Category:Information appliances
+Category:Real-time computing
+Category:Embedded operating systems
+Category:Microcontrollers
+Category:Robotics
+Category:Web applications
+Category:Time-sharing
+Category:Cloud gaming
+Category:Diskless workstations
+Category:Cloud computing
+Category:Thin clients
+Category:Computer terminals
+Category:Web 2.0
+Category:Remote desktop
+Category:Mainframe computers
+Category:Minicomputers
+Category:Software maintenance
+Category:Backward compatibility
+Category:Videotex
+Category:Legacy hardware
+Category:Operating systems using GPE Palmtop Environment
+Category:Software related to embedded Linux
+Category:Linux-based devices
+Category:Embedded Linux distributions
+Category:IBM avionics computers
+Category:Guidance computers
+Category:Free software programmed in Ada
+Category:Devices capable of speech recognition
+Category:Smart grid
+Category:Smart speakers
+Category:Smartphones
+Category:Smart TV
+Category:Thin clients
+Category:Radio-frequency identification
+Category:Internet of things
+Category:Smart cards
+Category:Smartwatches
+Category:Semiconductor IP cores
+Category:Network on a chip
+Category:Regulation of robots
+Category:Android (robot)
+Category:Autonomous ships
+Category:Robot sports
+Category:Works about robots
+Category:Automata (mechanical)
+Category:Open-source robots
+Category:Robot parts
+Category:Handling robots
+Category:Industrial robots
+Category:Robotic telescopes
+Category:Robots by fuel
+Category:Sports robots
+Category:Online robots
+Category:Robots by date
+Category:Robots by environment
+Category:Robots by country
+Category:Telepresence robots
+Category:Service robots
+Category:Social robots
+Category:Personal assistant robots
+Category:Individual robots
+Category:Sex robots
+Category:Rescue and protection robots
+Category:Prototype robots
+Category:Medical robots
+Category:Educational robots
+Category:Micro robots
+Category:Ecological robots
+Category:Historical robots
+Category:Entertainment robots
+Category:Hobbyist robots
+Category:Uncrewed vehicles
+Category:Military robots
+Category:Digital cameras by brand
+Category:Mobile phones with mechanical zoom lens
+Category:Digital cameras with CMOS image sensor
+Category:Digital cameras with CCD image sensor
+Category:Mirrorless cameras
+Category:PureView
+Category:Digital movie cameras
+Category:Action cameras
+Category:Digital rangefinder cameras
+Category:Digital camera backs
+Category:Casio cameras
+Category:Webcams
+Category:Bridge digital cameras
+Category:Live-preview digital cameras
+Category:Digital SLR cameras
+Category:Raspberry Pi
+Category:All-in-one desktop computers
+Category:Nettop
+Category:Laptops
+Category:Handheld game consoles
+Category:Android Auto software
+Category:Driving simulators
+Category:Windows Embedded Automotive
+Category:Soft microprocessors
+Category:Camera firmware
+Category:BIOS
+Category:Unified Extensible Firmware Interface
+Category:Automotive software
+Category:Advanced RISC Computing
+Category:Macintosh firmware
+Category:Custom firmware
+Category:Graphing calculator software
+Category:Navigational flight instruments
+Category:Identification friend or foe
+Category:Aircraft recorders
+Category:Radio direction finding
+Category:Aeronautical navigation systems
+Category:Avionics programming languages
+Category:Avionics companies
+Category:Avionics computers
+Category:Aircraft radars
+Category:Electronic calculators
+Category:Video game consoles
+Category:Set-top box
+Category:Smartphones
+Category:Smart TV
+Category:Smartwatches
+Category:Personal digital assistants
+Category:Real-time web
+Category:Real-time operating systems
+Category:Real-time databases
+Category:Synchronous programming languages
+Category:TRON project
+Category:Inferno (operating system)
+Category:Plan 9 from Bell Labs
+Category:Windows Phone
+Category:Lightweight Unix-like systems
+Category:Windows Embedded Automotive
+Category:Windows Mobile
+Category:Palm OS
+Category:Embedded Linux
+Category:Windows CE
+Category:NXP Semiconductors microcontrollers
+Category:Freescale Semiconductor microcontrollers
+Category:Motorola microcontrollers
+Category:Atmel microcontrollers
+Category:Texas Instruments microcontrollers
+Category:Microcontroller software
+Category:Intel microcontrollers
+Category:Renesas microcontrollers
+Category:Microcontroller companies
+Category:Arduino
+Category:Microcomputer stubs
+Category:Works about robotics
+Category:Roboticists
+Category:Self-driving cars
+Category:Robotics journals
+Category:History of robotics
+Category:Robots
+Category:Biorobotics
+Category:Health care robotics
+Category:Cloud robotics
+Category:Machine vision
+Category:Robot architectures
+Category:Robotics concepts
+Category:Robotic manipulation
+Category:Robotics stubs
+Category:Entertainment robotics
+Category:Agricultural robotics
+Category:BEAM robotics
+Category:Military robotics
+Category:Industrial robotics
+Category:Medical robotics
+Category:Robot control
+Category:Robotics hardware
+Category:Robotics projects
+Category:Robotics events
+Category:Physical computing
+Category:Robotics software
+Category:Robotics by country
+Category:Robotics by company
+Category:Robotics lists
+Category:Robotics organizations
+Category:Cyborgs
+Category:Multi-robot systems
+Category:Home automation
+Category:Robotic art
+Category:Articulated robotics
+Category:Adaptable robotics
+Category:Hardware testing file formats
+Category:Quantum computing
+Category:Computers using bit-slice designs
+Category:Serial computers
+Category:8-bit computers
+Category:64-bit computers
+Category:32-bit computers
+Category:48-bit computers
+Category:24-bit computers
+Category:60-bit computers
+Category:16-bit computers
+Category:Human computers
+Category:Decimal computers
+Category:Vector supercomputers
+Category:Guidance computers
+Category:Avionics computers
+Category:36-bit computers
+Category:18-bit computers
+Category:12-bit computers
+Category:Variable word length computers
+Category:Magnetic Core Memory computers
+Category:Smart devices
+Category:Ternary computers
+Category:Classes of mobile computers
+Category:Servers (computing)
+Category:Fault-tolerant computer systems
+Category:Massively parallel computers
+Category:Mobile computers
+Category:Analog computers
+Category:Reconfigurable computing
+Category:One-of-a-kind computers
+Category:Microcomputers
+Category:Military computers
+Category:Minicomputers
+Category:Embedded systems
+Category:Supercomputers
+Category:Mainframe computers
+Category:Early computers
+Category:DEC computer terminals
+Category:Graphical terminals
+Category:Thin clients
+Category:Terminal multiplexers
+Category:Terminal emulators
+Category:ICL workstations
+Category:IBM computer terminals
+Category:Block-oriented terminal
+Category:Character-oriented terminal
+Category:IBM cryptographic coprocessors
+Category:AI accelerators
+Category:Speech recognition hardware
+Category:Microprocessors
+Category:Central processing unit
+Category:Computer hardware clones
+Category:Microcontrollers
+Category:Open-source hardware
+Category:Computer hardware cooling
+Category:Video game hardware
+Category:Computer data storage
+Category:Computer real-time clocks
+Category:Proprietary hardware
+Category:Power supplies
+Category:Computer peripherals
+Category:Computing output devices
+Category:Networking hardware
+Category:Motherboard
+Category:Computer memory
+Category:Graphics processing units
+Category:Graphics hardware
+Category:Computer enclosure
+Category:Computer buses
+Category:Disk partitions
+Category:Lists of mobile computers
+Category:Lists of microprocessors
+Category:Linux drivers
+Category:Computer storage stubs
+Category:Minicomputer stubs
+Category:Microcomputer stubs
+Category:Mainframe computer stubs
+Category:Video game hardware stubs
+Category:Mobile computer stubs
+Category:Supercomputer benchmarks
+Category:Bluetooth
+Category:Wi-Fi
+Category:Unified Extensible Firmware Interface
+Category:Ethernet
+Category:Fibre Channel
+Category:SCSI
+Category:Motherboard form factors
+Category:Peripheral Component Interconnect
+Category:USB
+Category:Serial ATA
+Category:SDRAM
+Category:Computer memory form factor
+Category:Computer display standards
+Category:Rainbow Books
+Category:PICMG standards
+Category:MIDI standards
+Category:Storage virtualization
+Category:Video game platform emulators
+Category:Speculative execution security vulnerabilities
+Category:Groupe Bull
+Category:Micro-Star International
+Category:Western Digital
+Category:Defunct computer hardware companies
+Category:Computer power supply unit manufacturers
+Category:Computer storage companies
+Category:Computer peripheral companies
+Category:Networking hardware companies
+Category:Netbook manufacturers
+Category:Motherboard companies
+Category:Computer enclosure companies
+Category:Computer memory companies
+Category:Home computer hardware companies
+Category:Foundry semiconductor companies
+Category:Fabless semiconductor companies
+Category:Asus
+Category:Vaio
+Category:Quanta Computer
+Category:Cray
+Category:Teradata
+Category:Computer hardware by company
+Category:Lenovo
+Category:Mihajlo Pupin Institute
+Category:Variable word length computers
+Category:Magnetic Core Memory computers
+Category:Electromechanical calculators
+Category:Electronic calculators
+Category:Programmable calculators
+Category:Mechanical computers
+Category:Electro-mechanical computers
+Category:Analog computers
+Category:Mechanical calculators
+Category:One-of-a-kind computers
+Category:Early computers
+Category:Limits of computation
+Category:Theorems in theory of computation
+Category:Computational complexity theory
+Category:Models of computation
+Category:Computability theory
+Category:Hypercomputation
+Category:Algorithmic information theory
+Category:Computer arithmetic
+Category:Quantum computing
+Category:Problems in computer science
+Category:Algorithms
+Category:Logic in computer science
+Category:Pursuit–evasion
+Category:Theoretical computer science stubs
+Category:Mathematical theorems in theoretical computer science
+Category:Computational learning theory
+Category:Graph theory
+Category:Quantum information science
+Category:Rewriting systems
+Category:Information theory
+Category:Theoretical computer science conferences
+Category:Theoretical computer scientists
+Category:Pseudorandomness
+Category:Evolutionary computation
+Category:Natural computation
+Category:Mathematics of computing
+Category:Formal methods
+Category:Theory of computation
+Category:Formal languages
+Category:Web development
+Category:Software engineers
+Category:Software
+Category:Software testing
+Category:Software engineering folklore
+Category:Software development
+Category:Software for modeling software
+Category:Computer programming
+Category:Version control
+Category:Software requirements
+Category:Software engineering stubs
+Category:Formal methods
+Category:Programming language topics
+Category:Software metrics
+Category:Software maintenance
+Category:Specification languages
+Category:Software design
+Category:Software engineering organizations
+Category:Software engineering publications
+Category:Software quality
+Category:Software engineering terminology
+Category:Software engineering conferences
+Category:Software architecture
+Category:Substitution (logic)
+Category:Programming language theory stubs
+Category:Rewriting systems
+Category:Programming languages
+Category:Programming language researchers
+Category:Academic programming languages
+Category:Compiler construction
+Category:Dependently typed programming
+Category:Programming language semantics
+Category:Program transformation
+Category:Program analysis
+Category:Lambda calculus
+Category:Type theory
+Category:Optimization in vector spaces
+Category:Mathematical optimization in business
+Category:Deterministic global optimization
+Category:Pareto efficiency
+Category:Optimization algorithms and methods
+Category:Relaxation (approximation)
+Category:Optimization of ordered sets
+Category:Convex optimization
+Category:Stochastic optimization
+Category:Mathematical optimization software
+Category:Combinatorial optimization
+Category:Flexible displays
+Category:Interactivity
+Category:Affective computing
+Category:Brain–computer interfacing
+Category:Computer error messages
+Category:Smart bands
+Category:Wearable devices
+Category:Responsive web design
+Category:Human–computer interaction journals
+Category:Human–computer interaction researchers
+Category:User interfaces
+Category:History of human–computer interaction
+Category:Natural language and computing
+Category:Voice technology
+Category:Virtual reality
+Category:Usability
+Category:Ubiquitous computing
+Category:Speech recognition
+Category:Multimodal interaction
+Category:Interactive evolutionary computation
+Category:Human-based computation
+Category:Ergonomics
+Category:Computing input devices
+Category:Automatic identification and data capture
+Category:Ambient intelligence
+Category:Affective haptics
+Category:Human-based computation games
+Category:Social search
+Category:Program derivation
+Category:Formal methods stubs
+Category:Abstract data types
+Category:Models of computation
+Category:Program logic
+Category:Model checking
+Category:Formal specification
+Category:Program analysis
+Category:Formal methods publications
+Category:Satisfiability problems
+Category:Formal methods terminology
+Category:Formal methods organizations
+Category:Turing machine
+Category:Automated theorem proving
+Category:Logical calculi
+Category:Formal methods tools
+Category:Z notation
+Category:Formal methods people
+Category:Database models
+Category:Database algorithms
+Category:Database constraints
+Category:Database normalization
+Category:Database researchers
+Category:Speculative execution
+Category:Temporal logic
+Category:Process calculi
+Category:Petri nets
+Category:Denotational semantics
+Category:Concurrent computing
+Category:Concurrency control
+Category:Actor model (computer science)
+Category:InfoSec Twitter
+Category:Internet leaks
+Category:Software obfuscation
+Category:Computer access control
+Category:Financial cryptography
+Category:Security vulnerability databases
+Category:Computer security conferences
+Category:People associated with computer security
+Category:Computational trust
+Category:Cloud infrastructure attacks and failures
+Category:Information privacy
+Category:IT risk management
+Category:Computer network security
+Category:Computer security books
+Category:Computer surveillance
+Category:Mobile security
+Category:Computer security stubs
+Category:Data security
+Category:Computer security qualifications
+Category:Computer security standards
+Category:Computer forensics
+Category:Computer security procedures
+Category:Computer security exploits
+Category:Computer security software
+Category:Trusted computing
+Category:Computer security models
+Category:Computer security organizations
+Category:Cryptography
+Category:Text-to-image generation
+Category:Deepfakes
+Category:Image processing
+Category:Scientific visualization
+Category:Intel graphics
+Category:Geometry processing
+Category:3D imaging
+Category:Visual programming
+Category:Raster graphics
+Category:Ray tracing (graphics)
+Category:Procedural generation
+Category:Anti-aliasing
+Category:Computer graphics stubs
+Category:Digital geometry
+Category:Layout (computing)
+Category:3D computer graphics
+Category:Shading
+Category:Texture mapping
+Category:Texture filtering
+Category:Video game graphics
+Category:SGI graphics
+Category:Digital topology
+Category:Video games by graphical style
+Category:Stereoscopy
+Category:Computer graphics data structures
+Category:Computer graphics algorithms
+Category:Visualization (graphics)
+Category:Demo effects
+Category:Graphics standards
+Category:Graphics software
+Category:Computer graphics organizations
+Category:Computer graphic artifacts
+Category:Computer graphic techniques
+Category:Color depths
+Category:Graphics hardware
+Category:Computer graphics professionals
+Category:Vector graphics
+Category:ASCII art
+Category:Pointing devices
+Category:Supercomputers by architecture
+Category:Operating systems by architecture
+Category:Classes of computers
+Category:MSX
+Category:Network computer (brand)
+Category:Computer data storage
+Category:Computer architecture statements
+Category:Computer architecture conferences
+Category:Distributed stream processing
+Category:Capability systems
+Category:Computer architects
+Category:Microarchitectures
+Category:High-level language computer architecture
+Category:Heterogeneous computing
+Category:Flynn's taxonomy
+Category:IBM PC compatibles
+Category:Operating systems
+Category:Consistency models
+Category:Fault-tolerant computer systems
+Category:Distributed computing architecture
+Category:Instruction set architectures
+Category:Interoperability
+Category:Advanced RISC Computing
+Category:Network architecture
+Category:Computer arithmetic
+Category:Central processing unit
+Category:Computer hardware researchers
+Category:Operating system kernels
+Category:Instruction processing
+Category:Interrupts
+Category:Computational science stubs
+Category:Science software
+Category:Computational fields of study
+Category:Supercomputing
+Category:Scientific visualization
+Category:Scientific computing researchers
+Category:GPGPU
+Category:Scientific simulation software
+Category:E-Science
+Category:Numerical climate and weather models
+Category:Numerical analysis
+Category:Computer algebra
+Category:Cheminformatics
+Category:Artificial life
+Category:Ambient intelligence
+Category:Algorithms
+Category:Artificial intelligence art
+Category:Neural networks
+Category:Knowledge representation
+Category:Neural network data exchange formats
+Category:Argument technology
+Category:Automated reasoning
+Category:Existential risk from artificial general intelligence
+Category:Signal processing conferences
+Category:Mind–body problem
+Category:Cloud robotics
+Category:Open-source artificial intelligence
+Category:Fuzzy logic
+Category:AI accelerators
+Category:Affective computing
+Category:Chatbots
+Category:Human–computer interaction
+Category:Artificial intelligence stubs
+Category:Virtual assistants
+Category:Robots
+Category:Evolutionary computation
+Category:Artificial immune systems
+Category:Philosophy of artificial intelligence
+Category:Rule engines
+Category:Artificial intelligence associations
+Category:Knowledge engineering
+Category:Artificial intelligence publications
+Category:Artificial intelligence conferences
+Category:Artificial intelligence in fiction
+Category:History of artificial intelligence
+Category:Robotics
+Category:Logic programming
+Category:Multi-agent systems
+Category:Game artificial intelligence
+Category:Turing tests
+Category:Cognitive architecture
+Category:Artificial intelligence laboratories
+Category:Artificial intelligence researchers
+Category:Applications of artificial intelligence
+Category:Computer vision
+Category:Machine learning
+Category:Algorithmic complexity attacks
+Category:Algorithms and data structures stubs
+Category:Abstract data types
+Category:Data structures
+Category:Analysis of algorithms
+Category:Algorithms
+Category:Fictional computer security specialists
+Category:Members of the University of Cambridge Computer Laboratory
+Category:Women logicians
+Category:Women roboticists
+Category:Women bioinformaticians
+Category:Women computer scientists by nationality
+Category:John von Neumann Theory Prize winners
+Category:Overton Prize winners
+Category:Turing Award laureates
+Category:Recipients of the ACM Prize in Computing
+Category:Nevanlinna Prize laureates
+Category:Knuth Prize laureates
+Category:International Association for Cryptologic Research fellows
+Category:Grace Murray Hopper Award laureates
+Category:Gödel Prize laureates
+Category:Dijkstra Prize laureates
+Category:Cryptographer stubs
+Category:Recipients of the ACM Prize in Computing
+Category:International Association for Cryptologic Research fellows
+Category:Nevanlinna Prize laureates
+Category:Grace Murray Hopper Award laureates
+Category:Turing Award laureates
+Category:Knuth Prize laureates
+Category:Gödel Prize laureates
+Category:Dijkstra Prize laureates
+Category:Writers about computer security
+Category:Perl writers
+Category:PHP writers
+Category:Knowledge engineering researchers
+Category:Information visualization experts
+Category:Cryptographers
+Category:Detection and estimation theorists
+Category:Artificial intelligence ethicists
+Category:Quantum information scientists
+Category:Computational biologists
+Category:Computer security academics
+Category:Social computing researchers
+Category:Information retrieval researchers
+Category:Cellular automatists
+Category:Information systems researchers
+Category:Coding theorists
+Category:Human–computer interaction researchers
+Category:Ubiquitous computing researchers
+Category:Video game researchers
+Category:Researchers in distributed computing
+Category:Computer systems researchers
+Category:Computer vision researchers
+Category:Computer hardware researchers
+Category:Bioinformaticians
+Category:Computer graphics researchers
+Category:Software testing people
+Category:Software engineering researchers
+Category:Roboticists
+Category:Information theorists
+Category:Programming language researchers
+Category:Theoretical computer scientists
+Category:Computational linguistics researchers
+Category:Database researchers
+Category:Scientific computing researchers
+Category:Artificial intelligence researchers
+Category:South Korean computer scientists
+Category:Ethiopian computer scientists
+Category:Namibian computer scientists
+Category:Indian computer scientists
+Category:Estonian computer scientists
+Category:Computer specialists by nationality
+Category:Moroccan computer scientists
+Category:Yemeni computer scientists
+Category:Women computer scientists by nationality
+Category:Information theorists by nationality
+Category:Egyptian computer scientists
+Category:Syrian computer scientists
+Category:Algerian computer scientists
+Category:Bangladeshi computer scientists
+Category:Italian computer scientists
+Category:Kenyan computer scientists
+Category:Ghanaian computer scientists
+Category:Soviet computer scientists
+Category:Roboticists by nationality
+Category:Chilean computer scientists
+Category:Icelandic computer scientists
+Category:Belarusian computer scientists
+Category:Sindhi computer scientists
+Category:Azerbaijani computer scientists
+Category:Nigerian computer scientists
+Category:Mexican computer scientists
+Category:Serbian computer scientists
+Category:Moldovan computer scientists
+Category:Portuguese computer scientists
+Category:Norwegian computer scientists
+Category:Ukrainian computer scientists
+Category:Spanish computer scientists
+Category:Latvian computer scientists
+Category:Bashkir computer scientists
+Category:Brazilian computer scientists
+Category:Thai computer scientists
+Category:Argentine computer scientists
+Category:Pakistani computer scientists
+Category:Sri Lankan computer scientists
+Category:Maldivian computer scientists
+Category:Slovak computer scientists
+Category:Singaporean computer scientists
+Category:Belgian computer scientists
+Category:Guatemalan computer scientists
+Category:Czech computer scientists
+Category:Uruguayan computer scientists
+Category:Turkish computer scientists
+Category:Austrian computer scientists
+Category:Russian computer scientists
+Category:South African computer scientists
+Category:English computer scientists
+Category:Irish computer scientists
+Category:British computer scientists
+Category:Iranian computer scientists
+Category:Hungarian computer scientists
+Category:Dutch computer scientists
+Category:Taiwanese computer scientists
+Category:Greek computer scientists
+Category:Swiss computer scientists
+Category:Swedish computer scientists
+Category:Slovenian computer scientists
+Category:Romanian computer scientists
+Category:New Zealand computer scientists
+Category:Polish computer scientists
+Category:Japanese computer scientists
+Category:Israeli computer scientists
+Category:German computer scientists
+Category:French computer scientists
+Category:Finnish computer scientists
+Category:Danish computer scientists
+Category:Chinese computer scientists
+Category:Canadian computer scientists
+Category:Australian computer scientists
+Category:American computer scientists
+Category:Pattern matching programming languages
+Category:Permutation patterns
+Category:Phonetic algorithms
+Category:String matching algorithms
+Category:Regular expressions
+Category:Substring indices
+Category:String metrics
+Category:String sorting algorithms
+Category:Problems on strings
+Category:String collation algorithms
+Category:Substring indices
+Category:Sequence alignment algorithms
+Category:Phonetic algorithms
+Category:String matching algorithms
+Category:Parsing algorithms
+Category:British Computer Society
+Category:Computer science education in the United Kingdom
+Category:Information technology in Azerbaijan
+Category:Azerbaijani computer scientists
+Category:Computer clubs in the Netherlands
+Category:Dutch computer scientists
+Category:Dutch computer programmers
+Category:Bangladeshi computer programmers
+Category:Bangladeshi computer scientists
+Category:Swiss computer programmers
+Category:Swiss computer scientists
+Category:South Korean computer scientists
+Category:Chinese computer scientists
+Category:Information technology in China
+Category:Computer science institutes in China
+Category:Belgian computer scientists
+Category:Belgian computer programmers
+Category:Computer science institutes in Italy
+Category:Computer science institutes in Ukraine
+Category:Computer science institutes in the United States
+Category:Computer science institutes in the United Kingdom
+Category:Computer science institutes in Pakistan
+Category:Computer science institutes in Norway
+Category:Computer science institutes in the Netherlands
+Category:Computer science institutes in Germany
+Category:Computer science institutes in France
+Category:Computer science institutes in Denmark
+Category:Computer science institutes in China
+Category:Computer science institutes in Canada
+Category:Indian computer scientists
+Category:Supercomputing in India
+Category:Computer magazines published in India
+Category:Information technology in India
+Category:Computer magazines published in the Netherlands
+Category:Computer magazines published in the United Kingdom
+Category:Computer magazines published in Australia
+Category:Computer magazines published in the United States
+Category:Computer magazines published in Spain
+Category:Computer magazines published in Russia
+Category:Computer magazines published in Italy
+Category:Computer magazines published in India
+Category:Computer magazines published in Germany
+Category:Computer magazines published in France
+Category:Computer magazines published in Finland
+Category:Computer magazines published in Croatia
+Category:Computer magazines published in Syria
+Category:Computer magazines published in Slovenia
+Category:Computer magazines published in Serbia
+Category:Computer magazines published in Sweden
+Category:Computer science education in Canada
+Category:Computer science education in the United States
+Category:Computer science education in the United Kingdom
+Category:French computer scientists
+Category:Computer science institutes in France
+Category:French computer programmers
+Category:Computer magazines published in France
+Category:Software engineers by nationality
+Category:Thai computer programmers
+Category:Ukrainian computer programmers
+Category:Bangladeshi computer programmers
+Category:Zimbabwean computer programmers
+Category:Greek computer programmers
+Category:Sri Lankan computer programmers
+Category:Indian computer programmers
+Category:Syrian computer programmers
+Category:South African computer programmers
+Category:Chinese computer programmers
+Category:Belarusian computer programmers
+Category:Video game programmers by nationality
+Category:Israeli computer programmers
+Category:Croatian computer programmers
+Category:Singaporean computer programmers
+Category:Kazakhstani computer programmers
+Category:Nigerian computer programmers
+Category:Russian computer programmers
+Category:Polish computer programmers
+Category:Mexican computer programmers
+Category:Japanese computer programmers
+Category:Hungarian computer programmers
+Category:Pakistani computer programmers
+Category:Danish computer programmers
+Category:Swiss computer programmers
+Category:Estonian computer programmers
+Category:Welsh computer programmers
+Category:Irish computer programmers
+Category:New Zealand computer programmers
+Category:English computer programmers
+Category:Austrian computer programmers
+Category:Dutch computer programmers
+Category:Italian computer programmers
+Category:Australian computer programmers
+Category:Canadian computer programmers
+Category:Iranian computer programmers
+Category:British computer programmers
+Category:Taiwanese computer programmers
+Category:Swedish computer programmers
+Category:Norwegian computer programmers
+Category:German computer programmers
+Category:French computer programmers
+Category:Finnish computer programmers
+Category:Belgian computer programmers
+Category:American computer programmers
+Category:South Korean computer scientists
+Category:Ethiopian computer scientists
+Category:Namibian computer scientists
+Category:Indian computer scientists
+Category:Estonian computer scientists
+Category:Computer specialists by nationality
+Category:Moroccan computer scientists
+Category:Yemeni computer scientists
+Category:Women computer scientists by nationality
+Category:Information theorists by nationality
+Category:Egyptian computer scientists
+Category:Syrian computer scientists
+Category:Algerian computer scientists
+Category:Bangladeshi computer scientists
+Category:Italian computer scientists
+Category:Kenyan computer scientists
+Category:Ghanaian computer scientists
+Category:Soviet computer scientists
+Category:Roboticists by nationality
+Category:Chilean computer scientists
+Category:Icelandic computer scientists
+Category:Belarusian computer scientists
+Category:Sindhi computer scientists
+Category:Azerbaijani computer scientists
+Category:Nigerian computer scientists
+Category:Mexican computer scientists
+Category:Serbian computer scientists
+Category:Moldovan computer scientists
+Category:Portuguese computer scientists
+Category:Norwegian computer scientists
+Category:Ukrainian computer scientists
+Category:Spanish computer scientists
+Category:Latvian computer scientists
+Category:Bashkir computer scientists
+Category:Brazilian computer scientists
+Category:Thai computer scientists
+Category:Argentine computer scientists
+Category:Pakistani computer scientists
+Category:Sri Lankan computer scientists
+Category:Maldivian computer scientists
+Category:Slovak computer scientists
+Category:Singaporean computer scientists
+Category:Belgian computer scientists
+Category:Guatemalan computer scientists
+Category:Czech computer scientists
+Category:Uruguayan computer scientists
+Category:Turkish computer scientists
+Category:Austrian computer scientists
+Category:Russian computer scientists
+Category:South African computer scientists
+Category:English computer scientists
+Category:Irish computer scientists
+Category:British computer scientists
+Category:Iranian computer scientists
+Category:Hungarian computer scientists
+Category:Dutch computer scientists
+Category:Taiwanese computer scientists
+Category:Greek computer scientists
+Category:Swiss computer scientists
+Category:Swedish computer scientists
+Category:Slovenian computer scientists
+Category:Romanian computer scientists
+Category:New Zealand computer scientists
+Category:Polish computer scientists
+Category:Japanese computer scientists
+Category:Israeli computer scientists
+Category:German computer scientists
+Category:French computer scientists
+Category:Finnish computer scientists
+Category:Danish computer scientists
+Category:Chinese computer scientists
+Category:Canadian computer scientists
+Category:Australian computer scientists
+Category:American computer scientists
+Category:R-tree
+Category:Computer graphics data structures
+Category:Geometric transversal theory
+Category:Intersection theory
+Category:Curve fitting
+Category:Geometric intersection
+Category:Convex hull algorithms
+Category:Graph drawing
+Category:Geographic information systems
+Category:Mesh generation
+Category:Digital geometry
+Category:Computer-aided design
+Category:Computational topology
+Category:Computer graphics algorithms
+Category:Researchers in geometric algorithms
+Category:Professional certifications in computer engineering
+Category:Scheme (programming language)
+Category:Logo programming language family
+Category:Programming games
+Category:Information technology charities
+Category:Information technology qualifications
+Category:Computer science education in Canada
+Category:Computer science education in the United States
+Category:Computer science education in the United Kingdom
+Category:Women in computing
+Category:Computer science departments in Taiwan
+Category:Computer science departments in Canada
+Category:Computer science departments in the United States
+Category:Computer science departments in the United Kingdom
+Category:Graphics software stubs
+Category:Computational physics stubs
+Category:Science software stubs
+Category:Bioinformatics stubs
+Category:Chaos theory stubs
+Category:Computational linguistics stubs
+Category:Signal processing stubs
+Category:Cryptographer stubs
+Category:Database software stubs
+Category:Biological database stubs
+Category:Markup language stubs
+Category:Programming language theory stubs
+Category:Cryptographer stubs
+Category:Computer programming tool stubs
+Category:Programming language topic stubs
+Category:Computer programming stubs
+Category:DOS stubs
+Category:Desktop environment stubs
+Category:Microsoft Windows stubs
+Category:Unix stubs
+Category:Association for Information Systems conferences
+Category:John von Neumann Theory Prize winners
+Category:Overton Prize winners
+Category:Turing Award laureates
+Category:Recipients of the ACM Prize in Computing
+Category:Nevanlinna Prize laureates
+Category:Knuth Prize laureates
+Category:International Association for Cryptologic Research fellows
+Category:Grace Murray Hopper Award laureates
+Category:Gödel Prize laureates
+Category:Dijkstra Prize laureates
+Category:Recipients of the ACM Prize in Computing
+Category:International Association for Cryptologic Research fellows
+Category:Nevanlinna Prize laureates
+Category:Grace Murray Hopper Award laureates
+Category:Turing Award laureates
+Category:Knuth Prize laureates
+Category:Gödel Prize laureates
+Category:Dijkstra Prize laureates
+Category:Writers about computer security
+Category:Perl writers
+Category:PHP writers
+Category:Software engineering papers
+Category:Software engineering publications
+Category:Computational linguistics journals
+Category:Bioinformatics and computational biology journals
+Category:SIAM academic journals
+Category:Computer science journal stubs
+Category:Systems journals
+Category:Human–computer interaction journals
+Category:Biomedical informatics journals
+Category:Cryptography journals
+Category:Computational statistics journals
+Category:Computer science textbooks
+Category:Computer programming books
+Category:Software engineering books
+Category:Software development books
+Category:Books on operating systems
+Category:Cryptography books
+Category:Computer security books
+Category:Professional certification in computing
+Category:Computer science textbooks
+Category:Educational programming languages
+Category:Information technology education
+Category:Computer science education by country
+Category:Diversity in computing
+Category:Computer science educators
+Category:Computer science departments
+Category:X (company)
+Category:Association for Computational Linguistics
+Category:International Association for Mathematical Geosciences
+Category:Institute of Electrical and Electronics Engineers
+Category:Association for Computing Machinery
+Category:Programming contests
+Category:Proteomics organizations
+Category:Bioinformatics companies
+Category:Association for the Advancement of Artificial Intelligence
+Category:Computer science institutes by country
+Category:Supercomputer sites
+Category:Artificial intelligence laboratories
+Category:Computer science departments in Taiwan
+Category:Computer science departments in Canada
+Category:Computer science departments in the United States
+Category:Computer science departments in the United Kingdom
+Category:Formal methods organizations
+Category:Signal processing conferences
+Category:Information systems conferences
+Category:Programming languages conferences
+Category:Electronic design automation conferences
+Category:Logic conferences
+Category:Computer networking conferences
+Category:Theoretical computer science conferences
+Category:Cryptography conferences
+Category:Distributed computing conferences
+Category:Artificial intelligence conferences
+Category:Software engineering conferences
+Category:BCS Specialist Groups
+Category:Presidents of the British Computer Society
+Category:Members of the British Computer Society
+Category:Fellows of the British Computer Society
+Category:Singularitarianism

@@ -243,7 +243,6 @@ slots:
         requested_slot: videolezioni
   
   
-  
   esercizi:
     type: text
     mappings:
@@ -359,6 +358,11 @@ slots:
         conditions:
         - active_loop: proposta_link_form
           requested_slot: aggiunta_documenti
+  
+  recommend_query:
+      type: any
+      mappings:
+      - type: custom
   
   
   
@@ -495,7 +499,7 @@ actions:
   - validate_creazione_corso_form
   - validate_proposta_link_form
   - action_parse_all
-  - action_reccomend
+  - action_recommend_lezioni
   
 
 
