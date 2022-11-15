@@ -5,4 +5,4 @@ Avviare il file rsServer da dentro la cartella SanicRS
 Avviare rasa con rasa run --enable-api --cors="*"
 Avviare le actions con rasa run actions
 
-La front end si trova a 127.0.0.1/frontpage
+La front end si trova a 127.0.0.1/frontpage (bisogna attendere che il server sia online, circa 60/70 secondi dall'avvio di rsServer.py)
