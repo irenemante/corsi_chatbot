@@ -33,5 +33,5 @@ Una volta arrivato il messaggio dell'utente riguardo allo specifico metadato (es
 2) speller ecnoomia --> economia
 3) translate economia --> economics
 4) embedding economia --> tensore_utente
-5) semantic_search(tensore_utente, corpus, topk=3) --> 1, 723, 223
+5) semantic_search(tensore_utente, tensore_corpus, topk=3) --> 1, 723, 223
 6) corpus[1], corpus[723], corpus[223] --> Economics, Finance, Banking
