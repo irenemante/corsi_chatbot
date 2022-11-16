@@ -35,6 +35,21 @@ def has_numbers(inputString):
 class ValidateRipetizioneEserciziForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_ripetizione_esercizi_form"
+    
+    async def required_slots(
+        self,
+        domain_slots: List[Text],
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> List[Text]:
+       
+       
+        lista_formati= tracker.slots.get("formati")
+        if "esercizi" not in lista_formati:
+            return []
+        else:
+            return  domain_slots
 
 
     def validate_vuole_ripetizione(
@@ -667,48 +682,4 @@ class ActionParseAll(Action):
             print(json.dumps(request))
 
         return [SlotSet("recommend_query", request)]
-
-#UNIFICARE CON LO SLOT {FORMATI}, e settare gli slot {videolezioni}{documenti}{quiz} e {esercizi}
-
-
-# class ActionRecommendLezioni(Action):
-#     def name(self) -> Text:
-#         return "action_recommend_lezioni"
-
-#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#         #recommend with the locally saved JSON
-#         #prendere lo slot che chiede se vuole altri esercizi/quiz ecc, aggiunge il parametro remove
-#         choosen_formats = tracker.get_slot("formati")
-#         numbers = [int(x) for x in choosen_formats.split() if x.isdigit()]
-#         mapping =  {1: 'videolezioni', 2: 'esercizi', 3: 'quiz', 4: 'documenti'}
-#         mapped_list = []
-#         #crea una lista di parole dei formati scelti e itera su quelle
-#         for i in range(numbers):
-#             mapped_list.append(mapping[numbers[i]])
-#         #itera sulla lista di formati scelti (da gestire il formato nel recommender system)
-#         for format in mapped_list:
-
-#             request = tracker.get_slot("recommend_query")
-#             needs_removing = tracker.get_slot(f"aggiunta_{format}")
-#             request["type"] = format
-#             request["remove"] = needs_removing
-#             response = requests.post('http://127.0.0.1:8080/recommend', json = request)
-#             parsed = json.loads(response.content)
-#             dispatcher.utter_message("Eccoi i link che vorrei proporti")
-#             text_to_save = ""
-#             for i in range(len(parsed)):
-#                 text_to_save += f'Titolo: {parsed[i][0]} \nLink {parsed[i][1]} \n'
-#                 dispatcher.utter_message(f'Titolo: {parsed[i][0]},\nLink{parsed[i][1]}')
-#             SlotSet(f"{format}", text_to_save)
-#         return
-  
-        
-        
-       
-
-
-
-
-
-   
 

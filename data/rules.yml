@@ -30,7 +30,6 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: utter_submit_link
-  - action: action_recommend_lezioni
   - action: ripetizione_esercizi_form
   - active_loop: ripetizione_esercizi_form
 
