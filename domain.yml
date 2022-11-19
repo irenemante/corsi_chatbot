@@ -364,6 +364,56 @@ slots:
       mappings:
       - type: custom
   
+  vuole_modifica:
+    type: bool
+    mappings:
+      - type: from_intent
+        intent: conferma
+        value: true
+        conditions:
+        - active_loop: modifica_metadati_form
+          requested_slot: vuole_modifica
+      - type: from_intent
+        intent: negazione
+        value: false
+        conditions:
+        - active_loop: modifica_metadati_form
+          requested_slot: vuole_modifica
+
+  metadato_da_modificare:
+    type: text
+    mappings:
+    - type: from_text
+      entity: metadato_da_modificare
+      conditions:
+      - active_loop: modifica_metadati_form
+        requested_slot: metadato_da_modificare
+  
+  cambio_metadato:
+    type: text
+    mappings:
+    - type: from_text
+      entity: cambio_metadato
+      conditions:
+      - active_loop: modifica_metadati_form
+        requested_slot: cambio_metadato
+  
+  vuole_modifica_altro:
+    type: bool
+    mappings:
+      - type: from_intent
+        intent: conferma
+        value: true
+        conditions:
+        - active_loop: modifica_metadati_form
+          requested_slot: vuole_modifica_altro
+      - type: from_intent
+        intent: negazione
+        value: false
+        conditions:
+        - active_loop: modifica_metadati_form
+          requested_slot: vuole_modifica_altro
+  
   
   
       
@@ -389,7 +439,12 @@ forms:
        
         
        
-        
+  modifica_metadati_form:
+    required_slots:
+        - vuole_modifica
+        - metadato_da_modificare
+        - cambio_metadato
+        - vuole_modifica_altro      
       
      
   ripetizione_esercizi_form:
@@ -510,6 +565,57 @@ responses:
       - 4: documenti\n
       \nSe vuoi soltanto una lista di link indipendentemente dal loro formato , non inserire nulla o inserisci qualsiasi cosa che non sia un numero."
   
+  utter_ask_vuole_modifica:
+  - text: "Vuoi cambiare qualche campo?"
+    buttons:
+    - title: si
+      payload: si
+    - title: no
+      payload: no
+
+  utter_ask_metadato_da_modificare:
+  - text: Premi sul campo che vuoi modificare.
+    buttons:
+    - title: nome del corso
+      payload: nome_corso
+    - title: lingua
+      payload: lingua
+    - title: età
+      payload: età
+    - title: numero delle lezioni
+      payload: numero_lezioni
+    - title: durata delle lezioni
+      payload: durata_lezioni
+    - title: disciplina
+      payload: disciplina
+    - title: argomenti
+      payload: argomenti
+    - title: abilità
+      payload: abilità
+    - title: competenze
+      payload: competenze
+
+
+  utter_ask_vuole_modifica_altro:
+  - text: "Vuoi cambiare altri campi?"
+    buttons:
+    - title: si
+      payload: si
+    - title: no
+      payload: no
+  
+  utter_summary_post_modifica:
+  - text: "Le informazioni sul corso dopo la modifica sono:\n
+             - nome: {nome_corso}\n
+             - età: {età}\n
+             - numero_lezioni: {numero_lezioni}\n
+             - durata_lezioni: {durata_lezioni}\n
+             - disciplina: {disciplina}\n
+             - lingua: {lingua}\n
+             - argomenti: {argomenti}\n
+             - abilità: {abilità}\n
+             - competenze: {competenze}"
+  
 
   
 
@@ -518,6 +624,7 @@ actions:
   - validate_creazione_corso_form
   - validate_proposta_link_form
   - action_parse_all
+  - validate_modifica_metadati_form
 
   
 

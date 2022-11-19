@@ -192,8 +192,12 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         if tracker.get_intent_of_latest_message() == "stop_form":
             return {"requested_slot": None,"disciplina":None}
         else:
-            dispatcher.utter_message(text="Indica gli argomenti del corso, separati dalla virgola.")
-            return {"disciplina": slot_value}
+            regex = re.compile('[@_#$%^&*<>\|}{~]')
+            if(re.search(regex,slot_value) != None):
+                return {"disciplina": None}
+            else:
+                dispatcher.utter_message(text="Indica gli argomenti del corso, separati dalla virgola.")
+                return {"disciplina": slot_value}
     
     def validate_lingua(
         self,
@@ -379,7 +383,107 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
             
 
         
+class ValidateModificaMetadati(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_modifica_metadati_form"
+  
+    
+
+
+    def validate_vuole_modifica(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
         
+        
+        if slot_value:
+            
+            return {"vuole_modifica": True}
+        else:
+            
+            return {"vuole_modifica": False, "requested_slot":None}
+        
+
+    def validate_metadato_da_modificare (
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict
+    ) -> Dict[Text, Any]:
+        
+        if slot_value == "durata_lezioni":
+            dispatcher.utter_message(response="utter_ask_durata_lezioni")
+        elif slot_value in ["argomenti","abilità","competenze"]:
+            response= "Inserisci  {pronome} {aggettivo} {metadato}, {separazione} dalla virgola.".format(pronome="i" if slot_value == "argomenti" else "le",aggettivo="nuovi" if slot_value == "argomenti" else "nuove",metadato=slot_value,separazione="separati" if slot_value == "argomenti" else "separate" )
+            dispatcher.utter_message(text=response)
+        else:
+            dispatcher.utter_message(text=f"Inserisci il nuovo valore per il campo {slot_value}")
+        return {"metadato_da_modificare": slot_value}
+       
+    
+    def validate_cambio_metadato (
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict
+    ) -> Dict[Text, Any]:
+        
+        metadato= tracker.slots.get("metadato_da_modificare")
+        if metadato == "abilità" or metadato == "competenze" or metadato == "argomenti":
+            regex = re.compile('[@_#$%^&*<>\|}{~]')
+            lista_elementi = slot_value.split(',')
+            if(re.search(regex,slot_value) != None):
+                response= "Inserisci  {pronome} {aggettivo} {metadato}, {separazione} dalla virgola.".format(pronome="i" if metadato == "argomenti" else "le",aggettivo="nuovi" if metadato == "argomenti" else "nuove",metadato=metadato,separazione="separati" if metadato == "argomenti" else "separate" )
+                dispatcher.utter_message(text=response)
+                return {"cambio_metadato": None}
+            else:
+                return {f"{metadato}": lista_elementi}
+        elif metadato=="età" or metadato=="numero_lezioni":
+            numero = re.findall('[0-9]+', slot_value)
+            if int(numero[0]) <1 or  int(numero[0]) >=100 :
+                dispatcher.utter_message(text=f"Inserisci il nuovo valore per il campo {metadato}")
+                return {"cambio_metadato": None}
+            else:    
+                return {f"{metadato}": int(numero[0])}
+        elif metadato== "lingua":
+            lingue= ["italiano", "inglese", "francese", "tedesco", "cinese", "spagnolo", "giapponese","russo", "portoghese","arabo"]
+            spell = Speller('it')
+            lingua=spell(slot_value.lower())
+            if lingua in lingue:
+                return {"lingua": lingua}
+            else:
+                dispatcher.utter_message(text=f"Inserisci il nuovo valore per il campo lingua")
+                return {"cambio_metadato": None}
+        elif metadato in ["nome_corso","disciplina"]:
+            regex = re.compile('[@_#$%^&*<>\|}{~]')
+            if(re.search(regex,slot_value) != None):
+                dispatcher.utter_message(text=f"Inserisci il nuovo valore per il campo {metadato}")
+                return {"cambio_metadato": None}
+            else:
+                return  {f"{metadato}": slot_value}
+        else:
+            return {f"{metadato}": slot_value}
+    
+    def validate_vuole_modifica_altro(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+   
+        
+        if slot_value :
+            
+            return {"vuole_modifica_altro": None,  "cambio_metadato":None, "metadato_da_modificare":None}
+        else:
+            
+            return {"vuole_modifica_altro": False, "requested_slot":None}
 
  
 

@@ -19,6 +19,18 @@ rules:
      - requested_slot: null
   - action: utter_summary
   - action: action_parse_all
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+
+- rule: Submit modifica_metadati form
+  condition:
+  - active_loop: modifica_metadati_form
+  steps:
+  - action: modifica_metadati_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_summary_post_modifica
   - action: proposta_link_form
   - active_loop: proposta_link_form
 
