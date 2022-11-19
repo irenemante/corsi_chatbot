@@ -5,6 +5,7 @@ rules:
 - rule: activate creazione_corso form
   steps:
       - intent: creazione_corso
+      - action: utter_spiegazione
       - action: creazione_corso_form
       - active_loop: creazione_corso_form
 

@@ -106,7 +106,7 @@ async def recommend_handler(request):
 
         #format the results 
         global result
-        result = printable_df[['title', 'link', 'SCORE']].head(15)
+        result = printable_df[['title', 'link', 'SCORE']].head(5)
         result = result.to_json(orient='values')
         parsed = json.loads(result)
     return sjson(parsed)

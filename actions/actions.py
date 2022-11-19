@@ -24,10 +24,14 @@ import time
 import json
 import requests
 
-
+proposed_link_size= {"videolezioni": None, "esercizi":None, "quiz":None, "documenti":None}
 
 def has_numbers(inputString):
     return any(char.isdigit() for char in inputString)
+
+def has_duplicates(seq):
+    return len(seq) != len(set(seq))
+
 
 
 
@@ -91,7 +95,10 @@ class ValidateRipetizioneEserciziForm(FormValidationAction):
                     return {"requested_slot": None,"tempo": None}
             else:
                 minuti_number = re.findall('[0-9]+', slot_value)
-                return {"tempo": int(minuti_number[0])}
+                if  int(minuti_number[0])<1 or int(minuti_number[0]) >=60 :
+                    return {"tempo": None}
+                else:    
+                    return {"tempo": int(minuti_number[0])}
             
         else:
                 return {"tempo": None}
@@ -108,13 +115,11 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        
-        
-        if tracker.get_intent_of_latest_message()== "stop_form":
-            return {"nome_corso": None, "requested_slot":None}
-        else:
-            
+        regex = re.compile('[@_#$%^&*<>\|}{~]')
+        if(re.search(regex,slot_value) == None):
             return {"nome_corso": slot_value}
+        else:
+            return {"nome_corso": None}
 
         
 
@@ -133,7 +138,7 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
             return {"requested_slot": None,"età": None}
         else:
             età_number = re.findall('[0-9]+', slot_value)
-            if  int(età_number[0]) >=100 :
+            if int(età_number[0])<1 or int(età_number[0]) >=100 :
                 return {"età": None}
             else:    
                 return {"età": int(età_number[0])}
@@ -152,7 +157,10 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
                 return {"requested_slot": None,"numero_lezioni": None}
         else:
                 lezioni_number = re.findall('[0-9]+', slot_value)
-                return {"numero_lezioni": int(lezioni_number[0])}
+                if  int(lezioni_number[0])<1 or int(lezioni_number[0]) >100 :
+                    return {"numero_lezioni": None}
+                else: 
+                    return {"numero_lezioni": int(lezioni_number[0])}
     
     def validate_durata_lezioni(
         self,
@@ -166,6 +174,9 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         if tracker.get_intent_of_latest_message() == "stop_form":
             
             return {"requested_slot": None,"durata_lezioni": None}
+        elif slot_value not in ["0-30","30-60","60-90","90-120","120"]:
+            
+            return {"durata_lezioni": None}
         else:
             
             return {"durata_lezioni": slot_value}
@@ -177,11 +188,11 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict
     ) -> Dict[Text, Any]:
-     
+        
         if tracker.get_intent_of_latest_message() == "stop_form":
             return {"requested_slot": None,"disciplina":None}
         else:
-            
+            dispatcher.utter_message(text="Indica gli argomenti del corso, separati dalla virgola.")
             return {"disciplina": slot_value}
     
     def validate_lingua(
@@ -191,12 +202,13 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict
     ) -> Dict[Text, Any]:
-        if tracker.get_intent_of_latest_message() == "stop_form":
-            return {"requested_slot": None,"lingua": None}
+        lingue= ["italiano", "inglese", "francese", "tedesco", "cinese", "spagnolo", "giapponese","russo", "portoghese","arabo"]
+        spell = Speller('it')
+        lingua=spell(slot_value)
+        if lingua in lingue:
+            return {"lingua": lingua.lower()}
         else:
-            dispatcher.utter_message(text="Indica gli argomenti del corso, separati dalla virgola.")
-            return {"lingua": slot_value}
-
+            return {"lingua": None}
 
     def validate_argomenti(
         self,
@@ -210,8 +222,13 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         if tracker.get_intent_of_latest_message() == "stop_form":
             return {"requested_slot": None,"argomenti": None}
         else:
-            dispatcher.utter_message(text="Vuoi aggiungere altri argomenti?")
-            return {"argomenti": lista_argomenti}
+            regex = re.compile('[@_#$%^&*<>\|}{~]')
+            if(re.search(regex,slot_value) != None):
+                dispatcher.utter_message(text="Indica gli argomenti del corso, separati dalla virgola.")
+                return {"argomenti": None}
+            else:
+                dispatcher.utter_message(text="Vuoi aggiungere altri argomenti?")
+                return {"argomenti": lista_argomenti}
        
 
 
@@ -236,10 +253,15 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
             return {"vuole_altri_argomenti": False}
 
         else:
-            dispatcher.utter_message(text="desideri aggiungere altri argomenti?")
-            new_argomenti = slot_value.split(',')
-            new_argomenti= argomenti + new_argomenti
-            return {"argomenti": new_argomenti, "vuole_altri_argomenti":None}
+            regex = re.compile('[@_#$%^&*<>\|}{~]')
+            if(re.search(regex,slot_value) != None):
+                dispatcher.utter_message(text="Indica gli altri arogmenti del corso, separati dalla virgola.")
+                return{"vuole_altri_argomenti":None}
+            else:
+                dispatcher.utter_message(text="desideri aggiungere altri argomenti?")
+                new_argomenti = slot_value.split(',')
+                new_argomenti= argomenti + new_argomenti
+                return {"argomenti": new_argomenti, "vuole_altri_argomenti":None}
        
         
         
@@ -257,8 +279,13 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         if tracker.get_intent_of_latest_message() == "stop_form":
             return {"requested_slot": None,"abilità": None}
         else:
-            dispatcher.utter_message(text="Vuoi aggiungere altre abilità?")
-            return {"abilità": lista_abilità}
+            regex = re.compile('[@_#$%^&*<>\|}{~]')
+            if(re.search(regex,slot_value) != None):
+                dispatcher.utter_message(text="Indica le abilità iniziali che lo studente deve avere prima del corso, separati dalla virgola.")
+                return{"abilità":None}
+            else:
+                dispatcher.utter_message(text="Vuoi aggiungere altre abilità?")
+                return {"abilità": lista_abilità}
         
 
 
@@ -283,10 +310,15 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
             return {"vuole_altre_abilità": False}
 
         else:
-            dispatcher.utter_message(text="desideri aggiungere altre abilità?")
-            new_abilità = slot_value.split(',')
-            new_abilità= abilità + new_abilità
-            return {"abilità": new_abilità, "vuole_altre_abilità":None}
+            regex = re.compile('[@_#$%^&*<>\|}{~]')
+            if(re.search(regex,slot_value) != None):
+                dispatcher.utter_message(text="Indica le altre abilità iniziali del corso, separate dalla virgola.")
+                return{"vuole_altre_abilità":None}
+            else:
+                dispatcher.utter_message(text="desideri aggiungere altre abilità?")
+                new_abilità = slot_value.split(',')
+                new_abilità= abilità + new_abilità
+                return {"abilità": new_abilità, "vuole_altre_abilità":None}
             
             
 
@@ -305,8 +337,13 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         if tracker.get_intent_of_latest_message() == "stop_form":
             return {"requested_slot": None,"competenze": None}
         else:
-            dispatcher.utter_message(text="Vuoi aggiungere altre competenze?")
-            return {"competenze": lista_competenze}
+            regex = re.compile('[@_#$%^&*<>\|}{~]')
+            if(re.search(regex,slot_value) != None):
+                dispatcher.utter_message(text="Indica le competenze che lo studente deve raggiungere alla fine del corso, separate dalla virgola.")
+                return{"competenze":None}
+            else:
+                dispatcher.utter_message(text="Vuoi aggiungere altre competenze?")
+                return {"competenze": lista_competenze}
        
 
     def validate_vuole_altre_competenze(
@@ -329,10 +366,15 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
             return {"vuole_altre_competenze": False}
 
         else:
-            dispatcher.utter_message(text="desideri aggiungere altre competenze?")
-            new_competenze = slot_value.split(',')
-            new_competenze= competenze + new_competenze
-            return {"competenze": new_competenze, "vuole_altre_competenze":None}
+            regex = re.compile('[@_#$%^&*<>\|}{~]')
+            if(re.search(regex,slot_value) != None):
+                dispatcher.utter_message(text="Indica le altre competenze che lo studente deve raggiungere  alla fine del corso, separate dalla virgola.")
+                return{"vuole_altre_competenze":None}
+            else:
+                dispatcher.utter_message(text="desideri aggiungere altre competenze?")
+                new_competenze = slot_value.split(',')
+                new_competenze= competenze + new_competenze
+                return {"competenze": new_competenze, "vuole_altre_competenze":None}
             
             
 
@@ -342,6 +384,10 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
  
 
 class ValidatePropostaLinkForm(FormValidationAction):
+    controller_videolezioni=None
+    controller_esercizi=None
+    controller_quiz=None
+    controller_documenti=None
     def name(self) -> Text:
         return "validate_proposta_link_form"
     
@@ -352,7 +398,6 @@ class ValidatePropostaLinkForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> List[Text]:
-       
         new_list=[]
         lista_formati= tracker.slots.get("formati")
         if type(lista_formati) == list:
@@ -371,20 +416,27 @@ class ValidatePropostaLinkForm(FormValidationAction):
         domain: DomainDict
     ) -> Dict[Text, Any]:
      
-        formati=tracker.slots.get("formati")
-        formati_num = re.findall('[0-9]+', formati)
-        mapping =  {1: 'videolezioni', 2: 'esercizi', 3: 'quiz', 4: 'documenti'}
-        formati_list= []
-        formati_num= list(map(int, formati_num))
-        print(formati_num)
-        for i in formati_num:
-            formati_list.append(mapping.get(i))
-        for j in formati_num:
-            if j<1 or j>4:
-                return {"formati":None}
-            
-        dispatcher.utter_message(text=create_responses("formati",tracker, dispatcher))
-        return {"formati": formati_list}
+        if not has_numbers(slot_value) or slot_value==" ":
+            formati_list=["videolezioni","esercizi","quiz","documenti"]
+            msg,num= create_responses("formati",tracker, dispatcher)
+            dispatcher.utter_message(text=msg)
+            proposed_link_size[f"{formati_list[0]}"]= num
+            return {"formati":formati_list}
+        else:
+            formati_num = re.findall('[0-9]+', slot_value)
+            mapping =  {1: 'videolezioni', 2: 'esercizi', 3: 'quiz', 4: 'documenti'}
+            formati_list= []
+            formati_num= list(map(int, formati_num))
+            print(formati_num)
+            if not(all(i>0 and i<=4 for i in formati_num)) or has_duplicates(formati_num):
+                    return {"formati":None}
+            for i in formati_num:
+                formati_list.append(mapping.get(i))
+            msg,num= create_responses("formati",tracker, dispatcher)
+            dispatcher.utter_message(text=msg)
+            proposed_link_size[f"{formati_list[0]}"]= num
+            print(proposed_link_size)
+            return {"formati": formati_list}
         
 
     
@@ -398,10 +450,17 @@ class ValidatePropostaLinkForm(FormValidationAction):
     ) -> Dict[Text, Any]:
      
      
-       
-        videlezioni_num = re.findall('[0-9]+', slot_value)
-        dispatcher.utter_message(text="desideri aggiungere altre videolezioni?")
-        return {"videolezioni": videlezioni_num}
+        if not has_numbers(slot_value):
+            dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
+            return {"videolezioni":None}
+        else:
+            videolezioni_num = re.findall('[0-9]+', slot_value)
+            videolezioni_num= list(map(int, videolezioni_num))
+            if not(all(i<proposed_link_size["videolezioni"] for i in videolezioni_num)):
+                dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
+                return {"videolezioni":None}
+            dispatcher.utter_message(text="desideri aggiungere altre videolezioni?")
+            return {"videolezioni": videolezioni_num}
     
     def validate_aggiunta_videolezioni(
         self,
@@ -410,23 +469,42 @@ class ValidatePropostaLinkForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict
     ) -> Dict[Text, Any]:
+        global controller_videolezioni
         formati= tracker.slots.get("formati")
-        
+        previous_slot=tracker.slots.get("aggiunta_videolezioni")
+        print(previous_slot)
+        next_slot = None
+        for i in range(len(formati)):
+            if formati[i]=="videolezioni" and i < len(formati)-1:
+                next_slot= formati[i+1]
+            elif formati[i]=="videolezioni" and i == len(formati)-1:
+                next_slot = None
         print(slot_value)
         videolezioni=tracker.slots.get("videolezioni")
         altre_vid_num = re.findall('[0-9]+', slot_value)
+        altre_vid_num= list(map(int, altre_vid_num))
         if tracker.get_intent_of_latest_message() == "conferma":
             dispatcher.utter_message(text="indica altre videolezioni")
+            controller_videolezioni=False
             return {"aggiunta_videolezioni": None}
 
         elif tracker.get_intent_of_latest_message() == "negazione":
+            controller_videolezioni=False
             if formati[len(formati)-1] != "videolezioni":
-                dispatcher.utter_message(text=create_responses("videolezioni",tracker,dispatcher))
+                msg,num = create_responses("videolezioni",tracker,dispatcher)
+                dispatcher.utter_message(text=msg)
+                proposed_link_size[f"{next_slot}"]=num
             return {"aggiunta_videolezioni": False}
-
         else:
-            dispatcher.utter_message(text="desideri aggiungere altre videolezioni?")
-            return {"videolezioni": videolezioni + altre_vid_num, "aggiunta_videolezioni":None}
+            if (not has_numbers(slot_value) or not(all(i<proposed_link_size["videolezioni"] for i in altre_vid_num))) and controller_videolezioni==False:
+                dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
+                return {"aggiunta_videolezioni":None}
+            else:
+                controller_videolezioni=True
+                dispatcher.utter_message(text="desideri aggiungere altre videolezioni?")
+                videolezioni_totale=videolezioni + altre_vid_num
+                videolezioni_totale= list(dict.fromkeys(videolezioni_totale))
+                return {"videolezioni": videolezioni_totale, "aggiunta_videolezioni":None}
     
     
             
@@ -440,10 +518,17 @@ class ValidatePropostaLinkForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict
     ) -> Dict[Text, Any]:
-      
-        esercizi_num = re.findall('[0-9]+', slot_value)
-        dispatcher.utter_message(text="vuoi che ti proponga altri esercizi?")
-        return {"esercizi": esercizi_num}
+        if not has_numbers(slot_value) :
+            dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
+            return {"esercizi":None}
+        else:
+            esercizi_num = re.findall('[0-9]+', slot_value)
+            esercizi_num= list(map(int, esercizi_num))
+            if not(all(i<proposed_link_size["esercizi"] for i in esercizi_num)):
+                dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
+                return {"esercizi":None}
+            dispatcher.utter_message(text="vuoi che ti proponga altri esercizi?")
+            return {"esercizi": esercizi_num}
     
     def validate_aggiunta_esercizi(
         self,
@@ -452,23 +537,41 @@ class ValidatePropostaLinkForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict
     ) -> Dict[Text, Any]:
+        global controller_esercizi
         formati= tracker.slots.get("formati")
-        
+        next_slot = None
+        for i in range(len(formati)):
+            if formati[i]=="esercizi" and i < len(formati)-1:
+                next_slot= formati[i+1]
+            elif formati[i]=="esercizi" and i == len(formati)-1:
+                next_slot = None
         print(slot_value)
         esercizi=tracker.slots.get("esercizi")
         altri_es_num = re.findall('[0-9]+', slot_value)
+        altri_es_num= list(map(int, altri_es_num))
         if tracker.get_intent_of_latest_message() == "conferma":
+            controller_esercizi=False
             dispatcher.utter_message(text="indica altri esercizi")
             return {"aggiunta_esercizi": None}
 
         elif tracker.get_intent_of_latest_message() == "negazione":
+            controller_esercizi=False
             if formati[len(formati)-1] != "esercizi":
-                dispatcher.utter_message(text=create_responses("esercizi",tracker,dispatcher))
+                msg,num= create_responses("esercizi",tracker,dispatcher)
+                dispatcher.utter_message(text=msg)
+                proposed_link_size[f"{next_slot}"]=num
             return {"aggiunta_esercizi": False}
 
         else:
-            dispatcher.utter_message(text="desideri aggiungere altri esercizi?")
-            return {"esercizi": esercizi + altri_es_num, "aggiunta_esercizi":None}
+            if (not has_numbers(slot_value) or not(all(i<proposed_link_size["esercizi"] for i in altri_es_num))) and controller_esercizi==False:
+                dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
+                return {"aggiunta_esercizi":None}
+            else:
+                controller_esercizi=True
+                dispatcher.utter_message(text="desideri aggiungere altri esercizi?")
+                esercizi_totale=esercizi + altri_es_num
+                esercizi_totale= list(dict.fromkeys(esercizi_totale))
+                return {"esercizi": esercizi_totale, "aggiunta_esercizi":None}
     
     
     
@@ -480,11 +583,17 @@ class ValidatePropostaLinkForm(FormValidationAction):
         domain: DomainDict
     ) -> Dict[Text, Any]:
      
-     
-       
-        quiz_num = re.findall('[0-9]+', slot_value)
-        dispatcher.utter_message(text="vuoi che ti proponga altri quiz?")
-        return {"quiz": quiz_num}
+        if not has_numbers(slot_value) :
+            dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
+            return {"quiz":None}
+        else:
+            quiz_num = re.findall('[0-9]+', slot_value)
+            quiz_num= list(map(int, quiz_num))
+            if not(all(i<proposed_link_size["quiz"] for i in quiz_num)):
+                dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
+                return {"quiz":None}
+            dispatcher.utter_message(text="vuoi che ti proponga altri quiz?")
+            return {"quiz": quiz_num}
     
     
     
@@ -495,23 +604,41 @@ class ValidatePropostaLinkForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict
     ) -> Dict[Text, Any]:
+        global controller_quiz
         formati= tracker.slots.get("formati")
-        
+        next_slot = None
+        for i in range(len(formati)):
+            if formati[i]=="quiz" and i < len(formati)-1:
+                next_slot= formati[i+1]
+            elif formati[i]=="quiz" and i == len(formati)-1:
+                next_slot = None
         print(slot_value)
         quiz=tracker.slots.get("quiz")
         altri_quiz_num = re.findall('[0-9]+', slot_value)
+        altri_quiz_num= list(map(int, altri_quiz_num))
         if tracker.get_intent_of_latest_message() == "conferma":
+            controller_quiz=False
             dispatcher.utter_message(text="indica altri quiz")
             return {"aggiunta_quiz": None}
 
         elif tracker.get_intent_of_latest_message() == "negazione":
+            controller_quiz=False
             if formati[len(formati)-1] != "quiz":
-                dispatcher.utter_message(text=create_responses("quiz",tracker , dispatcher))
+                msg,num=create_responses("quiz",tracker , dispatcher)
+                dispatcher.utter_message(text=msg)
+                proposed_link_size[f"{next_slot}"]=num
             return {"aggiunta_quiz": False}
 
         else:
-            dispatcher.utter_message(text="desideri aggiungere altri quiz?")
-            return {"quiz": quiz + altri_quiz_num, "aggiunta_quiz": None}
+            if (not has_numbers(slot_value) or not(all(i<proposed_link_size["quiz"] for i in altri_quiz_num))) and controller_quiz==False:
+                dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
+                return {"aggiunta_quiz":None}
+            else:
+                controller_quiz=True
+                dispatcher.utter_message(text="desideri aggiungere altri quiz?")
+                quiz_totale=quiz + altri_quiz_num
+                quiz_totale= list(dict.fromkeys(quiz_totale))
+                return {"quiz": quiz_totale, "aggiunta_quiz": None}
     
     def validate_documenti(
         self,
@@ -521,11 +648,17 @@ class ValidatePropostaLinkForm(FormValidationAction):
         domain: DomainDict
     ) -> Dict[Text, Any]:
      
-     
-        
-        mat_num = re.findall('[0-9]+', slot_value)
-        dispatcher.utter_message(text="vuoi che ti proponga altri docuementi?")
-        return {"documenti": mat_num}
+        if not has_numbers(slot_value) :
+            dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
+            return {"documenti":None}
+        else:
+            mat_num = re.findall('[0-9]+', slot_value)
+            mat_num= list(map(int, mat_num))
+            if not(all(i<proposed_link_size["documenti"] for i in mat_num)):
+                dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
+                return {"documenti":None}
+            dispatcher.utter_message(text="vuoi che ti proponga altri docuementi?")
+            return {"documenti": mat_num}
     
     def validate_aggiunta_documenti(
         self,
@@ -534,23 +667,41 @@ class ValidatePropostaLinkForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict
     ) -> Dict[Text, Any]:
+        global controller_documenti
         formati= tracker.slots.get("formati")
-        
+        next_slot = None
+        for i in range(len(formati)):
+            if formati[i]=="documenti" and i < len(formati)-1:
+                next_slot= formati[i+1]
+            elif formati[i]=="documente" and i == len(formati)-1:
+                next_slot = None
         print(slot_value)
         documenti=tracker.slots.get("documenti")
         altri_doc_num = re.findall('[0-9]+', slot_value)
+        altri_doc_num= list(map(int, altri_doc_num))
         if tracker.get_intent_of_latest_message() == "conferma":
+            controller_documenti=False
             dispatcher.utter_message(text="indica altri documenti")
             return {"aggiunta_documenti": None}
 
         elif tracker.get_intent_of_latest_message() == "negazione":
+            controller_documenti=False
             if formati[len(formati)-1] != "documenti":
-                dispatcher.utter_message(text=create_responses("documenti",tracker, dispatcher))
+                msg,num=create_responses("quiz",tracker , dispatcher)
+                dispatcher.utter_message(text=msg)
+                proposed_link_size[f"{next_slot}"]=num
             return {"aggiunta_documenti": False}
 
         else:
-            dispatcher.utter_message(text="desideri aggiungere altri documenti?")
-            return {"documenti": documenti + altri_doc_num, "aggiunta_documenti": None}
+            if (not has_numbers(slot_value) or not(all(i<proposed_link_size["documenti"] for i in altri_doc_num))) and controller_documenti==False:
+                dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
+                return {"aggiunta_documenti":None}
+            else:
+                controller_documenti=True
+                dispatcher.utter_message(text="desideri aggiungere altri documenti?")
+                documenti_totale=documenti + altri_doc_num
+                documenti_totale= list(dict.fromkeys(documenti_totale))
+                return {"documenti": documenti_totale, "aggiunta_documenti": None}
     
     
     
@@ -563,7 +714,9 @@ def create_responses (slot, tracker: Tracker, dispatcher: CollectingDispatcher):
     if slot=="formati":
         
         #RECOMMENDER LOGIC
-
+        if not has_numbers(formati) or formati==" ":
+            formati=['1','2','3','4']
+        
         needs_removing = tracker.get_slot(f"aggiunta_{mapping.get(int(formati[0]))}")
         request["type"] = mapping.get(int(formati[0]))
         request["remove"] = needs_removing
@@ -577,7 +730,7 @@ def create_responses (slot, tracker: Tracker, dispatcher: CollectingDispatcher):
             text_to_save += f'Titolo: {parsed[i][0]} \nLink {parsed[i][1]} \n'
             dispatcher.utter_message(f'-{i}) Titolo: {parsed[i][0]},\nLink{parsed[i][1]}')
         SlotSet(f"{mapping.get(int(formati[0]))}", text_to_save)
-        return (f"Indica il numero di quelli che desideri. ")
+        return (f"Indica il numero di quelli che desideri. ", len(parsed))
     else:
         for i in range(len(formati)):
             if formati[i]==slot and i < len(formati)-1:
@@ -600,7 +753,7 @@ def create_responses (slot, tracker: Tracker, dispatcher: CollectingDispatcher):
             text_to_save += f'Titolo: {parsed[i][0]} \nLink {parsed[i][1]} \n'
             dispatcher.utter_message(f'-{i}) Titolo: {parsed[i][0]},\nLink{parsed[i][1]}')
         SlotSet(f"{next_slot}", text_to_save)
-        return (f"Indica il numero di quelli che desideri.")
+        return (f"Indica il numero di quelli che desideri.", len(parsed))
 
 
 class ActionParseAll(Action):

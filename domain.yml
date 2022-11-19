@@ -372,11 +372,11 @@ forms:
   creazione_corso_form:
     required_slots:
         - nome_corso
+        - lingua
         - età
         - numero_lezioni
         - durata_lezioni
         - disciplina
-        - lingua
         - argomenti
         - vuole_altri_argomenti
         - abilità
@@ -414,12 +414,16 @@ responses:
   - text: "Benvenuto, come posso aiutarti?"
   - text: "Benvenuto, di cosa avresti bisogno?"
 
+  utter_spiegazione:
+  - text: "Certo! Per creare il corso che soddisfi le tue necessità, dovrai rispondere alle domande che ti farò. 
+          Gli unici campi obbligatori sono il nome del corso  e la lingua; invece, gli altri sono facoltativi.
+          Infatti, se ad un certo punto non vorrai più rispondere alle domande, potrai scrivere stop o basta e così inizierò a proporti i link usando le informazioni che mi avrai dato fino a quel punto. 
+          Sarebbe meglio, però, che tu mi dia tutte le informazioni richieste così che riuscirò ad essere più preciso nella proposta dei link. 
+          Inoltre, più dettagliato sarai nelle risposte, più i materiali che ti indicherò saranno affini alle tue esigenze. "
 
   utter_ask_nome_corso:
-  - text: "Certo! Che nome vuoi dare al corso?"
-  - text: "Va bene! Che nome vuoi dare al corso?"
-  - text: "Certo! Qual sarà il nome del corso?"
-  - text: "Certo! Qual è il nome del corso che vuoi creare?"
+  - text: "Inanzitutto, che nome vuoi dare al corso?"
+ 
 
   utter_ask_età:
   - text: "Qual è l'età degli studenti a cui è destinato il corso?"
@@ -430,7 +434,7 @@ responses:
   - text: "Qual è il numero delle lezioni di cui è composto il corso?"
 
   utter_ask_durata_lezioni:
-  - text: Quante dovrebbero durare le lezioni in media?
+  - text: Seleziona la durata media delle lezioni che desideri.
     buttons:
     - title: 0-30
       payload: 0-30
@@ -456,10 +460,10 @@ responses:
 
   utter_submit_link:
   - text: "i formati sono: {formati}\n
-           le videolezioni sono: {videolezioni}\n
-           gli esercizi sono: {esercizi}\n
-           i quiz sono: {quiz}\n
-           i documenti sono: {documenti}"
+           - le videolezioni sono: {videolezioni}\n
+           - gli esercizi sono: {esercizi}\n
+           - i quiz sono: {quiz}\n
+           - i documenti sono: {documenti}"
 
   utter_summary:
    - text: "Le informazioni sul corso sono:\n
@@ -473,7 +477,21 @@ responses:
              - abilità: {abilità}\n
              - competenze: {competenze}"
   utter_submit_tempo:
-  - text: "il docente vuole la ripetizione degli esericizi: {vuole_ripetizione} se lo studente non completa l'esercizio entro i {tempo} minuti"
+    - condition:
+        - type: slot
+          name: vuole_ripetizione
+          value: true
+      text: "il docente vuole la ripetizione degli esericizi qualora lo studente non riesca a completare l'esercizio entro i {tempo} minuti"
+    - condition:
+        - type: slot
+          name: vuole_ripetizione 
+          value: false
+      text: "Il docente non desidera far ripetere gli esercizi."
+    - condition:
+        - type: slot
+          name: vuole_ripetizione 
+          value: null
+      text: "Il docente non ha inserito gli esercizi tra le tipologie di materiale."
           
   utter_ask_vuole_ripetizione:
   - text: "Desideri che lo studente ripeta l'esercizio qualora non riesca a completarlo entro un tempo considerato?"
@@ -489,7 +507,8 @@ responses:
       - 1: videolezioni\n
       - 2: esercizi\n
       - 3: quiz\n
-      - 4: documenti"
+      - 4: documenti\n
+      \nSe vuoi soltanto una lista di link indipendentemente dal loro formato , non inserire nulla o inserisci qualsiasi cosa che non sia un numero."
   
 
   
@@ -499,7 +518,7 @@ actions:
   - validate_creazione_corso_form
   - validate_proposta_link_form
   - action_parse_all
-  - action_recommend_lezioni
+
   
 
 
