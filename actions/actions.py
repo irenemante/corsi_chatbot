@@ -192,8 +192,12 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         if tracker.get_intent_of_latest_message() == "stop_form":
             return {"requested_slot": None,"disciplina":None}
         else:
-            dispatcher.utter_message(text="Indica gli argomenti del corso, separati dalla virgola.")
-            return {"disciplina": slot_value}
+            regex = re.compile('[@_#$%^&*<>\|}{~]')
+            if(re.search(regex,slot_value) != None):
+                return {"disciplina": None}
+            else:
+                dispatcher.utter_message(text="Indica gli argomenti del corso, separati dalla virgola.")
+                return {"disciplina": slot_value}
     
     def validate_lingua(
         self,
