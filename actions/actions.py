@@ -246,7 +246,7 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         print("arg " + tracker.get_intent_of_latest_message())
         argomenti = tracker.get_slot("argomenti")
         if tracker.get_intent_of_latest_message() == "conferma":
-            dispatcher.utter_message(text="Indica gli altri arogmenti del corso, separati dalla virgola.")
+            dispatcher.utter_message(text="Indica gli altri argomenti del corso, separati dalla virgola.")
             return {"vuole_altri_argomenti": None}
 
         elif tracker.get_intent_of_latest_message() == "stop_form":
@@ -259,7 +259,7 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         else:
             regex = re.compile('[@_#$%^&*<>\|}{~]')
             if(re.search(regex,slot_value) != None):
-                dispatcher.utter_message(text="Indica gli altri arogmenti del corso, separati dalla virgola.")
+                dispatcher.utter_message(text="Indica gli altri argomenti del corso, separati dalla virgola.")
                 return{"vuole_altri_argomenti":None}
             else:
                 dispatcher.utter_message(text="desideri aggiungere altri argomenti?")
@@ -531,7 +531,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
             if not(all(i<proposed_link_size["esercizi"] for i in esercizi_num)):
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"esercizi":None}
-            dispatcher.utter_message(text="vuoi che ti proponga altri esercizi?")
+            dispatcher.utter_message(text="vuoi aggiungere altri esercizi?")
             return {"esercizi": esercizi_num}
     
     def validate_aggiunta_esercizi(
@@ -596,7 +596,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
             if not(all(i<proposed_link_size["quiz"] for i in quiz_num)):
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"quiz":None}
-            dispatcher.utter_message(text="vuoi che ti proponga altri quiz?")
+            dispatcher.utter_message(text="vuoi aggiungere altri quiz?")
             return {"quiz": quiz_num}
     
     
@@ -661,7 +661,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
             if not(all(i<proposed_link_size["documenti"] for i in mat_num)):
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"documenti":None}
-            dispatcher.utter_message(text="vuoi che ti proponga altri docuementi?")
+            dispatcher.utter_message(text="vuoi aggiungere altri docuementi?")
             return {"documenti": mat_num}
     
     def validate_aggiunta_documenti(
