@@ -1,0 +1,496 @@
+version: "3.1"
+
+intents:
+  - saluto
+  - conferma
+  - negazione
+  - creazione_corso
+  - inform
+  - inform_formati
+  - inform_tempo
+  - inform_disciplina
+  - stop_form
+
+  
+
+entities:
+  - nome_corso
+  - età
+  - numero_lezioni
+  - disciplina
+  - lingua
+  - vuole_ripetizione
+  - tempo
+  - argomenti
+  - durata_lezioni
+  - abilità
+  - competenze
+  - formati
+  - videolezioni
+  - esercizi
+  - quiz
+  - materiali_aggiuntivi
+  
+ 
+ 
+
+slots:
+  nome_corso:
+    type: text
+    mappings:
+    - type: from_text
+      entity: nome_corso
+      conditions:
+      - active_loop: creazione_corso_form
+        requested_slot: nome_corso
+  età:
+    type: text
+    mappings:
+    - type: from_text
+      entity: età
+      conditions:
+      - active_loop: creazione_corso_form
+        requested_slot: età
+      
+    
+  
+  numero_lezioni:
+    type: text
+    mappings:
+    - type: from_text
+      entity: numero_lezioni
+      conditions:
+      - active_loop: creazione_corso_form
+        requested_slot: numero_lezioni
+      
+
+  durata_lezioni:
+    type: text
+    mappings:
+    - type: from_text
+      entity: durata_lezioni
+      conditions:
+      - active_loop: creazione_corso_form
+        requested_slot: durata_lezioni
+
+  
+  # disciplina:
+  #   type: text
+  #   mappings:
+  #   - type: from_text
+  #     entity: disciplina
+  #     conditions:
+  #     - active_loop: creazione_corso_form
+  #       requested_slot: disciplina
+      
+
+
+  lingua:
+    type: text
+    mappings:
+    - type: from_text
+      entity: lingua
+      conditions:
+      - active_loop: creazione_corso_form
+        requested_slot: lingua
+        
+  vuole_ripetizione:
+     type: bool
+     mappings:
+     - type: from_intent
+       intent: conferma
+       value: true
+       conditions:
+       - active_loop: ripetizione_esercizi_form
+         requested_slot: vuole_ripetizione
+     - type: from_intent
+       intent: negazione
+       value: false
+       conditions:
+       - active_loop: ripetizione_esercizi_form
+         requested_slot: vuole_ripetizione
+      
+  tempo:
+    type: text
+    mappings:
+    - type: from_text
+      entity: tempo
+      conditions:
+      - active_loop: ripetizione_esercizi_form
+        requested_slot: tempo
+      
+      
+
+  argomenti:
+    type: text
+    mappings:
+    - type: from_text
+      entity: argomenti
+      conditions:
+      - active_loop: creazione_corso_form
+        requested_slot: argomenti
+
+  
+  
+  vuole_altri_argomenti:
+     type: text
+     mappings:
+     - type: from_text
+       entity: vuole_altri_argomenti
+       conditions:
+        - active_loop: creazione_corso_form
+          requested_slot: vuole_altri_argomenti
+     - type: from_intent
+       intent: conferma
+       value: true
+       conditions:
+       - active_loop: creazione_corso_form
+         requested_slot: vuole_altri_argomenti
+     - type: from_intent
+       intent: negazione
+       value: false
+       conditions:
+       - active_loop: creazione_corso_form
+         requested_slot: vuole_altri_argomenti
+  
+
+  
+  abilità:
+    type: text
+    mappings:
+    - type: from_text
+      entity: abilità
+      conditions:
+      - active_loop: creazione_corso_form
+        requested_slot: abilità
+  
+  vuole_altre_abilità:
+     type: text
+     mappings:
+     - type: from_text
+       entity: vuole_altre_abilità
+       conditions:
+        - active_loop: creazione_corso_form
+          requested_slot: vuole_altre_abilità
+     - type: from_intent
+       intent: conferma
+       value: true
+       conditions:
+       - active_loop: creazione_corso_form
+         requested_slot: vuole_altre_abilità
+     - type: from_intent
+       intent: negazione
+       value: false
+       conditions:
+       - active_loop: creazione_corso_form
+         requested_slot: vuole_altre_abilità
+       
+
+  
+  
+  competenze:
+    type: text
+    mappings:
+    - type: from_text
+      entity: competenze
+      conditions:
+      - active_loop: creazione_corso_form
+        requested_slot: competenze
+  
+  vuole_altre_competenze:
+     type: text
+     mappings:
+     - type: from_text
+       entity: vuole_altre_competenze
+       conditions:
+        - active_loop: creazione_corso_form
+          requested_slot: vuole_altre_competenze
+     - type: from_intent
+       intent: conferma
+       value: true
+       conditions:
+       - active_loop: creazione_corso_form
+         requested_slot: vuole_altre_competenze
+     - type: from_intent
+       intent: negazione
+       value: false
+       conditions:
+       - active_loop: creazione_corso_form
+         requested_slot: vuole_altre_competenze
+      
+     
+      
+
+
+
+  formati:
+    type: text
+    mappings:
+    - type: from_text
+      entity: formati
+      conditions:
+      - active_loop: proposta_link_form
+        requested_slot: formati
+     
+  
+  videolezioni:
+    type: text
+    mappings:
+    - type: from_text
+      entity: videolezioni
+      conditions:
+      - active_loop: proposta_link_form
+        requested_slot: videolezioni
+  
+  
+  esercizi:
+    type: text
+    mappings:
+    - type: from_text
+      entity: esercizi
+      conditions:
+      - active_loop: proposta_link_form
+        requested_slot: esercizi
+  
+  
+  
+  quiz:
+    type: text
+    mappings:
+    - type: from_text
+      entity: quiz
+      conditions:
+      - active_loop: proposta_link_form
+        requested_slot: quiz
+  
+  
+  documenti:
+    type: text
+    mappings:
+    - type: from_text
+      entity: documenti
+      conditions:
+      - active_loop: proposta_link_form
+        requested_slot: documenti
+  
+
+  
+  aggiunta_videolezioni:
+      type: text
+      mappings:
+      - type: from_text
+        entity: aggiunta_videolezioni
+        conditions:
+        - active_loop: proposta_link_form
+          requested_slot: aggiunta_videolezioni
+      - type: from_intent
+        intent: conferma
+        value: true
+        conditions:
+        - active_loop: proposta_link_form
+          requested_slot: aggiunta_videolezioni
+      - type: from_intent
+        intent: negazione
+        value: false
+        conditions:
+        - active_loop: proposta_link_form
+          requested_slot: aggiunta_videolezioni
+
+  aggiunta_esercizi:
+      type: text
+      mappings:
+      - type: from_text
+        entity: aggiunta_esercizi
+        conditions:
+        - active_loop: proposta_link_form
+          requested_slot: aggiunta_esercizi
+      - type: from_intent
+        intent: conferma
+        value: true
+        conditions:
+        - active_loop: proposta_link_form
+          requested_slot: aggiunta_esercizi
+      - type: from_intent
+        intent: negazione
+        value: false
+        conditions:
+        - active_loop: proposta_link_form
+          requested_slot: aggiunta_esercizi
+
+  aggiunta_quiz:
+      type: text
+      mappings:
+      - type: from_text
+        entity: aggiunta_quiz
+        conditions:
+        - active_loop: proposta_link_form
+          requested_slot: aggiunta_quiz
+      - type: from_intent
+        intent: conferma
+        value: true
+        conditions:
+        - active_loop: proposta_link_form
+          requested_slot: aggiunta_quiz
+      - type: from_intent
+        intent: negazione
+        value: false
+        conditions:
+        - active_loop: proposta_link_form
+          requested_slot: aggiunta_quiz
+  
+  aggiunta_documenti:
+      type: text
+      mappings:
+      - type: from_text
+        entity: aggiunta_documenti
+        conditions:
+        - active_loop: proposta_link_form
+          requested_slot: aggiunta_documenti
+      - type: from_intent
+        intent: conferma
+        value: true
+        conditions:
+        - active_loop: proposta_link_form
+          requested_slot: aggiunta_documenti
+      - type: from_intent
+        intent: negazione
+        value: false
+        conditions:
+        - active_loop: proposta_link_form
+          requested_slot: aggiunta_documenti
+  
+  recommend_query:
+      type: any
+      mappings:
+      - type: custom
+  
+  
+  
+      
+  
+forms:
+  creazione_corso_form:
+    required_slots:
+        - nome_corso
+        - lingua
+        - età
+        - numero_lezioni
+        - durata_lezioni
+        # - disciplina
+        - argomenti
+        - vuole_altri_argomenti
+        - abilità
+        - vuole_altre_abilità
+        - competenze
+        - vuole_altre_competenze
+       
+  ripetizione_esercizi_form:
+    required_slots:
+        - vuole_ripetizione
+        - tempo
+  
+  proposta_link_form:
+    required_slots:
+        - formati
+
+responses:
+  utter_saluto:
+  - text: "Ciao come posso aiutarti?"
+  - text: "Ciao come posso esserti d'aiuto?"
+  - text: "Benvenuto, come posso esserti d'aiuto?"
+  - text: "Benvenuto, come posso aiutarti?"
+  - text: "Benvenuto, di cosa avresti bisogno?"
+
+
+  utter_ask_nome_corso:
+  - text: "Certo! Che nome vuoi dare al corso?"
+  - text: "Va bene! Che nome vuoi dare al corso?"
+  - text: "Certo! Qual sarà il nome del corso?"
+  - text: "Certo! Qual è il nome del corso che vuoi creare?"
+
+  utter_ask_età:
+  - text: "Qual è l'età degli studenti a cui è destinato il corso?"
+  - text: "Che età hanno gli studenti a cui è destinato il corso ?"
+
+  utter_ask_numero_lezioni:
+  - text: "Quante lezioni vuoi inserire nel corso?"
+  - text: "Qual è il numero delle lezioni di cui è composto il corso?"
+
+  utter_ask_durata_lezioni:
+  - text: Quante dovrebbero durare le lezioni in media?
+    buttons:
+    - title: 0-30
+      payload: 0-30
+    - title: 30-60
+      payload: 30-60
+    - title: 60-90
+      payload: 60-90
+    - title: 90-120
+      payload: 90-120
+    - title: 120+
+      payload: '120'
+  # utter_ask_disciplina:
+  # - text: "Qual è la disciplina del corso che vuoi creare?"
+  # - text: "Qual è la disciplina del corso?"
+
+  utter_ask_lingua:
+  - text: "In quale lingua verrà tenuto il corso?"
+  - text: "Qual è la lingua in cui sarà tenuto il corso?"
+
+  utter_ask_continuare:
+  - text: "Vuoi continuare?"
+  - text: "Vuoi continuare a inserire i dati del corso?"
+
+  utter_submit_link:
+  - text: "i formati sono: {formati}\n
+           le videolezioni sono: {videolezioni}\n
+           gli esercizi sono: {esercizi}\n
+           i quiz sono: {quiz}\n
+           i documenti sono: {documenti}"
+
+  utter_summary:
+   - text: "Le informazioni sul corso sono:\n
+             - nome: {nome_corso}\n
+             - età: {età}\n
+             - numero_lezioni: {numero_lezioni}\n
+             - durata_lezioni: {durata_lezioni}\n
+             - lingua: {lingua}\n
+             - argomenti: {argomenti}\n
+             - abilità: {abilità}\n
+             - competenze: {competenze}"
+  utter_submit_tempo:
+  - text: "il docente vuole la ripetizione degli esericizi: {vuole_ripetizione} se lo studente non completa l'esercizio entro i {tempo} minuti"
+          
+  utter_ask_vuole_ripetizione:
+  - text: "Desideri che lo studente ripeta l'esercizio qualora non riesca a completarlo entro un tempo considerato?"
+
+  
+  utter_ask_tempo:
+  - text: "Indica il tempo massimo entro cui lo studente deve completare l'esercizio (espresso in minuti)"
+
+  
+
+  utter_ask_formati:
+  - text: "Indica i numeri dei formati di materiale che vuoi usare nel corso, nell'ordine in cui vuoi che vengano mostrati:\n
+      - 1: videolezioni\n
+      - 2: esercizi\n
+      - 3: quiz\n
+      - 4: documenti"
+  
+
+  
+
+actions:
+  - validate_ripetizione_esercizi_form
+  - validate_creazione_corso_form
+  - validate_proposta_link_form
+  - action_parse_all
+  - action_user_selection
+  
+
+
+ 
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
