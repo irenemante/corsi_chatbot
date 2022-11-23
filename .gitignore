@@ -1,2 +1,4 @@
 /models
 /.rasa
+/results
+/train_test_split

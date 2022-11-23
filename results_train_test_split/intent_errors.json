@@ -1,0 +1,18 @@
+[
+  {
+    "text": "9",
+    "intent": "inform_tempo",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.854143500328064
+    }
+  },
+  {
+    "text": "8",
+    "intent": "inform_tempo",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.854143500328064
+    }
+  }
+]

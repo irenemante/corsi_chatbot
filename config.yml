@@ -21,10 +21,10 @@ pipeline:
   - name: DIETClassifier
     epochs: 120
     constrain_similarities: true
-    hidden_layers_sizes: {
-      text: [512, 256, 128],
-      label: [256, 128]
-      }
+    # hidden_layers_sizes: {
+    #   text: [512, 256, 128],
+    #   label: [256, 128]
+    #   }
   - name: EntitySynonymMapper
   - name: ResponseSelector
     epochs: 100

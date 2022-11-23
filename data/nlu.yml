@@ -8,17 +8,32 @@ nlu:
     - buongiorno
     - buonasera
     - salve
+    - Ciao, sono
     
 - intent: conferma
   examples: |
     - si
     - certo
+    - va bene
+    - accetto
+    - confermo
+    - Si
+    - siiii
+    - okay
+    - ci sto
 
 - intent: negazione
   examples: |
     - no
     - no grazie
     - no, non mi serve
+    - non voglio
+    - non mi va
+    - assolutamente no
+    - direi di no
+    - non lo so
+    - No
+    - noooooo
 
 
 
@@ -33,6 +48,12 @@ nlu:
     - voglio produrre un corso
     - vorrei fare un corso
     - mi suggerisresti un corso?
+    - posso creare un corso?
+    - crea corso
+    - corso
+    - fare corso
+    - creare corso
+    
 
 - intent: inform
   examples: |
@@ -90,9 +111,9 @@ nlu:
    - [venti](numero_lezioni)
    - [trenta](numero_lezioni)
    - [dieci](numero_lezioni)
-   - [30 minuti](durata_lezioni)
-   - [40 munti](durata_lezioni)
-   - [mezz'ora](durata_lezioni)
+   - 30 minuti
+   - 40 munti
+   - mezz'ora
    - [italiano](lingua)
    - [inglese](lingua)
    - [francese](lingua)
@@ -107,12 +128,12 @@ nlu:
    - [fra](lingua)
    - [de](lingua)
    - [chi](lingua)
-   - [gli argomenti del corso sono](argomenti)
-   - [cicli for cicli whil sequenze](argomenti)
-   - [le abilità richieste del corso sono](abilità)
-   - [saper usare le sequenze sapere le basi del coding](abilità)
-   - [gli competenze finali del corso sono](competenze)
-   - [sapere usare il for sapere usare il while](competenze)
+   - gli argomenti del corso sono
+   - cicli for cicli whil sequenze
+   - le abilità richieste del corso sono
+   - saper usare le sequenze sapere le basi del coding
+   - gli competenze finali del corso sono
+   - sapere usare il for sapere usare il while
 
 
 - intent: inform_formati

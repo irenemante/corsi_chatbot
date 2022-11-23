@@ -647,7 +647,7 @@ class ActionParseAll(Action):
             corpus = list
 
             #load a pre made tensor for the embeddings
-            corpus_embeddings = torch.load(f'\Tensors\\code_{key}_tensor.pt')
+            corpus_embeddings = torch.load(f'\\Tensors\\code_{key}_tensor.pt')
 
             #define the number of responses(needs to be tweaked accordingly)
             top_k = min(5, len(corpus))

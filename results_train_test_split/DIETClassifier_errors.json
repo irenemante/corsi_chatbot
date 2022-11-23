@@ -1,0 +1,44 @@
+[
+  {
+    "text": "9",
+    "entities": [
+      {
+        "start": 0,
+        "end": 1,
+        "value": "9",
+        "entity": "tempo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "età",
+        "start": 0,
+        "end": 1,
+        "confidence_entity": 0.5612346529960632,
+        "value": "9",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "8",
+    "entities": [
+      {
+        "start": 0,
+        "end": 1,
+        "value": "8",
+        "entity": "tempo"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "età",
+        "start": 0,
+        "end": 1,
+        "confidence_entity": 0.5612346529960632,
+        "value": "8",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

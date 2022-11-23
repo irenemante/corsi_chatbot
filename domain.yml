@@ -21,10 +21,6 @@ entities:
   - lingua
   - vuole_ripetizione
   - tempo
-  - argomenti
-  - durata_lezioni
-  - abilità
-  - competenze
   - formati
   - videolezioni
   - esercizi
@@ -68,7 +64,6 @@ slots:
     type: text
     mappings:
     - type: from_text
-      entity: durata_lezioni
       conditions:
       - active_loop: creazione_corso_form
         requested_slot: durata_lezioni
@@ -125,7 +120,6 @@ slots:
     type: text
     mappings:
     - type: from_text
-      entity: argomenti
       conditions:
       - active_loop: creazione_corso_form
         requested_slot: argomenti
@@ -159,7 +153,6 @@ slots:
     type: text
     mappings:
     - type: from_text
-      entity: abilità
       conditions:
       - active_loop: creazione_corso_form
         requested_slot: abilità
@@ -192,7 +185,6 @@ slots:
     type: text
     mappings:
     - type: from_text
-      entity: competenze
       conditions:
       - active_loop: creazione_corso_form
         requested_slot: competenze
