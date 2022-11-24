@@ -7,9 +7,8 @@ intents:
   - creazione_corso
   - inform
   - inform_formati
-  - inform_tempo
-  - inform_disciplina
   - stop_form
+  - inform_nome_corso
 
   
 
@@ -17,7 +16,6 @@ entities:
   - nome_corso
   - età
   - numero_lezioni
-  - disciplina
   - lingua
   - vuole_ripetizione
   - tempo
@@ -38,8 +36,9 @@ slots:
   nome_corso:
     type: text
     mappings:
-    - type: from_text
+    - type: from_entity
       entity: nome_corso
+      intent: inform_nome_corso
       conditions:
       - active_loop: creazione_corso_form
         requested_slot: nome_corso
@@ -73,16 +72,6 @@ slots:
       - active_loop: creazione_corso_form
         requested_slot: durata_lezioni
 
-  
-  disciplina:
-    type: text
-    mappings:
-    - type: from_text
-      entity: disciplina
-      conditions:
-      - active_loop: creazione_corso_form
-        requested_slot: disciplina
-      
 
 
   lingua:
@@ -426,7 +415,6 @@ forms:
         - età
         - numero_lezioni
         - durata_lezioni
-        - disciplina
         - argomenti
         - vuole_altri_argomenti
         - abilità
@@ -501,9 +489,7 @@ responses:
       payload: 90-120
     - title: 120+
       payload: '120'
-  utter_ask_disciplina:
-  - text: "Qual è la disciplina del corso che vuoi creare?"
-  - text: "Qual è la disciplina del corso?"
+ 
 
   utter_ask_lingua:
   - text: "In quale lingua verrà tenuto il corso?"
@@ -526,7 +512,6 @@ responses:
              - età: {età}\n
              - numero_lezioni: {numero_lezioni}\n
              - durata_lezioni: {durata_lezioni}\n
-             - disciplina: {disciplina}\n
              - lingua: {lingua}\n
              - argomenti: {argomenti}\n
              - abilità: {abilità}\n
@@ -550,6 +535,11 @@ responses:
           
   utter_ask_vuole_ripetizione:
   - text: "Desideri che lo studente ripeta l'esercizio qualora non riesca a completarlo entro un tempo considerato?"
+    buttons:
+    - title: si
+      payload: si
+    - title: no
+      payload: no
 
   
   utter_ask_tempo:
@@ -586,8 +576,6 @@ responses:
       payload: numero_lezioni
     - title: durata delle lezioni
       payload: durata_lezioni
-    - title: disciplina
-      payload: disciplina
     - title: argomenti
       payload: argomenti
     - title: abilità
@@ -605,16 +593,25 @@ responses:
       payload: no
   
   utter_summary_post_modifica:
-  - text: "Le informazioni sul corso dopo la modifica sono:\n
+    - condition:
+        - type: slot
+          name: vuole_modifica
+          value: true
+      text: "Le informazioni sul corso dopo la modifica sono:\n
              - nome: {nome_corso}\n
              - età: {età}\n
              - numero_lezioni: {numero_lezioni}\n
              - durata_lezioni: {durata_lezioni}\n
-             - disciplina: {disciplina}\n
              - lingua: {lingua}\n
              - argomenti: {argomenti}\n
              - abilità: {abilità}\n
              - competenze: {competenze}"
+    - condition:
+        - type: slot
+          name: vuole_modifica
+          value: false
+      text: "Non è stata richiesta alcuna modifica dei campi."
+
   
 
   
@@ -625,6 +622,7 @@ actions:
   - validate_proposta_link_form
   - action_parse_all
   - validate_modifica_metadati_form
+  - action_user_selection
 
   
 

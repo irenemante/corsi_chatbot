@@ -19,10 +19,19 @@ from deep_translator import GoogleTranslator
 from autocorrect import Speller
 from sentence_transformers import SentenceTransformer, util
 import re
+import os
 import torch
 import time
 import json
 import requests
+
+global LODict
+LODict = {
+    "videolezioni" : {},
+    "esercizi" : {},
+    "quiz" : {},
+    "documenti" : {},
+}
 
 proposed_link_size= {"videolezioni": None, "esercizi":None, "quiz":None, "documenti":None}
 
@@ -115,11 +124,10 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        regex = re.compile('[@_#$%^&*<>\|}{~]')
-        if(re.search(regex,slot_value) == None):
-            return {"nome_corso": slot_value}
-        else:
-            return {"nome_corso": None}
+        
+        
+        return {"nome_corso": slot_value}
+       
 
         
 
@@ -178,10 +186,10 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
             
             return {"durata_lezioni": None}
         else:
-            
+            dispatcher.utter_message(text="Indica gli argomenti del corso, separati dalla virgola.")
             return {"durata_lezioni": slot_value}
 
-    def validate_disciplina(
+    """def validate_disciplina(
         self,
         slot_value: Any,
         dispatcher: CollectingDispatcher,
@@ -196,8 +204,7 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
             if(re.search(regex,slot_value) != None):
                 return {"disciplina": None}
             else:
-                dispatcher.utter_message(text="Indica gli argomenti del corso, separati dalla virgola.")
-                return {"disciplina": slot_value}
+                return {"disciplina": slot_value}"""
     
     def validate_lingua(
         self,
@@ -208,11 +215,12 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         lingue= ["italiano", "inglese", "francese", "tedesco", "cinese", "spagnolo", "giapponese","russo", "portoghese","arabo"]
         spell = Speller('it')
-        lingua=spell(slot_value)
-        if lingua in lingue:
-            return {"lingua": lingua.lower()}
-        else:
-            return {"lingua": None}
+        frase_corretta=spell(slot_value)
+        for i in lingue:
+            if i in frase_corretta:
+                return {"lingua": i.lower()}
+        
+        return {"lingua": None}
 
     def validate_argomenti(
         self,
@@ -231,7 +239,11 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
                 dispatcher.utter_message(text="Indica gli argomenti del corso, separati dalla virgola.")
                 return {"argomenti": None}
             else:
-                dispatcher.utter_message(text="Vuoi aggiungere altri argomenti?")
+                dispatcher.utter_message(
+                text="vuoi aggiungere altri argomenti?",
+                buttons= [{"title":"si","payload":"si"},
+                        {"title":"no","payload":"no"}
+                ])
                 return {"argomenti": lista_argomenti}
        
 
@@ -245,14 +257,14 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         print("arg " + tracker.get_intent_of_latest_message())
         argomenti = tracker.get_slot("argomenti")
-        if tracker.get_intent_of_latest_message() == "conferma":
+        if slot_value == "si":
             dispatcher.utter_message(text="Indica gli altri argomenti del corso, separati dalla virgola.")
             return {"vuole_altri_argomenti": None}
 
         elif tracker.get_intent_of_latest_message() == "stop_form":
             return {"requested_slot":None, "vuole_altri_argomenti":None}
 
-        elif tracker.get_intent_of_latest_message() == "negazione":
+        elif slot_value == "no":
             dispatcher.utter_message(text="Indica le abilità iniziali che lo studente deve avere prima del corso, separati dalla virgola.")
             return {"vuole_altri_argomenti": False}
 
@@ -262,7 +274,11 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
                 dispatcher.utter_message(text="Indica gli altri argomenti del corso, separati dalla virgola.")
                 return{"vuole_altri_argomenti":None}
             else:
-                dispatcher.utter_message(text="desideri aggiungere altri argomenti?")
+                dispatcher.utter_message(
+                text="vuoi aggiungere altri argomenti?",
+                buttons= [{"title":"si","payload":"si"},
+                         {"title":"no","payload":"no"}
+            ])
                 new_argomenti = slot_value.split(',')
                 new_argomenti= argomenti + new_argomenti
                 return {"argomenti": new_argomenti, "vuole_altri_argomenti":None}
@@ -288,7 +304,11 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
                 dispatcher.utter_message(text="Indica le abilità iniziali che lo studente deve avere prima del corso, separati dalla virgola.")
                 return{"abilità":None}
             else:
-                dispatcher.utter_message(text="Vuoi aggiungere altre abilità?")
+                dispatcher.utter_message(
+                text="vuoi aggiungere altre abilità?",
+                buttons= [{"title":"si","payload":"si"},
+                      {"title":"no","payload":"no"}
+            ])
                 return {"abilità": lista_abilità}
         
 
@@ -302,14 +322,14 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         print("ab " + tracker.get_intent_of_latest_message())
         abilità = tracker.get_slot("abilità")
-        if tracker.get_intent_of_latest_message() == "conferma":
+        if slot_value == "si":
             dispatcher.utter_message(text="Indica le altre abilità iniziali del corso, separate dalla virgola.")
             return {"vuole_altre_abilità": None}
 
         elif tracker.get_intent_of_latest_message() == "stop_form":
             return {"requested_slot":None, "vuole_altre_abilità":None}
 
-        elif tracker.get_intent_of_latest_message() == "negazione":
+        elif slot_value == "no":
             dispatcher.utter_message(text="Indica le competenze che lo studente deve raggiungere alla fine del corso, separate dalla virgola.")
             return {"vuole_altre_abilità": False}
 
@@ -319,7 +339,11 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
                 dispatcher.utter_message(text="Indica le altre abilità iniziali del corso, separate dalla virgola.")
                 return{"vuole_altre_abilità":None}
             else:
-                dispatcher.utter_message(text="desideri aggiungere altre abilità?")
+                dispatcher.utter_message(
+                    text="vuoi aggiungere altre abilità?",
+                    buttons= [{"title":"si","payload":"si"},
+                            {"title":"no","payload":"no"}
+            ])
                 new_abilità = slot_value.split(',')
                 new_abilità= abilità + new_abilità
                 return {"abilità": new_abilità, "vuole_altre_abilità":None}
@@ -346,7 +370,11 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
                 dispatcher.utter_message(text="Indica le competenze che lo studente deve raggiungere alla fine del corso, separate dalla virgola.")
                 return{"competenze":None}
             else:
-                dispatcher.utter_message(text="Vuoi aggiungere altre competenze?")
+                dispatcher.utter_message(
+                text="vuoi aggiungere altre competenze?",
+                buttons= [{"title":"si","payload":"si"},
+                        {"title":"no","payload":"no"}
+            ])
                 return {"competenze": lista_competenze}
        
 
@@ -359,14 +387,14 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         print("comp " + tracker.get_intent_of_latest_message())
         competenze = tracker.get_slot("competenze")
-        if tracker.get_intent_of_latest_message() == "conferma":
+        if slot_value == "si":
             dispatcher.utter_message(text="Indica le altre competenze che lo studente deve raggiungere  alla fine del corso, separate dalla virgola.")
             return {"vuole_altre_competenze": None}
 
         elif tracker.get_intent_of_latest_message() == "stop_form":
             return {"requested_slot":None, "vuole_altre_competenze":None}
 
-        elif tracker.get_intent_of_latest_message() == "negazione":
+        elif slot_value == "no":
             return {"vuole_altre_competenze": False}
 
         else:
@@ -375,7 +403,11 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
                 dispatcher.utter_message(text="Indica le altre competenze che lo studente deve raggiungere  alla fine del corso, separate dalla virgola.")
                 return{"vuole_altre_competenze":None}
             else:
-                dispatcher.utter_message(text="desideri aggiungere altre competenze?")
+                dispatcher.utter_message(
+                    text="vuoi aggiungere altre competenze?",
+                    buttons= [{"title":"si","payload":"si"},
+                            {"title":"no","payload":"no"}
+            ])
                 new_competenze = slot_value.split(',')
                 new_competenze= competenze + new_competenze
                 return {"competenze": new_competenze, "vuole_altre_competenze":None}
@@ -459,7 +491,7 @@ class ValidateModificaMetadati(FormValidationAction):
             else:
                 dispatcher.utter_message(text=f"Inserisci il nuovo valore per il campo lingua")
                 return {"cambio_metadato": None}
-        elif metadato in ["nome_corso","disciplina"]:
+        elif metadato == "nome_corso":
             regex = re.compile('[@_#$%^&*<>\|}{~]')
             if(re.search(regex,slot_value) != None):
                 dispatcher.utter_message(text=f"Inserisci il nuovo valore per il campo {metadato}")
@@ -563,7 +595,11 @@ class ValidatePropostaLinkForm(FormValidationAction):
             if not(all(i<proposed_link_size["videolezioni"] for i in videolezioni_num)):
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"videolezioni":None}
-            dispatcher.utter_message(text="desideri aggiungere altre videolezioni?")
+            dispatcher.utter_message(
+                    text="desideri aggiungere altre videolezioni?",
+                    buttons= [{"title":"si","payload":"si"},
+                        {"title":"no","payload":"no"}
+                ])
             return {"videolezioni": videolezioni_num}
     
     def validate_aggiunta_videolezioni(
@@ -587,12 +623,12 @@ class ValidatePropostaLinkForm(FormValidationAction):
         videolezioni=tracker.slots.get("videolezioni")
         altre_vid_num = re.findall('[0-9]+', slot_value)
         altre_vid_num= list(map(int, altre_vid_num))
-        if tracker.get_intent_of_latest_message() == "conferma":
+        if slot_value == "si":
             dispatcher.utter_message(text="indica altre videolezioni")
             controller_videolezioni=False
             return {"aggiunta_videolezioni": None}
 
-        elif tracker.get_intent_of_latest_message() == "negazione":
+        elif slot_value == "no":
             controller_videolezioni=False
             if formati[len(formati)-1] != "videolezioni":
                 msg,num = create_responses("videolezioni",tracker,dispatcher)
@@ -605,7 +641,11 @@ class ValidatePropostaLinkForm(FormValidationAction):
                 return {"aggiunta_videolezioni":None}
             else:
                 controller_videolezioni=True
-                dispatcher.utter_message(text="desideri aggiungere altre videolezioni?")
+                dispatcher.utter_message(
+                    text="vuoi aggiungere altre videolezioni?",
+                    buttons= [{"title":"si","payload":"si"},
+                            {"title":"no","payload":"no"}
+                    ])
                 videolezioni_totale=videolezioni + altre_vid_num
                 videolezioni_totale= list(dict.fromkeys(videolezioni_totale))
                 return {"videolezioni": videolezioni_totale, "aggiunta_videolezioni":None}
@@ -631,7 +671,11 @@ class ValidatePropostaLinkForm(FormValidationAction):
             if not(all(i<proposed_link_size["esercizi"] for i in esercizi_num)):
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"esercizi":None}
-            dispatcher.utter_message(text="vuoi aggiungere altri esercizi?")
+            dispatcher.utter_message(
+                text="vuoi aggiungere altri esercizi?",
+                buttons= [{"title":"si","payload":"si"},
+                        {"title":"no","payload":"no"}
+                ])
             return {"esercizi": esercizi_num}
     
     def validate_aggiunta_esercizi(
@@ -653,12 +697,12 @@ class ValidatePropostaLinkForm(FormValidationAction):
         esercizi=tracker.slots.get("esercizi")
         altri_es_num = re.findall('[0-9]+', slot_value)
         altri_es_num= list(map(int, altri_es_num))
-        if tracker.get_intent_of_latest_message() == "conferma":
+        if slot_value == "si":
             controller_esercizi=False
             dispatcher.utter_message(text="indica altri esercizi")
             return {"aggiunta_esercizi": None}
 
-        elif tracker.get_intent_of_latest_message() == "negazione":
+        elif slot_value == "no":
             controller_esercizi=False
             if formati[len(formati)-1] != "esercizi":
                 msg,num= create_responses("esercizi",tracker,dispatcher)
@@ -672,7 +716,11 @@ class ValidatePropostaLinkForm(FormValidationAction):
                 return {"aggiunta_esercizi":None}
             else:
                 controller_esercizi=True
-                dispatcher.utter_message(text="desideri aggiungere altri esercizi?")
+                dispatcher.utter_message(
+                    text="vuoi aggiungere altri esercizi?",
+                    buttons= [{"title":"si","payload":"si"},
+                      {"title":"no","payload":"no"}
+                    ])
                 esercizi_totale=esercizi + altri_es_num
                 esercizi_totale= list(dict.fromkeys(esercizi_totale))
                 return {"esercizi": esercizi_totale, "aggiunta_esercizi":None}
@@ -696,7 +744,11 @@ class ValidatePropostaLinkForm(FormValidationAction):
             if not(all(i<proposed_link_size["quiz"] for i in quiz_num)):
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"quiz":None}
-            dispatcher.utter_message(text="vuoi aggiungere altri quiz?")
+            dispatcher.utter_message(
+                text="vuoi aggiungere altri quiz?",
+                buttons= [{"title":"si","payload":"si"},
+                        {"title":"no","payload":"no"}
+                ])
             return {"quiz": quiz_num}
     
     
@@ -720,12 +772,12 @@ class ValidatePropostaLinkForm(FormValidationAction):
         quiz=tracker.slots.get("quiz")
         altri_quiz_num = re.findall('[0-9]+', slot_value)
         altri_quiz_num= list(map(int, altri_quiz_num))
-        if tracker.get_intent_of_latest_message() == "conferma":
+        if slot_value == "si":
             controller_quiz=False
             dispatcher.utter_message(text="indica altri quiz")
             return {"aggiunta_quiz": None}
 
-        elif tracker.get_intent_of_latest_message() == "negazione":
+        elif slot_value == "no":
             controller_quiz=False
             if formati[len(formati)-1] != "quiz":
                 msg,num=create_responses("quiz",tracker , dispatcher)
@@ -739,7 +791,11 @@ class ValidatePropostaLinkForm(FormValidationAction):
                 return {"aggiunta_quiz":None}
             else:
                 controller_quiz=True
-                dispatcher.utter_message(text="desideri aggiungere altri quiz?")
+                dispatcher.utter_message(
+                    text="vuoi aggiungere altri quiz?",
+                    buttons= [{"title":"si","payload":"si"},
+                        {"title":"no","payload":"no"}
+                    ])
                 quiz_totale=quiz + altri_quiz_num
                 quiz_totale= list(dict.fromkeys(quiz_totale))
                 return {"quiz": quiz_totale, "aggiunta_quiz": None}
@@ -761,7 +817,11 @@ class ValidatePropostaLinkForm(FormValidationAction):
             if not(all(i<proposed_link_size["documenti"] for i in mat_num)):
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"documenti":None}
-            dispatcher.utter_message(text="vuoi aggiungere altri docuementi?")
+            dispatcher.utter_message(
+                text="vuoi aggiungere altri documenti?",
+                buttons= [{"title":"si","payload":"si"},
+                        {"title":"no","payload":"no"}
+                    ])
             return {"documenti": mat_num}
     
     def validate_aggiunta_documenti(
@@ -783,12 +843,12 @@ class ValidatePropostaLinkForm(FormValidationAction):
         documenti=tracker.slots.get("documenti")
         altri_doc_num = re.findall('[0-9]+', slot_value)
         altri_doc_num= list(map(int, altri_doc_num))
-        if tracker.get_intent_of_latest_message() == "conferma":
+        if slot_value == "si":
             controller_documenti=False
             dispatcher.utter_message(text="indica altri documenti")
             return {"aggiunta_documenti": None}
 
-        elif tracker.get_intent_of_latest_message() == "negazione":
+        elif slot_value == "no":
             controller_documenti=False
             if formati[len(formati)-1] != "documenti":
                 msg,num=create_responses("quiz",tracker , dispatcher)
@@ -802,7 +862,11 @@ class ValidatePropostaLinkForm(FormValidationAction):
                 return {"aggiunta_documenti":None}
             else:
                 controller_documenti=True
-                dispatcher.utter_message(text="desideri aggiungere altri documenti?")
+                dispatcher.utter_message(
+                    text="vuoi aggiungere altri documenti?",
+                    buttons= [{"title":"si","payload":"si"},
+                         {"title":"no","payload":"no"}
+                    ])
                 documenti_totale=documenti + altri_doc_num
                 documenti_totale= list(dict.fromkeys(documenti_totale))
                 return {"documenti": documenti_totale, "aggiunta_documenti": None}
@@ -820,7 +884,6 @@ def create_responses (slot, tracker: Tracker, dispatcher: CollectingDispatcher):
         #RECOMMENDER LOGIC
         if not has_numbers(formati) or formati==" ":
             formati=['1','2','3','4']
-        
         needs_removing = tracker.get_slot(f"aggiunta_{mapping.get(int(formati[0]))}")
         request["type"] = mapping.get(int(formati[0]))
         request["remove"] = needs_removing
@@ -832,9 +895,11 @@ def create_responses (slot, tracker: Tracker, dispatcher: CollectingDispatcher):
         text_to_save = ""
         for i in range(len(parsed)):
             text_to_save += f'Titolo: {parsed[i][0]} \nLink {parsed[i][1]} \n'
-            dispatcher.utter_message(f'-{i}) Titolo: {parsed[i][0]},\nLink{parsed[i][1]}')
+            message = f'-{i}) Titolo: {parsed[i][0]},\nLink: {parsed[i][1]}'
+            dispatcher.utter_message(text=message, image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx1qo4tI97ysuUutaDvHlmYzABdgLYQejIwybA83k&s")
+            LODict[mapping.get(int(formati[0]))][i] = [parsed[i][0], parsed[i][1]]
         SlotSet(f"{mapping.get(int(formati[0]))}", text_to_save)
-        return (f"Indica il numero di quelli che desideri. ", len(parsed))
+        return (f"Indica il numero di quelli che desideri. " ,len(parsed))
     else:
         for i in range(len(formati)):
             if formati[i]==slot and i < len(formati)-1:
@@ -855,7 +920,9 @@ def create_responses (slot, tracker: Tracker, dispatcher: CollectingDispatcher):
         text_to_save = ""
         for i in range(len(parsed)):
             text_to_save += f'Titolo: {parsed[i][0]} \nLink {parsed[i][1]} \n'
-            dispatcher.utter_message(f'-{i}) Titolo: {parsed[i][0]},\nLink{parsed[i][1]}')
+            message = f'-{i}) Titolo: {parsed[i][0]},\nLink: {parsed[i][1]}'
+            dispatcher.utter_message(text=message, image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx1qo4tI97ysuUutaDvHlmYzABdgLYQejIwybA83k&s")
+            LODict[next_slot][i] = [parsed[i][0], parsed[i][1]]
         SlotSet(f"{next_slot}", text_to_save)
         return (f"Indica il numero di quelli che desideri.", len(parsed))
 
@@ -884,31 +951,31 @@ class ActionParseAll(Action):
 
         #Get all slot values
         slotdict = {
-            "duration": "",
-            "discipline": "",
-            "language": "",
-            "keywords": "",
+            "Durata": "",
+            "Età": "",
+            "Keywords": "",
         }
 
+
+
         #Map slots to a dictionary
-        slotdict["duration"] = translator.translate(spell(str(tracker.get_slot("durata_lezioni"))))
-        slotdict["discipline"] = translator.translate(spell(str(tracker.get_slot("disciplina"))))
-        slotdict["language"] = translator.translate(spell(str(tracker.get_slot("lingua"))))
-        slotdict["keywords"] = translator.translate(spell(str(tracker.get_slot("argomenti"))))
+        slotdict["Durata"] = spell(str(tracker.get_slot("durata_lezioni")))
+        slotdict["Età"] = spell(str(tracker.get_slot("età")))
+        slotdict["Keywords"] = translator.translate(spell(str(tracker.get_slot("argomenti"))))
         
         #iterate over slots and parse
         for key in slotdict:
             #save the queries in a list
             total_kw_list = []
             queries = slotdict[key].split(", ")
-
+            dir = os.getcwd()
             #create the embeddings of all the possible values in MERLOT
-            file = open(f'merlotclean/{key}.txt')
+            file = open(f'actions/Dataset/{key}.txt')
             list = file.read().splitlines()
             corpus = list
 
             #load a pre made tensor for the embeddings
-            corpus_embeddings = torch.load(f'tensors/{key}tensor.pt')
+            corpus_embeddings = torch.load(f"actions/Tensors/code_{key}_tensor.pt")
 
             #define the number of responses(needs to be tweaked accordingly)
             top_k = min(5, len(corpus))
@@ -920,7 +987,7 @@ class ActionParseAll(Action):
                 hits = hits[0]
                 print("Query: "+ query)
                 #insert the hits into the Json
-                if key != "keywords":
+                if key != "Keywords":
                     hit = hits[0]
                     item_to_append = {key: corpus[hit["corpus_id"]]}
                     request.update(item_to_append)
@@ -931,12 +998,65 @@ class ActionParseAll(Action):
                 for hit in hits:
                     print(corpus[hit['corpus_id']], "(Score: {:.4f})".format(hit['score']))
                 print("==============================")
-            if key == "keywords":
+            if key == "Keywords":
                 keyword_item = {key: total_kw_list}
+                print("TotalKwLisis")
+                print(total_kw_list)
                 request.update(keyword_item)
+                print("requestis")
+                print(request)
 
             #placeholder print,, not needed in production
+            request["Età"] = tracker.get_slot('età')
+            request["Lingua"] = "Inglese"
             print(json.dumps(request))
 
         return [SlotSet("recommend_query", request)]
+
+
+class ActionUserSelection(Action):
+    def name(self) -> Text:
+        return "action_user_selection"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text,Any])-> List[Dict[Text,Any]]:
+        formati = tracker.get_slot("formati")
+        videolezionislot = None
+        esercizislot = None
+        quizslot = None
+        documentislot = None
+        if tracker.get_slot("videolezioni") != None : videolezionislot = list(tracker.get_slot("videolezioni"))
+        print("videloeizioni slot = ")
+        print(videolezionislot)
+        if tracker.get_slot("esercizi") != None : esercizislot = list(tracker.get_slot("esercizi"))
+        if tracker.get_slot("documenti") != None : documentislot = list(tracker.get_slot("documenti"))
+        if tracker.get_slot("quiz") != None : quizslot = list(tracker.get_slot("quiz"))
+        string = "I link che hai scelto sono: \n"
+        # for every value in every slot search in the dict concat to a message and utter
+        if videolezionislot != None :
+            string += "Videolezioni:\n"
+            for i in videolezionislot:
+                i = str(i).split()
+                i = int(i[0])
+                string += f'Titolo: {LODict["videolezioni"][i][0]}\n Link: {LODict["videolezioni"][i][1]}'
+        if esercizislot != None :
+            string += "Esercizi: \n"
+            for i in esercizislot:
+                i = str(i).split()
+                i = int(i[0])
+                string += f'Titolo: {LODict["esercizi"][i][0]}\n Link: {LODict["esercizi"][i][1]}'
+        if quizslot != None :
+            string += "Quiz: \n"
+            for i in quizslot:
+                i = str(i).split()
+                i = int(i[0])
+                string += f'Titolo: {LODict["quiz"][i][0]}\n Link: {LODict["quiz"][i][1]}'
+        if documentislot != None :
+            string += "Documenti: \n"
+            for i in documentislot:
+                i = str(i).split()
+                i = int(i[0])                
+                string += f'Titolo: {LODict["documenti"][i][0]}\n Link: {LODict["documenti"][i][1]}'
+        dispatcher.utter_message(string)
+        return[]
+
 

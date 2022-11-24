@@ -38,20 +38,24 @@ nlu:
     - vorrei fare un corso
     - mi suggerisresti un corso?
 
+- intent: inform_nome_corso
+  examples: |
+    - [Coding](nome_corso)
+    - [Cicli for e while](nome_corso)
+    - [Introduzione al machine learning](nome_corso)
+    - [Introduzione al coding](nome_corso)
+    - Il nome del corso sarà [Introduzione al coding](nome_corso)
+    - Il nome del corso sarà [Introduzione al coding](nome_corso)
+    - [Uso delle sequenze](nome_corso)
+    - [Funzioni e coding](nome_corso)
+    - [Coding - livello base](nome_corso)
+    - [Coding - livello medio](nome_corso)
+    - [Coding - livello avanzato](nome_corso)
+    - [Introduzione alla programmazione](nome_corso)
+
+
 - intent: inform
   examples: |
-   - [Coding](nome_corso)
-   - [Cicli for e while](nome_corso)
-   - [Introduzione al machine learning](nome_corso)
-   - [Introduzione al coding](nome_corso)
-   - Il nome del corso sarà [Introduzione al coding](nome_corso)
-   - Il nome del corso sarà [Introduzione al coding](nome_corso)
-   - [Uso delle sequenze](nome_corso)
-   - [Funzioni e coding](nome_corso)
-   - [Coding - livello base](nome_corso)
-   - [Coding - livello medio](nome_corso)
-   - [Coding - livello avanzato](nome_corso)
-   - [Introduzione alla programmazione](nome_corso)
    - [6](età) anni
    - [7](età) anni
    - [8](età) anni
@@ -94,9 +98,6 @@ nlu:
    - [venti](numero_lezioni)
    - [trenta](numero_lezioni)
    - [dieci](numero_lezioni)
-   - [30 minuti](durata_lezioni)
-   - [40 munti](durata_lezioni)
-   - [mezz'ora](durata_lezioni)
    - [italiano](lingua)
    - [inglese](lingua)
    - [francese](lingua)
@@ -127,41 +128,11 @@ nlu:
    - [4 3 2 1](formati)
    - [2 3 1](formati)
 
-- intent: inform_disciplina
-  examples: |
-   - [programmazione](disciplina)
-   - [coding](disciplina)
-   - [machine learning](disciplina)
-   - [humanities](disciplina)
-   - [mathematics and statistics](disciplina)
-   - [science and technolog](disciplina)
-   - [physics](disciplina)
-   - [statistics and probability](disciplina)
-   - [information technology](disciplina)
-   - [data analysis](disciplina)
-   - [biology](disciplina)
-   - [fisica] (disciplina)
-   - [matematica] (disciplina)
-   - [chimica] (disciplina)
-   - [chemistry] (disciplina)
+
    
    
-- intent: inform_tempo
-  examples: |
-   - [2](tempo) minuti
-   - [5](tempo) minuti
-   - [due](tempo) minuti
-   - [cinque](tempo)
-   - [2](tempo) min
-   - [5](tempo) min
-   - [due](tempo) min
-   - [sei](tempo)
-   - [10](tempo) 
-   - [3](tempo)
-   - [quattro](tempo) min
-   - [6](tempo)
-   - [8](tempo) 
-   - [9](tempo)
+
+  
 
     
   

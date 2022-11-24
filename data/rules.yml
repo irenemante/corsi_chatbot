@@ -18,7 +18,6 @@ rules:
   - slot_was_set:
      - requested_slot: null
   - action: utter_summary
-  - action: action_parse_all
   - action: modifica_metadati_form
   - active_loop: modifica_metadati_form
 
@@ -31,6 +30,7 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: utter_summary_post_modifica
+  - action: action_parse_all
   - action: proposta_link_form
   - active_loop: proposta_link_form
 
@@ -42,7 +42,7 @@ rules:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: utter_submit_link
+  - action: action_user_selection
   - action: ripetizione_esercizi_form
   - active_loop: ripetizione_esercizi_form
 
