@@ -145,10 +145,15 @@ def agerangefit(agequery):
             rangelist.append(range(15, 99))
     
     #Iterate over the ranges and see in which the userquery falls, save the indexes and return them to the caller
-    for ranges in rangelist:
-        if int(agequery) in ranges:
-            indexes.append(counter)
-        counter += 1
+    if agequery == "":
+        for i in range(9):
+            indexes.append(i)
+        print(indexes)
+    else:
+        for ranges in rangelist:
+            if int(agequery) in ranges:
+                indexes.append(counter)
+            counter += 1
     print(rangelist)
     print(indexes)
     return indexes

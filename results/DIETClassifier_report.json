@@ -1,0 +1,58 @@
+{
+  "nome_corso": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 6,
+    "confused_with": {}
+  },
+  "numero_lezioni": {
+    "precision": 1.0,
+    "recall": 0.8333333333333334,
+    "f1-score": 0.9090909090909091,
+    "support": 6,
+    "confused_with": {
+      "età": 1
+    }
+  },
+  "lingua": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 2,
+    "confused_with": {}
+  },
+  "età": {
+    "precision": 0.8333333333333334,
+    "recall": 1.0,
+    "f1-score": 0.9090909090909091,
+    "support": 5,
+    "confused_with": {}
+  },
+  "formati": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 4,
+    "confused_with": {}
+  },
+  "micro avg": {
+    "precision": 0.9565217391304348,
+    "recall": 0.9565217391304348,
+    "f1-score": 0.9565217391304348,
+    "support": 23
+  },
+  "macro avg": {
+    "precision": 0.9666666666666668,
+    "recall": 0.9666666666666668,
+    "f1-score": 0.9636363636363636,
+    "support": 23
+  },
+  "weighted avg": {
+    "precision": 0.963768115942029,
+    "recall": 0.9565217391304348,
+    "f1-score": 0.9565217391304348,
+    "support": 23
+  },
+  "accuracy": 0.975
+}

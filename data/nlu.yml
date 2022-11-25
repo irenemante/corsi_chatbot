@@ -59,7 +59,7 @@ nlu:
    - [6](età) anni
    - [7](età) anni
    - [8](età) anni
-   - [9](età)anni
+   - [9](età) anni
    - [6](età) 
    - [7](età) 
    - [8](età) 
@@ -112,15 +112,15 @@ nlu:
    - [fra](lingua)
    - [de](lingua)
    - [chi](lingua)
-   - [gli argomenti del corso sono:](argomenti)
+   - [gli argomenti del corso sono](argomenti)
    - [cicli for cicli whil sequenze](argomenti)
-   - [le abilità richieste del corso sono:](abilità)
+   - [le abilità richieste del corso sono](abilità)
    - [saper usare le sequenze sapere le basi del coding](abilità)
-   - [gli competenze finali del corso sono:](competenze)
+   - [gli competenze finali del corso sono](competenze)
    - [sapere usare il for sapere usare il while](competenze)
 - intent: inform_formati
   examples: |
-   - i formati sono : (formati)
+   - i formati sono (formati)
    - [1 2 3 4](formati)
    - [3 2 1](formati)
    - [2 3](formati)

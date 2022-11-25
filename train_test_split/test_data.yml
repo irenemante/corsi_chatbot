@@ -1,0 +1,40 @@
+version: "3.1"
+nlu:
+- intent: conferma
+  examples: |
+    - certo
+- intent: negazione
+  examples: |
+    - no grazie
+- intent: saluto
+  examples: |
+    - hey
+- intent: inform_formati
+  examples: |
+    - [1 2 3 4](formati)
+- intent: stop_form
+  examples: |
+    - stop
+- intent: creazione_corso
+  examples: |
+    - voglio produrre un corso
+    - vorrei fare un corso
+- intent: inform_nome_corso
+  examples: |
+    - [Coding - livello base](nome_corso)
+    - [Coding - livello medio](nome_corso)
+- intent: inform
+  examples: |
+    - [chi](lingua)
+    - [6](età)
+    - [nove](età) anni
+    - [venti](numero_lezioni)
+    - [15](numero_lezioni)
+    - [en](lingua)
+    - [trenta](numero_lezioni)
+    - [12](età)
+    - [24](numero_lezioni) lezioni
+    - [9](età) anni
+    - [dieci](numero_lezioni)
+    - [10](età)
+    - [venticinque](numero_lezioni) lezioni

@@ -1,0 +1,23 @@
+[
+  {
+    "text": "15",
+    "entities": [
+      {
+        "start": 0,
+        "end": 2,
+        "value": "15",
+        "entity": "numero_lezioni"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "età",
+        "start": 0,
+        "end": 2,
+        "confidence_entity": 0.6167922616004944,
+        "value": "15",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]
