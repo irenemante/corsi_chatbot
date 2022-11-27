@@ -34,6 +34,7 @@ LODict = {
 }
 
 proposed_link_size= {"videolezioni": None, "esercizi":None, "quiz":None, "documenti":None}
+lista_formati_generale= []
 
 def has_numbers(inputString):
     return any(char.isdigit() for char in inputString)
@@ -189,22 +190,6 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
             dispatcher.utter_message(text="Indica gli argomenti del corso, separati dalla virgola.")
             return {"durata_lezioni": slot_value}
 
-    """def validate_disciplina(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict
-    ) -> Dict[Text, Any]:
-        
-        if tracker.get_intent_of_latest_message() == "stop_form":
-            return {"requested_slot": None,"disciplina":None}
-        else:
-            regex = re.compile('[@_#$%^&*<>\|}{~]')
-            if(re.search(regex,slot_value) != None):
-                return {"disciplina": None}
-            else:
-                return {"disciplina": slot_value}"""
     
     def validate_lingua(
         self,
@@ -231,6 +216,7 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         print("arg " + tracker.get_intent_of_latest_message())
         lista_argomenti = slot_value.split(',')
+        lista_argomenti= [i.strip() for i in lista_argomenti]
         if tracker.get_intent_of_latest_message() == "stop_form":
             return {"requested_slot": None,"argomenti": None}
         else:
@@ -280,6 +266,7 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
                          {"title":"no","payload":"no"}
             ])
                 new_argomenti = slot_value.split(',')
+                new_argomenti= [i.strip() for i in new_argomenti]
                 new_argomenti= argomenti + new_argomenti
                 return {"argomenti": new_argomenti, "vuole_altri_argomenti":None}
        
@@ -296,6 +283,7 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         print("ab " + tracker.get_intent_of_latest_message())
         lista_abilità = slot_value.split(',')
+        lista_abilità= [i.strip() for i in lista_abilità]
         if tracker.get_intent_of_latest_message() == "stop_form":
             return {"requested_slot": None,"abilità": None}
         else:
@@ -345,6 +333,7 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
                             {"title":"no","payload":"no"}
             ])
                 new_abilità = slot_value.split(',')
+                new_abilità= [i.strip() for i in new_abilità]
                 new_abilità= abilità + new_abilità
                 return {"abilità": new_abilità, "vuole_altre_abilità":None}
             
@@ -362,6 +351,7 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         print("comp " + tracker.get_intent_of_latest_message())
         lista_competenze = slot_value.split(',')
+        lista_competenze= [i.strip() for i in lista_competenze]
         if tracker.get_intent_of_latest_message() == "stop_form":
             return {"requested_slot": None,"competenze": None}
         else:
@@ -409,6 +399,7 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
                             {"title":"no","payload":"no"}
             ])
                 new_competenze = slot_value.split(',')
+                new_competenze= [i.strip() for i in new_competenze]
                 new_competenze= competenze + new_competenze
                 return {"competenze": new_competenze, "vuole_altre_competenze":None}
             
@@ -452,8 +443,10 @@ class ValidateModificaMetadati(FormValidationAction):
         elif slot_value in ["argomenti","abilità","competenze"]:
             response= "Inserisci  {pronome} {aggettivo} {metadato}, {separazione} dalla virgola.".format(pronome="i" if slot_value == "argomenti" else "le",aggettivo="nuovi" if slot_value == "argomenti" else "nuove",metadato=slot_value,separazione="separati" if slot_value == "argomenti" else "separate" )
             dispatcher.utter_message(text=response)
+        elif slot_value in ["nome_corso","numero_lezioni"]:
+            dispatcher.utter_message(text="Inserisci il nuovo valore per il campo {metadato} (se è un campo numerico, usa le cifre)".format(metadato="nome del corso" if slot_value == "nome_corso" else "numero delle lezioni"))
         else:
-            dispatcher.utter_message(text=f"Inserisci il nuovo valore per il campo {slot_value}")
+            dispatcher.utter_message(text=f"Inserisci il nuovo valore per il campo {slot_value} (se è un campo numerico, usa le cifre).")
         return {"metadato_da_modificare": slot_value}
        
     
@@ -469,6 +462,7 @@ class ValidateModificaMetadati(FormValidationAction):
         if metadato == "abilità" or metadato == "competenze" or metadato == "argomenti":
             regex = re.compile('[@_#$%^&*<>\|}{~]')
             lista_elementi = slot_value.split(',')
+            lista_elementi= [i.strip() for i in lista_elementi]
             if(re.search(regex,slot_value) != None):
                 response= "Inserisci  {pronome} {aggettivo} {metadato}, {separazione} dalla virgola.".format(pronome="i" if metadato == "argomenti" else "le",aggettivo="nuovi" if metadato == "argomenti" else "nuove",metadato=metadato,separazione="separati" if metadato == "argomenti" else "separate" )
                 dispatcher.utter_message(text=response)
@@ -477,17 +471,18 @@ class ValidateModificaMetadati(FormValidationAction):
                 return {f"{metadato}": lista_elementi}
         elif metadato=="età" or metadato=="numero_lezioni":
             numero = re.findall('[0-9]+', slot_value)
-            if int(numero[0]) <1 or  int(numero[0]) >=100 :
-                dispatcher.utter_message(text=f"Inserisci il nuovo valore per il campo {metadato}")
+            if len(numero)==0 or int(numero[0]) <1 or  int(numero[0]) >=100 :
+                dispatcher.utter_message(text="Inserisci il nuovo valore per il campo {valore} (per indicare il numero usa le cifre)".format(valore="numero delle lezioni" if metadato=="numero_lezioni" else "età"))
                 return {"cambio_metadato": None}
             else:    
                 return {f"{metadato}": int(numero[0])}
         elif metadato== "lingua":
             lingue= ["italiano", "inglese", "francese", "tedesco", "cinese", "spagnolo", "giapponese","russo", "portoghese","arabo"]
             spell = Speller('it')
-            lingua=spell(slot_value.lower())
-            if lingua in lingue:
-                return {"lingua": lingua}
+            frase_corretta=spell(slot_value)
+            for i in lingue:
+                if i in frase_corretta:
+                    return {"lingua": i.lower()}
             else:
                 dispatcher.utter_message(text=f"Inserisci il nuovo valore per il campo lingua")
                 return {"cambio_metadato": None}
@@ -539,7 +534,11 @@ class ValidatePropostaLinkForm(FormValidationAction):
         if type(lista_formati) == list:
             for i in lista_formati:
                 new_list.append(i)
-                new_list.append(f"aggiunta_{i}")  
+                new_list.append(f"aggiunta_{i}") 
+            for formato in lista_formati:
+                if proposed_link_size[f"{formato}"] == 0:
+                    new_list.remove(f"{formato}")
+                    new_list.remove(f"aggiunta_{formato}")
             return   domain_slots + new_list
         else:
             return  domain_slots
@@ -551,27 +550,26 @@ class ValidatePropostaLinkForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict
     ) -> Dict[Text, Any]:
-     
+        global lista_formati_generale
         if not has_numbers(slot_value) or slot_value==" ":
             formati_list=["videolezioni","esercizi","quiz","documenti"]
-            msg,num= create_responses("formati",tracker, dispatcher)
+            lista_formati_generale= formati_list
+            msg= create_responses("formati",tracker, dispatcher)
             dispatcher.utter_message(text=msg)
-            proposed_link_size[f"{formati_list[0]}"]= num
             return {"formati":formati_list}
         else:
             formati_num = re.findall('[0-9]+', slot_value)
+            formati_num=list(dict.fromkeys(formati_num))
             mapping =  {1: 'videolezioni', 2: 'esercizi', 3: 'quiz', 4: 'documenti'}
             formati_list= []
             formati_num= list(map(int, formati_num))
-            print(formati_num)
             if not(all(i>0 and i<=4 for i in formati_num)) or has_duplicates(formati_num):
                     return {"formati":None}
             for i in formati_num:
                 formati_list.append(mapping.get(i))
-            msg,num= create_responses("formati",tracker, dispatcher)
+            lista_formati_generale=formati_list
+            msg= create_responses("formati",tracker, dispatcher)
             dispatcher.utter_message(text=msg)
-            proposed_link_size[f"{formati_list[0]}"]= num
-            print(proposed_link_size)
             return {"formati": formati_list}
         
 
@@ -600,7 +598,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
                     buttons= [{"title":"si","payload":"si"},
                         {"title":"no","payload":"no"}
                 ])
-            return {"videolezioni": videolezioni_num}
+            return {"videolezioni": list(dict.fromkeys(videolezioni_num))}
     
     def validate_aggiunta_videolezioni(
         self,
@@ -611,15 +609,6 @@ class ValidatePropostaLinkForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         global controller_videolezioni
         formati= tracker.slots.get("formati")
-        previous_slot=tracker.slots.get("aggiunta_videolezioni")
-        print(previous_slot)
-        next_slot = None
-        for i in range(len(formati)):
-            if formati[i]=="videolezioni" and i < len(formati)-1:
-                next_slot= formati[i+1]
-            elif formati[i]=="videolezioni" and i == len(formati)-1:
-                next_slot = None
-        print(slot_value)
         videolezioni=tracker.slots.get("videolezioni")
         altre_vid_num = re.findall('[0-9]+', slot_value)
         altre_vid_num= list(map(int, altre_vid_num))
@@ -631,9 +620,8 @@ class ValidatePropostaLinkForm(FormValidationAction):
         elif slot_value == "no":
             controller_videolezioni=False
             if formati[len(formati)-1] != "videolezioni":
-                msg,num = create_responses("videolezioni",tracker,dispatcher)
+                msg= create_responses("videolezioni",tracker,dispatcher)
                 dispatcher.utter_message(text=msg)
-                proposed_link_size[f"{next_slot}"]=num
             return {"aggiunta_videolezioni": False}
         else:
             if (not has_numbers(slot_value) or not(all(i<proposed_link_size["videolezioni"] for i in altre_vid_num))) and controller_videolezioni==False:
@@ -676,7 +664,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
                 buttons= [{"title":"si","payload":"si"},
                         {"title":"no","payload":"no"}
                 ])
-            return {"esercizi": esercizi_num}
+            return {"esercizi": list(dict.fromkeys(esercizi_num))}
     
     def validate_aggiunta_esercizi(
         self,
@@ -687,13 +675,6 @@ class ValidatePropostaLinkForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         global controller_esercizi
         formati= tracker.slots.get("formati")
-        next_slot = None
-        for i in range(len(formati)):
-            if formati[i]=="esercizi" and i < len(formati)-1:
-                next_slot= formati[i+1]
-            elif formati[i]=="esercizi" and i == len(formati)-1:
-                next_slot = None
-        print(slot_value)
         esercizi=tracker.slots.get("esercizi")
         altri_es_num = re.findall('[0-9]+', slot_value)
         altri_es_num= list(map(int, altri_es_num))
@@ -705,9 +686,8 @@ class ValidatePropostaLinkForm(FormValidationAction):
         elif slot_value == "no":
             controller_esercizi=False
             if formati[len(formati)-1] != "esercizi":
-                msg,num= create_responses("esercizi",tracker,dispatcher)
+                msg= create_responses("esercizi",tracker,dispatcher)
                 dispatcher.utter_message(text=msg)
-                proposed_link_size[f"{next_slot}"]=num
             return {"aggiunta_esercizi": False}
 
         else:
@@ -749,7 +729,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
                 buttons= [{"title":"si","payload":"si"},
                         {"title":"no","payload":"no"}
                 ])
-            return {"quiz": quiz_num}
+            return {"quiz": list(dict.fromkeys(quiz_num))}
     
     
     
@@ -762,13 +742,6 @@ class ValidatePropostaLinkForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         global controller_quiz
         formati= tracker.slots.get("formati")
-        next_slot = None
-        for i in range(len(formati)):
-            if formati[i]=="quiz" and i < len(formati)-1:
-                next_slot= formati[i+1]
-            elif formati[i]=="quiz" and i == len(formati)-1:
-                next_slot = None
-        print(slot_value)
         quiz=tracker.slots.get("quiz")
         altri_quiz_num = re.findall('[0-9]+', slot_value)
         altri_quiz_num= list(map(int, altri_quiz_num))
@@ -776,13 +749,11 @@ class ValidatePropostaLinkForm(FormValidationAction):
             controller_quiz=False
             dispatcher.utter_message(text="indica altri quiz")
             return {"aggiunta_quiz": None}
-
         elif slot_value == "no":
             controller_quiz=False
             if formati[len(formati)-1] != "quiz":
-                msg,num=create_responses("quiz",tracker , dispatcher)
+                msg=create_responses("quiz",tracker , dispatcher)
                 dispatcher.utter_message(text=msg)
-                proposed_link_size[f"{next_slot}"]=num
             return {"aggiunta_quiz": False}
 
         else:
@@ -822,7 +793,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
                 buttons= [{"title":"si","payload":"si"},
                         {"title":"no","payload":"no"}
                     ])
-            return {"documenti": mat_num}
+            return {"documenti": list(dict.fromkeys(mat_num))}
     
     def validate_aggiunta_documenti(
         self,
@@ -833,13 +804,6 @@ class ValidatePropostaLinkForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         global controller_documenti
         formati= tracker.slots.get("formati")
-        next_slot = None
-        for i in range(len(formati)):
-            if formati[i]=="documenti" and i < len(formati)-1:
-                next_slot= formati[i+1]
-            elif formati[i]=="documente" and i == len(formati)-1:
-                next_slot = None
-        print(slot_value)
         documenti=tracker.slots.get("documenti")
         altri_doc_num = re.findall('[0-9]+', slot_value)
         altri_doc_num= list(map(int, altri_doc_num))
@@ -851,9 +815,8 @@ class ValidatePropostaLinkForm(FormValidationAction):
         elif slot_value == "no":
             controller_documenti=False
             if formati[len(formati)-1] != "documenti":
-                msg,num=create_responses("quiz",tracker , dispatcher)
+                msg=create_responses("documenti",tracker , dispatcher)
                 dispatcher.utter_message(text=msg)
-                proposed_link_size[f"{next_slot}"]=num
             return {"aggiunta_documenti": False}
 
         else:
@@ -880,42 +843,30 @@ def create_responses (slot, tracker: Tracker, dispatcher: CollectingDispatcher):
     formati= tracker.slots.get("formati")
     request = tracker.get_slot("recommend_query")
     if slot=="formati":
-        
+        next_slot= lista_formati_generale[0]
         #RECOMMENDER LOGIC
-        if not has_numbers(formati) or formati==" ":
-            formati=['1','2','3','4']
-        needs_removing = tracker.get_slot(f"aggiunta_{mapping.get(int(formati[0]))}")
-        request["type"] = mapping.get(int(formati[0]))
-        request["remove"] = needs_removing
-        request["public"] = ""
-        print(request)
-        response = requests.post('http://127.0.0.1:8080/recommend', json = request)
-        parsed = json.loads(response.content)
-        dispatcher.utter_message(f"Ora ti indicherò dei link a siti contenenti {mapping.get(int(formati[0]))}.")
-        text_to_save = ""
-        for i in range(len(parsed)):
-            text_to_save += f'Titolo: {parsed[i][0]} \nLink {parsed[i][1]} \n'
-            message = f'-{i}) Titolo: {parsed[i][0]},\nLink: {parsed[i][1]}'
-            dispatcher.utter_message(text=message, image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx1qo4tI97ysuUutaDvHlmYzABdgLYQejIwybA83k&s")
-            LODict[mapping.get(int(formati[0]))][i] = [parsed[i][0], parsed[i][1]]
-        SlotSet(f"{mapping.get(int(formati[0]))}", text_to_save)
-        return (f"Indica il numero di quelli che desideri. " ,len(parsed))
     else:
-        for i in range(len(formati)):
-            if formati[i]==slot and i < len(formati)-1:
-                next_slot= formati[i+1]
-            elif formati[i]==slot and i == len(formati)-1:
+        for i in range(len(lista_formati_generale)):
+            if lista_formati_generale[i]==slot and i < len(lista_formati_generale)-1:
+                next_slot= lista_formati_generale[i+1]
+            elif lista_formati_generale[i]==slot and i == len(lista_formati_generale)-1:
                 next_slot = None
             
 
         #RECOMMENDER LOGIC
 
-        needs_removing = tracker.get_slot(f"aggiunta_{next_slot}")
-        request["type"] = next_slot
-        request["remove"] = needs_removing
-        request["public"] = ""
-        response = requests.post('http://127.0.0.1:8080/recommend', json = request)
-        parsed = json.loads(response.content)
+    needs_removing = tracker.get_slot(f"aggiunta_{next_slot}")
+    request["type"] = next_slot
+    request["remove"] = needs_removing
+    request["public"] = ""
+    response = requests.post('http://127.0.0.1:8080/recommend', json = request)
+    parsed = json.loads(response.content)
+    proposed_link_size[f"{next_slot}"]=len(parsed)
+    if len(parsed)==0:
+        dispatcher.utter_message(text=f"Non ci sono link di {next_slot} che soddisfino le tue necessità.")
+        if next_slot!=lista_formati_generale[len(lista_formati_generale)-1]:
+            return create_responses(f"{next_slot}",tracker,dispatcher)
+    else:
         dispatcher.utter_message(f"Ora ti indicherò dei link a siti contenenti {next_slot}.")
         text_to_save = ""
         for i in range(len(parsed)):
@@ -924,7 +875,7 @@ def create_responses (slot, tracker: Tracker, dispatcher: CollectingDispatcher):
             dispatcher.utter_message(text=message, image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx1qo4tI97ysuUutaDvHlmYzABdgLYQejIwybA83k&s")
             LODict[next_slot][i] = [parsed[i][0], parsed[i][1]]
         SlotSet(f"{next_slot}", text_to_save)
-        return (f"Indica il numero di quelli che desideri.", len(parsed))
+        return (f"Indica il numero di quelli che desideri.")
 
 
 class ActionParseAll(Action):
@@ -1030,33 +981,112 @@ class ActionUserSelection(Action):
         if tracker.get_slot("esercizi") != None : esercizislot = list(tracker.get_slot("esercizi"))
         if tracker.get_slot("documenti") != None : documentislot = list(tracker.get_slot("documenti"))
         if tracker.get_slot("quiz") != None : quizslot = list(tracker.get_slot("quiz"))
-        string = "I link che hai scelto sono: \n"
+        dispatcher.utter_message(text="I link che hai scelto sono:")
         # for every value in every slot search in the dict concat to a message and utter
-        if videolezionislot != None :
-            string += "Videolezioni:\n"
-            for i in videolezionislot:
-                i = str(i).split()
-                i = int(i[0])
-                string += f'Titolo: {LODict["videolezioni"][i][0]}\n Link: {LODict["videolezioni"][i][1]}'
-        if esercizislot != None :
-            string += "Esercizi: \n"
-            for i in esercizislot:
-                i = str(i).split()
-                i = int(i[0])
-                string += f'Titolo: {LODict["esercizi"][i][0]}\n Link: {LODict["esercizi"][i][1]}'
-        if quizslot != None :
-            string += "Quiz: \n"
-            for i in quizslot:
-                i = str(i).split()
-                i = int(i[0])
-                string += f'Titolo: {LODict["quiz"][i][0]}\n Link: {LODict["quiz"][i][1]}'
-        if documentislot != None :
-            string += "Documenti: \n"
-            for i in documentislot:
-                i = str(i).split()
-                i = int(i[0])                
-                string += f'Titolo: {LODict["documenti"][i][0]}\n Link: {LODict["documenti"][i][1]}'
-        dispatcher.utter_message(string)
+        if "videolezioni" in lista_formati_generale :
+            if videolezionislot==None:
+                string_vid="Non ci sono link di videolezioni proposti."
+            else:
+                string_vid = "Videolezioni:\n"
+                for i in videolezionislot:
+                    i = str(i).split()
+                    i = int(i[0])
+                    string_vid += f'\nTitolo: {LODict["videolezioni"][i][0]}\n Link: {LODict["videolezioni"][i][1]}'
+        else:
+            string_vid=None
+        if  "esercizi" in lista_formati_generale :
+            if esercizislot==None:
+                string_es="Non ci sono link di esercizi proposti."
+            else:
+                string_es = "Esercizi:\n"
+                for i in esercizislot:
+                    i = str(i).split()
+                    i = int(i[0])
+                    string_es += f'\nTitolo: {LODict["esercizi"][i][0]}\n Link: {LODict["esercizi"][i][1]}'
+        else:
+            string_es=None
+        if  "quiz" in lista_formati_generale :
+            if quizslot==None:
+                string_quiz="Non ci sono link di quiz proposti."
+            else:
+                string_quiz = "Quiz:\n"
+                for i in quizslot:
+                    i = str(i).split()
+                    i = int(i[0])
+                    string_quiz += f'\nTitolo: {LODict["quiz"][i][0]}\n Link: {LODict["quiz"][i][1]}'
+        else:
+            string_quiz=None
+        if  "documenti" in lista_formati_generale :
+            if documentislot==None:
+                string_doc="Non ci sono link di documenti proposti."
+            else:
+                string_doc = "Documenti:\n"
+                for i in documentislot:
+                    i = str(i).split()
+                    i = int(i[0])                
+                    string_doc += f'\nTitolo: {LODict["documenti"][i][0]}\n Link: {LODict["documenti"][i][1]}'
+        else:
+            string_doc=None
+        textDict={"videolezioni":string_vid,"esercizi":string_es,"quiz":string_quiz,"documenti":string_doc}
+        for i in lista_formati_generale:
+            dispatcher.utter_message(text=textDict[f"{i}"])
         return[]
 
+class ActionSummary(Action):
+    def name(self) -> Text:
+        return "action_summary"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text,Any])-> List[Dict[Text,Any]]:
+        nome_corso= tracker.get_slot("nome_corso")
+        lingua= tracker.get_slot("lingua")
+        età= tracker.get_slot("età")
+        numero_lezioni= tracker.get_slot("numero_lezioni")
+        durata_lezioni= tracker.get_slot("durata_lezioni")
+        argomenti= tracker.get_slot("argomenti")
+        abilità= tracker.get_slot("abilità")
+        competenze= tracker.get_slot("competenze")
 
+        testo= "Le informazioni sul corso sono:\n"
+        testo+= f"- nome del corso: {nome_corso}\n"
+        testo+= f"- lingua: {lingua}\n"
+        testo+= "- età: {valore}\n".format(valore="non indicata" if età==None else età)
+        testo+= "- numero delle lezioni: {valore}\n".format(valore="non indicato" if numero_lezioni==None else numero_lezioni)
+        testo+= "- durata delle lezioni: {valore}\n".format(valore="non indicata" if durata_lezioni==None else durata_lezioni)
+        testo+= "- argomenti: {valore}\n".format(valore="non indicati" if argomenti==None else argomenti)
+        testo+= "- abilità: {valore}\n".format(valore="non indicate" if abilità==None else abilità)
+        testo+= "- competenze: {valore}\n".format(valore="non indicate" if competenze==None else competenze)
+
+        dispatcher.utter_message(text=testo)
+        
+        return []
+
+class ActionSummaryPostModifica(Action):
+    def name(self) -> Text:
+        return "action_summary_post_modifica"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text,Any])-> List[Dict[Text,Any]]:
+        nome_corso= tracker.get_slot("nome_corso")
+        lingua= tracker.get_slot("lingua")
+        età= tracker.get_slot("età")
+        numero_lezioni= tracker.get_slot("numero_lezioni")
+        durata_lezioni= tracker.get_slot("durata_lezioni")
+        argomenti= tracker.get_slot("argomenti")
+        abilità= tracker.get_slot("abilità")
+        competenze= tracker.get_slot("competenze")
+        vuole_modifica= tracker.get_slot("vuole_modifica")
+        if vuole_modifica:
+            testo= "Le informazioni sul corso dopo la modifica sono:\n"
+            testo+= f"- nome del corso: {nome_corso}\n"
+            testo+= f"- lingua: {lingua}\n"
+            testo+= "- età: {valore}\n".format(valore="non indicata" if età==None else età)
+            testo+= "- numero delle lezioni: {valore}\n".format(valore="non indicato" if numero_lezioni==None else numero_lezioni)
+            testo+= "- durata delle lezioni: {valore}\n".format(valore="non indicata" if durata_lezioni==None else durata_lezioni)
+            testo+= "- argomenti: {valore}\n".format(valore="non indicati" if argomenti==None else argomenti)
+            testo+= "- abilità: {valore}\n".format(valore="non indicate" if abilità==None else abilità)
+            testo+= "- competenze: {valore}\n".format(valore="non indicate" if competenze==None else competenze)
+
+            dispatcher.utter_message(text=testo)
+        else:
+            dispatcher.utter_message(text="Non è stata richiesta alcuna modifica dei campi.")
+        
+        return []

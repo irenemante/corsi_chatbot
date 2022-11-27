@@ -459,7 +459,7 @@ responses:
 
   utter_spiegazione:
   - text: "Certo! Per creare il corso che soddisfi le tue necessità, dovrai rispondere alle domande che ti farò. 
-          Gli unici campi obbligatori sono il nome del corso  e la lingua; invece, gli altri sono facoltativi.
+          Gli unici campi obbligatori sono il nome del corso  e la lingua; invece, gli altri sono facoltativi. 
           Infatti, se ad un certo punto non vorrai più rispondere alle domande, potrai scrivere stop o basta e così inizierò a proporti i link usando le informazioni che mi avrai dato fino a quel punto. 
           Sarebbe meglio, però, che tu mi dia tutte le informazioni richieste così che riuscirò ad essere più preciso nella proposta dei link. 
           Inoltre, più dettagliato sarai nelle risposte, più i materiali che ti indicherò saranno affini alle tue esigenze. "
@@ -469,12 +469,12 @@ responses:
  
 
   utter_ask_età:
-  - text: "Qual è l'età degli studenti a cui è destinato il corso?"
-  - text: "Che età hanno gli studenti a cui è destinato il corso ?"
+  - text: "Qual è l'età degli studenti a cui è destinato il corso? Indica il numero usando le cifre."
+  - text: "Che età hanno gli studenti a cui è destinato il corso ? Indica il numero usando le cifre."
 
   utter_ask_numero_lezioni:
-  - text: "Quante lezioni vuoi inserire nel corso?"
-  - text: "Qual è il numero delle lezioni di cui è composto il corso?"
+  - text: "Quante lezioni vuoi inserire nel corso? Indica il numero usando le cifre."
+  - text: "Qual è il numero delle lezioni di cui è composto il corso? Indica il numero usando le cifre."
 
   utter_ask_durata_lezioni:
   - text: Seleziona la durata media delle lezioni che desideri.
@@ -553,7 +553,8 @@ responses:
       - 2: esercizi\n
       - 3: quiz\n
       - 4: documenti\n
-      \nSe vuoi soltanto una lista di link indipendentemente dal loro formato , non inserire nulla o inserisci qualsiasi cosa che non sia un numero."
+      \nSe vuoi soltanto una lista di link indipendentemente dal loro formato , non inserire nulla o inserisci qualsiasi cosa che non sia un numero.
+      \n\n Per indicare i formati di materiale desiderati e i link scelti scrivi i numeri in cifre."
   
   utter_ask_vuole_modifica:
   - text: "Vuoi cambiare qualche campo?"
@@ -623,6 +624,8 @@ actions:
   - action_parse_all
   - validate_modifica_metadati_form
   - action_user_selection
+  - action_summary
+  - action_summary_post_modifica
 
   
 
