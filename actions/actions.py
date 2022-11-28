@@ -126,8 +126,11 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         domain: DomainDict,
     ) -> Dict[Text, Any]:
         
-        
-        return {"nome_corso": slot_value}
+        regex = re.compile('[@_#$%^&*<>\|}{~]')
+        if(re.search(regex,slot_value) != None):
+            return {"nome_corso": None}
+        else:
+            return {"nome_corso": slot_value}
        
 
         
