@@ -189,23 +189,23 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
             dispatcher.utter_message(text="Indica gli argomenti del corso, separati dalla virgola.")
             return {"durata_lezioni": slot_value}
 
-    """def validate_disciplina(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict
-    ) -> Dict[Text, Any]:
+    # def validate_disciplina(
+    #     self,
+    #     slot_value: Any,
+    #     dispatcher: CollectingDispatcher,
+    #     tracker: Tracker,
+    #     domain: DomainDict
+    # ) -> Dict[Text, Any]:
         
-        if tracker.get_intent_of_latest_message() == "stop_form":
-            return {"requested_slot": None,"disciplina":None}
-        else:
-            regex = re.compile('[@_#$%^&*<>\|}{~]')
-            if(re.search(regex,slot_value) != None):
-                return {"disciplina": None}
-            else:
-                return {"disciplina": slot_value}"""
-    
+    #     if tracker.get_intent_of_latest_message() == "stop_form":
+    #         return {"requested_slot": None,"disciplina":None}
+    #     else:
+    #         regex = re.compile('[@_#$%^&*<>\|}{~]')
+    #         if(re.search(regex,slot_value) != None):
+    #             return {"disciplina": None}
+    #         else:
+    #             return {"disciplina": slot_value}
+
     def validate_lingua(
         self,
         slot_value: Any,

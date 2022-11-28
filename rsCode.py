@@ -99,25 +99,19 @@ async def recommend_handler(request):
         print(dfquery)
         filtered_df2 = filtered_df.query(dfquery)
 
-
-
-        
-
-
         #Calculate mean score between cosine similarities
         dataset['SCORE'] =  new_df[['cos_sim_keyw', 'cos_sim_dur']].mean(axis=1)
 
         print(filtered_df2.head())
 
-
         #Create a dataframe that has all relevant information for user and debugging purpose, take only the lables that were filtered before from the global dataset
-        printable_df = dataset[['Titolo', 'Link', 'Lingua', 'Tipo', 'SCORE']].loc[dataset.index.intersection(filtered_df2.index)]
+        printable_df = dataset[['Titolo', 'Link', 'Lingua', 'Tipo', 'SCORE', 'Età']].loc[dataset.index.intersection(filtered_df2.index)]
 
         printable_df= printable_df.sort_values(by=['SCORE'], ascending=False)
 
         global result
-        result = printable_df[['Titolo', 'Link', 'SCORE', 'Tipo']].head(5)
-        print(result.head())
+        result = printable_df[['Titolo', 'Link', 'SCORE', 'Tipo', 'Età']].head(5)
+        print(result.head(25))
         result = result.to_json(orient='values')
         parsed = json.loads(result)
     return sjson(parsed)
@@ -145,7 +139,7 @@ def agerangefit(agequery):
             rangelist.append(range(15, 99))
     
     #Iterate over the ranges and see in which the userquery falls, save the indexes and return them to the caller
-    if agequery == "":
+    if agequery == None:
         for i in range(9):
             indexes.append(i)
         print(indexes)
