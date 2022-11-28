@@ -145,7 +145,7 @@ def agerangefit(agequery):
             rangelist.append(range(15, 99))
     
     #Iterate over the ranges and see in which the userquery falls, save the indexes and return them to the caller
-    if agequery == "":
+    if agequery==None:
         for i in range(9):
             indexes.append(i)
         print(indexes)
