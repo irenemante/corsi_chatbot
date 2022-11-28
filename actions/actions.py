@@ -200,7 +200,7 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         lingue= ["italiano", "inglese", "francese", "tedesco", "cinese", "spagnolo", "giapponese","russo", "portoghese","arabo"]
         spell = Speller('it')
-        frase_corretta=spell(slot_value)
+        frase_corretta=spell(slot_value).lower()
         for i in lingue:
             if i in frase_corretta:
                 return {"lingua": i.lower()}
@@ -479,7 +479,7 @@ class ValidateModificaMetadati(FormValidationAction):
         elif metadato== "lingua":
             lingue= ["italiano", "inglese", "francese", "tedesco", "cinese", "spagnolo", "giapponese","russo", "portoghese","arabo"]
             spell = Speller('it')
-            frase_corretta=spell(slot_value)
+            frase_corretta=spell(slot_value).lower()
             for i in lingue:
                 if i in frase_corretta:
                     return {"lingua": i.lower()}
