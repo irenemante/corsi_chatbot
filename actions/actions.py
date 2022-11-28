@@ -200,7 +200,7 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         lingue= ["italiano", "inglese", "francese", "tedesco", "cinese", "spagnolo", "giapponese","russo", "portoghese","arabo"]
         spell = Speller('it')
-        frase_corretta=spell(slot_value)
+        frase_corretta=spell(slot_value).lower()
         for i in lingue:
             if i in frase_corretta:
                 return {"lingua": i.lower()}
@@ -479,7 +479,7 @@ class ValidateModificaMetadati(FormValidationAction):
         elif metadato== "lingua":
             lingue= ["italiano", "inglese", "francese", "tedesco", "cinese", "spagnolo", "giapponese","russo", "portoghese","arabo"]
             spell = Speller('it')
-            frase_corretta=spell(slot_value)
+            frase_corretta=spell(slot_value).lower()
             for i in lingue:
                 if i in frase_corretta:
                     return {"lingua": i.lower()}
@@ -590,7 +590,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
         else:
             videolezioni_num = re.findall('[0-9]+', slot_value)
             videolezioni_num= list(map(int, videolezioni_num))
-            if not(all(i<proposed_link_size["videolezioni"] for i in videolezioni_num)):
+            if not(all(i>0 and i<=proposed_link_size["videolezioni"] for i in videolezioni_num)):
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"videolezioni":None}
             dispatcher.utter_message(
@@ -624,7 +624,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
                 dispatcher.utter_message(text=msg)
             return {"aggiunta_videolezioni": False}
         else:
-            if (not has_numbers(slot_value) or not(all(i<proposed_link_size["videolezioni"] for i in altre_vid_num))) and controller_videolezioni==False:
+            if (not has_numbers(slot_value) or not( all(i>0 and i<=proposed_link_size["videolezioni"] for i in altre_vid_num))) and controller_videolezioni==False:
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"aggiunta_videolezioni":None}
             else:
@@ -656,7 +656,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
         else:
             esercizi_num = re.findall('[0-9]+', slot_value)
             esercizi_num= list(map(int, esercizi_num))
-            if not(all(i<proposed_link_size["esercizi"] for i in esercizi_num)):
+            if not(all(i>0 and i<=proposed_link_size["esercizi"] for i in esercizi_num)):
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"esercizi":None}
             dispatcher.utter_message(
@@ -691,7 +691,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
             return {"aggiunta_esercizi": False}
 
         else:
-            if (not has_numbers(slot_value) or not(all(i<proposed_link_size["esercizi"] for i in altri_es_num))) and controller_esercizi==False:
+            if (not has_numbers(slot_value) or not( all(i>0 and i<=proposed_link_size["esercizi"] for i in altri_es_num))) and controller_esercizi==False:
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"aggiunta_esercizi":None}
             else:
@@ -721,7 +721,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
         else:
             quiz_num = re.findall('[0-9]+', slot_value)
             quiz_num= list(map(int, quiz_num))
-            if not(all(i<proposed_link_size["quiz"] for i in quiz_num)):
+            if not(all(i>0 and i<=proposed_link_size["quiz"] for i in quiz_num)):
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"quiz":None}
             dispatcher.utter_message(
@@ -757,7 +757,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
             return {"aggiunta_quiz": False}
 
         else:
-            if (not has_numbers(slot_value) or not(all(i<proposed_link_size["quiz"] for i in altri_quiz_num))) and controller_quiz==False:
+            if (not has_numbers(slot_value) or not(all(i>0 and i<=proposed_link_size["quiz"] for i in altri_quiz_num))) and controller_quiz==False:
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"aggiunta_quiz":None}
             else:
@@ -785,7 +785,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
         else:
             mat_num = re.findall('[0-9]+', slot_value)
             mat_num= list(map(int, mat_num))
-            if not(all(i<proposed_link_size["documenti"] for i in mat_num)):
+            if not(all(i>0 and i<=proposed_link_size["documenti"] for i in mat_num)):
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"documenti":None}
             dispatcher.utter_message(
@@ -820,7 +820,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
             return {"aggiunta_documenti": False}
 
         else:
-            if (not has_numbers(slot_value) or not(all(i<proposed_link_size["documenti"] for i in altri_doc_num))) and controller_documenti==False:
+            if (not has_numbers(slot_value) or not(all( i>0 and i<=proposed_link_size["documenti"] for i in altri_doc_num))) and controller_documenti==False:
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"aggiunta_documenti":None}
             else:
@@ -871,7 +871,7 @@ def create_responses (slot, tracker: Tracker, dispatcher: CollectingDispatcher):
         text_to_save = ""
         for i in range(len(parsed)):
             text_to_save += f'Titolo: {parsed[i][0]} \nLink {parsed[i][1]} \n'
-            message = f'-{i}) Titolo: {parsed[i][0]},\nLink: {parsed[i][1]}'
+            message = f'-{i+1}) Titolo: {parsed[i][0]},\nLink: {parsed[i][1]}'
             dispatcher.utter_message(text=message, image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx1qo4tI97ysuUutaDvHlmYzABdgLYQejIwybA83k&s")
             LODict[next_slot][i] = [parsed[i][0], parsed[i][1]]
         SlotSet(f"{next_slot}", text_to_save)
@@ -991,7 +991,7 @@ class ActionUserSelection(Action):
                 for i in videolezionislot:
                     i = str(i).split()
                     i = int(i[0])
-                    string_vid += f'\nTitolo: {LODict["videolezioni"][i][0]}\n Link: {LODict["videolezioni"][i][1]}'
+                    string_vid += f'\nTitolo: {LODict["videolezioni"][i-1][0]}\n Link: {LODict["videolezioni"][i-1][1]}'
         else:
             string_vid=None
         if  "esercizi" in lista_formati_generale :
@@ -1002,7 +1002,7 @@ class ActionUserSelection(Action):
                 for i in esercizislot:
                     i = str(i).split()
                     i = int(i[0])
-                    string_es += f'\nTitolo: {LODict["esercizi"][i][0]}\n Link: {LODict["esercizi"][i][1]}'
+                    string_es += f'\nTitolo: {LODict["esercizi"][i-1][0]}\n Link: {LODict["esercizi"][i-1][1]}'
         else:
             string_es=None
         if  "quiz" in lista_formati_generale :
@@ -1013,7 +1013,7 @@ class ActionUserSelection(Action):
                 for i in quizslot:
                     i = str(i).split()
                     i = int(i[0])
-                    string_quiz += f'\nTitolo: {LODict["quiz"][i][0]}\n Link: {LODict["quiz"][i][1]}'
+                    string_quiz += f'\nTitolo: {LODict["quiz"][i-1][0]}\n Link: {LODict["quiz"][i-1][1]}'
         else:
             string_quiz=None
         if  "documenti" in lista_formati_generale :
@@ -1024,7 +1024,7 @@ class ActionUserSelection(Action):
                 for i in documentislot:
                     i = str(i).split()
                     i = int(i[0])                
-                    string_doc += f'\nTitolo: {LODict["documenti"][i][0]}\n Link: {LODict["documenti"][i][1]}'
+                    string_doc += f'\nTitolo: {LODict["documenti"][i-1][0]}\n Link: {LODict["documenti"][i-1][1]}'
         else:
             string_doc=None
         textDict={"videolezioni":string_vid,"esercizi":string_es,"quiz":string_quiz,"documenti":string_doc}
