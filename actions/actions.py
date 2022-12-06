@@ -150,7 +150,7 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
             return {"requested_slot": None,"età": None}
         else:
             età_number = re.findall('[0-9]+', slot_value)
-            if int(età_number[0])<1 or int(età_number[0]) >=100 :
+            if int(età_number[0])<1 or int(età_number[0]) >50 :
                 return {"età": None}
             else:    
                 return {"età": int(età_number[0])}
@@ -474,7 +474,8 @@ class ValidateModificaMetadati(FormValidationAction):
                 return {f"{metadato}": lista_elementi}
         elif metadato=="età" or metadato=="numero_lezioni":
             numero = re.findall('[0-9]+', slot_value)
-            if len(numero)==0 or int(numero[0]) <1 or  int(numero[0]) >=100 :
+            limite= 50 if metadato=="età" else 100
+            if len(numero)==0 or int(numero[0]) <1 or  int(numero[0]) >limite :
                 dispatcher.utter_message(text="Inserisci il nuovo valore per il campo {valore} (per indicare il numero usa le cifre)".format(valore="numero delle lezioni" if metadato=="numero_lezioni" else "età"))
                 return {"cambio_metadato": None}
             else:    
