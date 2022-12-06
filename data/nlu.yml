@@ -40,100 +40,433 @@ nlu:
 
 - intent: inform_nome_corso
   examples: |
-    - [Coding](nome_corso)
-    - [Cicli for e while](nome_corso)
-    - [Cicli for](nome_corso)
-    - [Cicli annidati](nome_corso)
-    - [Cicli while](nome_corso)
-    - [Sequenze](nome_corso)
-    - [Funzioni](nome_corso)
-    - [I condizionali](nome_corso)
-    - [If...else](nome_corso)
-    - [Introduzone ai cicli](nome_corso)
-    - [Introduzione al coding](nome_corso)
-    - Il nome del corso sarà [Introduzione al coding](nome_corso)
-    - Il nome del corso sarà [Introduzione al coding](nome_corso)
-    - [Uso delle sequenze](nome_corso)
-    - [Funzioni e coding](nome_corso)
-    - [Coding - livello base](nome_corso)
-    - [Coding - livello medio](nome_corso)
-    - [Coding - livello avanzato](nome_corso)
-    - [Introduzione alla programmazione](nome_corso)
+    - Coding
+    - Basi di coding
+    - Cicli for e while
+    - Cicli for
+    - Cicli annidati
+    - Cicli while
+    - Sequenze
+    - Funzioni
+    - I condizionali
+    - If...else
+    - Introduzone ai cicli
+    - Introduzione al coding
+    - Uso delle sequenze
+    - Funzioni e coding
+    - Coding - livello base
+    - Coding - livello medio
+    - Coding - livello avanzato
+    - Introduzione alla programmazione
+    - Corso base di coding
+    - Corso intermedio di coding
+    - Corso avanzato di coding
 
-
-- intent: inform
+- intent: inform_lingua
   examples: |
-   - [6](età) anni
-   - [7](età) anni
-   - [8](età) anni
-   - [9](età) anni
-   - [6](età) 
-   - [7](età) 
-   - [8](età) 
-   - [9](età)
-   - [10](età) 
-   - [11](età) 
-   - [12](età) 
-   - [9](età)
-   - [10](età) anni
-   - [11](età) anni
-   - [sei](età) anni
-   - [sette](età) anni
-   - [otto](età) anni
-   - [nove](età) anni
-   - [dieci](età) anni
-   - [undici](età) anni
-   - [3](numero_lezioni) lezioni
-   - [4](numero_lezioni) lezioni
-   - [5](numero_lezioni) lezioni
-   - [6](numero_lezioni) lezioni
-   - [8](numero_lezioni) lezioni
-   - [24](numero_lezioni) lezioni
-   - [25](numero_lezioni) lezioni
-   - [30](numero_lezioni) lezioni
-   - [cinque](numero_lezioni) lezioni
-   - [dieci](numero_lezioni) lezioni
-   - [quindici](numero_lezioni) lezioni
-   - [venti](numero_lezioni) lezioni
-   - [venticinque](numero_lezioni) lezioni
-   - [trenta](numero_lezioni) lezioni
-   - [10](numero_lezioni)
-   - [20](numero_lezioni)
-   - [15](numero_lezioni)
-   - [2](numero_lezioni)
-   - [5](numero_lezioni)
-   - [venti](numero_lezioni)
-   - [trenta](numero_lezioni)
-   - [dieci](numero_lezioni)
-   - [italiano](lingua)
-   - [inglese](lingua)
-   - [francese](lingua)
-   - [tedesco](lingua)
-   - [cinese](lingua)
-   - [spagnolo](lingua)
-   - [portogese](lingua)
-   - [giapponese](lingua)
-   - [arabo](lingua)
-   - [ita](lingua)
-   - [en](lingua)
-   - [fra](lingua)
-   - [de](lingua)
-   - [chi](lingua)
-   - [gli argomenti del corso sono](argomenti)
-   - [cicli for cicli whil sequenze](argomenti)
-   - [le abilità richieste del corso sono](abilità)
-   - [saper usare le sequenze sapere le basi del coding](abilità)
-   - [gli competenze finali del corso sono](competenze)
-   - [sapere usare il for sapere usare il while](competenze)
+   - italiano
+   - inglese
+   - francese
+   - tedesco
+   - cinese
+   - spagnolo
+   - portogese
+   - giapponese
+   - arabo
+
+- intent: inform_età
+  examples: |
+   - 6 anni
+   - 7 anni
+   - 8 anni
+   - 9 anni
+   - 6
+   - 7
+   - 8 
+   - 9
+   - 10 
+   - 11
+   - 12 
+   - 9
+   - 10 anni
+   - 11 anni
+
+- intent: inform_numero_lezioni
+  examples: |
+   - 5 lezioni
+   - 10 lezioni
+   - 20 lezioni
+   - 25 lezioni
+   - 30 lezioni
+   - 35 lezioni
+   - 40 lezioni
+   - 45 lezioni
+   - 50 lezioni
+   - 55 lezioni
+   - 60 lezioni
+   - 65 lezioni
+   - 70 lezioni
+   - 5 
+   - 10 
+   - 20 
+   - 25 
+   - 30 
+   - 35 
+   - 40 
+   - 45 
+   - 50 
+   - 55 
+   - 60 
+   - 65 
+   - 70 
+
+- intent: inform_durata_lezioni
+  examples: |
+   - 0-30
+   - 30-60
+   - 60-90
+   - 90 - 120
+   - 120
+
+- intent: inform_argomenti
+  examples: |
+   - cicli for, cicli while , cicli annidati
+   - sequenze, funzioni, cicli
+   - sequenze, cicli
+   - condizionali, cicli
+   - if...else, sequenze
+   - variabili, cicli
+   - variabili
+   - sequenze
+   - cicli
+   - funzioni
+   - condizionali
+
+
+- intent: inform_abilità
+  examples: |
+   - conoscere le basi del coding
+   - conoscere le basi di logica
+   - conoscere le basi di matematica
+   - conoscere i cicli
+   - conoscere le seqenze
+   - consocere le variabili
+   - conoscere le basi del coding, conoscere i cicli, conoscere le seqenze, conoscere le variabili
+   - conoscere le sequenze, conoscere i cicli
+   - consocere il concetto di condizionale
+   - conoscere il concetto di iterazione
+   
+
+
+- intent: inform_competenze
+  examples: |
+   - saper padroneggiare i cicli for
+   - conoscere i cicli while
+   - consocere le sequenze
+   - conoscere i condizionali
+   - conoscere if...else
+   - conoscere le basi del coding, conoscere i cicli, conoscere le sequenze
+   - conoscere le seqenze, conoscere i cicli
+   - saper padroneggiare i cicli e le sequenze
+   - saper utilizzare i condizionali e le variabili
+   - saper utilizzare i condizionali 
+   - saper utilizzare le variabili
+   - saper implementare i cicli
+
+
+- intent: inform_metadato_da_modificare
+  examples: |
+   - nome_corso
+   - lingua
+   - età
+   - numero_lezioni
+   - durata_lezioni
+   - argomenti
+   - abilità
+   - competenze
+
+- intent: inform_cambio_metadato
+  examples: |
+    - Coding
+    - Cicli for e while
+    - Cicli for
+    - Cicli annidati
+    - Cicli while
+    - Sequenze
+    - Funzioni
+    - I condizionali
+    - If...else
+    - Introduzone ai cicli
+    - Introduzione al coding
+    - Uso delle sequenze
+    - Funzioni e coding
+    - Coding - livello base
+    - Coding - livello medio
+    - Coding - livello avanzato
+    - Introduzione alla programmazione
+    - Corso base di coding
+    - Corso intermedio di coding
+    - Corso avanzato di coding
+    - italiano
+    - inglese
+    - 6 anni
+    - 7 anni
+    - 8 anni
+    - 9 anni
+    - 6
+    - 7
+    - 8 
+    - 9
+    - 10 
+    - 11
+    - 12 
+    - 9
+    - 10 anni
+    - 11 anni
+    - 5 lezioni
+    - 10 lezioni
+    - 20 lezioni
+    - 25 lezioni
+    - 30 lezioni
+    - 35 lezioni
+    - 40 lezioni
+    - 45 lezioni
+    - 50 lezioni
+    - 55 lezioni
+    - 60 lezioni
+    - 65 lezioni
+    - 70 lezioni
+    - 20
+    - 30
+    - 40
+    - 50
+    - 0-30
+    - 30-60
+    - 60-90
+    - 90 - 120
+    - 120
+    - cicli for, cicli while , cicli annidati
+    - sequenze, funzioni, cicli
+    - sequenze, cicli
+    - condizionali, cicli
+    - if...else, sequenze
+    - variabili, cicli
+    - variabili
+    - sequenze
+    - cicli
+    - funzioni
+    - condizionali
+    - conoscere le basi del coding
+    - conoscere le basi di logica
+    - conoscere le basi di matematica
+    - conoscere i cicli
+    - conoscere le seqenze
+    - consocere le variabili
+    - consocere il concetto di iterazione
+    - conoscere le basi del coding, conoscere i cicli, conoscere le seqenze, conoscere le variabili
+    - conoscere le sequenze, conoscere i cicli
+    - consocere il concetto di condizionale
+    - saper padroneggiare i cicli for
+    - conoscere i cicli while
+    - consocere le sequenze
+    - conoscere i condizionali
+    - conoscere if...else
+    - conoscere le basi del coding, conoscere i cicli, conoscere le sequenze
+    - conoscere le seqenze, conoscere i cicli
+    - saper padroneggiare i cicli e le sequenze
+    - saper utilizzare i condizionali e le variabili
+    - saper utilizzare i condizionali 
+    - saper utilizzare le variabili
+    - saper implementare i cicli
+   
+   
+   
+
+   
+   
+
+  
+
+
+
+
+
+
 - intent: inform_formati
   examples: |
-   - i formati sono (formati)
-   - [1 2 3 4](formati)
-   - [3 2 1](formati)
-   - [2 3](formati)
-   - [1 2 3](formati)
-   - [4 3 2 1](formati)
-   - [2 3 1](formati)
+   - 1 2 3 4
+   - 3 2 1 4
+   - 2 1 3 4
+   - 4 3 2 1
+   - 1 2 3
+   - 4 1 3
+   - 3 2 1
+   - 1 2
+   - 1 3
+   - 1 4
+   - 2 3
+   - 2 4
+   - 3 1
+   - 3 4
+   - 3 2
+   - 4 2
+   - 4 1
+   - 4 3
+   - 1
+   - 2
+   - 3 
+   - 4
+   - 
+  
+- intent: inform_videolezioni
+  examples: |
+   - 1 2 3 4 5
+   - 5 3 2 1 4
+   - 2 1 3 4 5
+   - 4 5 3 2 1
+   - 1 2 3 5
+   - 2 1 4 5
+   - 3 2 1
+   - 1 2 5
+   - 1 3 4
+   - 1 4 2
+   - 2 3 1
+   - 2 4 5
+   - 3 1 4
+   - 3 4 1
+   - 3 2 5
+   - 1
+   - 2
+   - 3 
+   - 4
+   - 5
+   - 1 5
+   - 1 3 
+   - 1 2 
+   - 3 1
+   - 4 2
+   - 5 3
+   - 4 2
+   - 4 5 
+   - 3 4
+   - 2 1
+
+- intent: inform_esercizi
+  examples: |
+   - 1 2 3 4 5
+   - 5 3 2 1 4
+   - 2 1 3 4 5
+   - 4 5 3 2 1
+   - 1 2 3 5
+   - 2 1 4 5
+   - 3 2 1
+   - 1 2 5
+   - 1 3 4
+   - 1 4 2
+   - 2 3 1
+   - 2 4 5
+   - 3 1 4
+   - 3 4 1
+   - 3 2 5
+   - 1
+   - 2
+   - 3 
+   - 4
+   - 5
+   - 1 5
+   - 1 3 
+   - 1 2 
+   - 3 1
+   - 4 2
+   - 5 3
+   - 4 2
+   - 4 5 
+   - 3 4
+   - 2 1
+
+- intent: inform_quiz
+  examples: |
+   - 1 2 3 4 5
+   - 5 3 2 1 4
+   - 2 1 3 4 5
+   - 4 5 3 2 1
+   - 1 2 3 5
+   - 2 1 4 5
+   - 3 2 1
+   - 1 2 5
+   - 1 3 4
+   - 1 4 2
+   - 2 3 1
+   - 2 4 5
+   - 3 1 4
+   - 3 4 1
+   - 3 2 5
+   - 1
+   - 2
+   - 3 
+   - 4
+   - 5
+   - 1 5
+   - 1 3 
+   - 1 2 
+   - 3 1
+   - 4 2
+   - 5 3
+   - 4 2
+   - 4 5 
+   - 3 4
+   - 2 1
+
+- intent: inform_documenti
+  examples: |
+   - 1 2 3 4 5
+   - 5 3 2 1 4
+   - 2 1 3 4 5
+   - 4 5 3 2 1
+   - 1 2 3 5
+   - 2 1 4 5
+   - 3 2 1
+   - 1 2 5
+   - 1 3 4
+   - 1 4 2
+   - 2 3 1
+   - 2 4 5
+   - 3 1 4
+   - 3 4 1
+   - 3 2 5
+   - 1
+   - 2
+   - 3 
+   - 4
+   - 5
+   - 1 5
+   - 1 3 
+   - 1 2 
+   - 3 1
+   - 4 2
+   - 5 3
+   - 4 2
+   - 4 5 
+   - 3 4
+   - 2 1
+
+- intent: inform_tempo
+  examples: |
+    - 10 min
+    - 15 min
+    - 20 min
+    - 25 min
+    - 30 min
+    - 10
+    - 15
+    - 20
+    - 25
+    - 30
+    - 10 minuti
+    - 15 minuti
+    - 20 minuti
+    - 25 minuti
+    - 30 minuti
 
 
    

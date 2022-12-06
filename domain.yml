@@ -9,6 +9,21 @@ intents:
   - inform_formati
   - stop_form
   - inform_nome_corso
+  - inform_lingua
+  - inform_età
+  - inform_durata_lezioni
+  - inform_numero_lezioni
+  - inform_argomenti
+  - inform_abilità
+  - inform_competenze
+  - inform_metadato_da_modificare
+  - inform_cambio_metadato
+  - inform_videolezioni
+  - inform_quiz
+  - inform_documenti
+  - inform_esercizi
+  - inform_tempo 
+
 
   
 

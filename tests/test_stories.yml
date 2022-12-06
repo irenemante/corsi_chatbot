@@ -2,90 +2,2797 @@
 #### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
 
 stories:
-- story: happy path 1
+- story: storia primo form senza stop , si cambio metadati in nome_corso, solo videolezioni, si ripetizione esercizi
   steps:
   - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
+      ciao
+    intent: saluto
+  - action: utter_saluto
   - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       coding - livello base
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        italiano
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        10 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        20 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        0-30
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        sequenze
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le basi di logica, conoscere le basi della matematica
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        sapere le sequenze
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        nome_corso
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        coding: livello base
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        2 3 4
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  
 
-- story: happy path 2
-  steps:
-  - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
-  - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
 
-- story: sad path 1
-  steps:
-  - user: |
-      hello
-    intent: greet
-  - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      yes
-    intent: affirm
-  - action: utter_happy
 
-- story: sad path 2
-  steps:
-  - user: |
-      hello
-    intent: greet
-  - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      not really
-    intent: deny
-  - action: utter_goodbye
 
-- story: sad path 3
+- story: storia primo form con stop in età, no cambio metadati, solo videolezioni e esercizi , si ripetizione esercizi
   steps:
   - user: |
-      hi
-    intent: greet
-  - action: utter_greet
+      ciao
+    intent: saluto
+  - action: utter_saluto
   - user: |
-      very terrible
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
   - user: |
-      no
-    intent: deny
-  - action: utter_goodbye
+       cicli for
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        inglese
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        stop
+    intent: stop_form
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        2 5 
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        1
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        si
+     intent: conferma
+  - action: ripetizione_esercizi_form
+  -  user: |
+        10 munuti
+     intent: inform_tempo
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
 
-- story: say goodbye
+- story: storia primo form con stop in numero_lezioni, no cambio metadati, solo videolezioni  e quiz, si ripetizione esercizi
   steps:
   - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       cicli while
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        inglese
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        12 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        stop
+    intent: stop_form
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 3
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+       1 2 
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        1 3 5
+    intent: inform_quiz
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  
 
-- story: bot challenge
+- story: storia primo form con stop in durata_lezioni, no cambio metadati, solo videolezioni e documenti , si ripetizione esercizi
   steps:
   - user: |
-      are you a bot?
-    intent: bot_challenge
-  - action: utter_iamabot
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       i cicli for
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        italiano
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        7
+    intent: inform_età
+  - user: |
+        50
+    intent: inform_numero_lezioni
+  - action: creazione_corso_form
+  - user: |
+        stop
+    intent: stop_form
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1  4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        1 4
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        2 3
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  
+
+
+- story: storia primo form con stop in argomenti, no cambio metadati, solo esercizi e quiz , si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       le basi della programmazione
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        inglese
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        9 anni
+    intent: inform_età
+  - user: |
+        30
+    intent: inform_numero_lezioni
+  - action: creazione_corso_form
+  - user: |
+        30-60
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        stop
+    intent: stop_form
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+          2 3 
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        1 3
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        2 5 3
+    intent: inform_quiz
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        si
+     intent: conferma
+  - action: ripetizione_esercizi_form
+  -  user: |
+        15 munuti
+     intent: inform_tempo
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+
+- story: storia primo form con stop in abilità, no cambio metadati, solo esercizi e documenti , si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+      le basi del coding
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        inglese
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        8 anni
+    intent: inform_età
+  - user: |
+        55
+    intent: inform_numero_lezioni
+  - action: creazione_corso_form
+  - user: |
+        0-30
+    intent: inform_durata_lezioni
+  - user: |
+        condizionali
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        stop
+    intent: stop_form
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        2  4 
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        1 
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        2 3
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        si
+     intent: conferma
+  - action: ripetizione_esercizi_form
+  -  user: |
+        20  munuti
+     intent: inform_tempo
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form con stop in età, no cambio metadati, solo quiz e documenti , si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       coding: livello avanzato
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        inglese
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        stop
+    intent: stop_form
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        3 4 
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        1 3
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        5 4
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+
+
+- story: storia primo form senza stop , no cambio metadati , tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       introduzione al coding
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        italiano
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        10 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        20 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        0-30
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        cicli for, cicli while
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le basi di logica, conoscere le basi della matematica
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        sapere i cicli for, sapere i cicli while
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        2 3 1
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        2 5
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        1 5 2
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        1 2
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        si
+     intent: conferma
+  - action: ripetizione_esercizi_form
+  -  user: |
+        10 minuti
+     intent: inform_tempo
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+
+
+
+
+- story: storia primo form con stop in età, no cambio metadati, tutti i foramti , si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       cicli for
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        inglese
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        stop
+    intent: stop_form
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        1 
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        3 2
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+         1 2
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        1 3 2 
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        si
+     intent: conferma
+  - action: ripetizione_esercizi_form
+  -  user: |
+        5 munuti
+     intent: inform_tempo
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form con stop in numero_lezioni, no cambio metadati, tutti i foramti , si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       cicli while
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        italiano
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        10 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        stop
+    intent: stop_form
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        1 2 3 4 5
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+         4 5
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        3 2 1
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+       1 2
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        si
+     intent: conferma
+  - action: ripetizione_esercizi_form
+  -  user: |
+        5 munuti
+     intent: inform_tempo
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form con stop in durata_lezioni, no cambio metadati, tutti i foramti , si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       livello avanzato di coding
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        inglese
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        10
+    intent: inform_età
+  - user: |
+        70
+    intent: inform_numero_lezioni
+  - action: creazione_corso_form
+  - user: |
+        stop
+    intent: stop_form
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        1 3 5
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        1  4
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        2 5
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        1 4 3
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        si
+     intent: conferma
+  - action: ripetizione_esercizi_form
+  -  user: |
+        15 munuti
+     intent: inform_tempo
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+
+- story: storia primo form con stop in argomenti, no cambio metadati, tutti i foramti , si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       coding: livello base
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        inglese
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        8
+    intent: inform_età
+  - user: |
+        50
+    intent: inform_numero_lezioni
+  - action: creazione_corso_form
+  - user: |
+        60-90
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        stop
+    intent: stop_form
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+         1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        1 
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        2 4 5
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        1 2 
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        2 3
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        si
+     intent: conferma
+  - action: ripetizione_esercizi_form
+  -  user: |
+        25 munuti
+     intent: inform_tempo
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+
+- story: storia primo form con stop in abilità, no cambio metadati, tutti i foramti , si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       i cicli
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        inglese
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        8
+    intent: inform_età
+  - user: |
+        55
+    intent: inform_numero_lezioni
+  - action: creazione_corso_form
+  - user: |
+        30-60
+    intent: inform_durata_lezioni
+  - user: |
+        cicli for, cicli while
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        stop
+    intent: stop_form
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+       1 2 3 4 
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        2
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        1 
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        2 3 4
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        1 4 5
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        si
+     intent: conferma
+  - action: ripetizione_esercizi_form
+  -  user: |
+        5 munuti
+     intent: inform_tempo
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form senza stop , si cambio metadati in nome_corso, tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       introduzione al coding
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        italiano
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        10 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        35 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        30-60
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        condizionali, funzioni
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le basi di logica, conoscere le basi del coding
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        sapere i condizionali, conoscere le funzioni
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        nome_corso
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        corso base di coding
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        1 2 3 4 5
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        1 2 3 4 5
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        1 2 3 4 5
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+       1 2 3 4 5
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        no
+     intent: negazione
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form senza stop , si cambio metadati in lingua, tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       le funzioni
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        italiano
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        7 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        20 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        0-30
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        funzioni
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le basi di logica, conoscere le basi della matematica
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        consocere le funzioni
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        lingua
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        spagnolo
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        4
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        3
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        2
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        1
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        si
+     intent: conferma
+  - action: ripetizione_esercizi_form
+  -  user: |
+        15 minuti
+     intent: inform_tempo
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form senza stop , si cambio metadati in età, tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       introduzione alla programmazione
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        spagnolo
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        6 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        20 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        0-30
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        cicli annidati
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le sequenze, sapere le basi del coding
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        sapere i cicli annidati
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        età
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        12 anni
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        2 1 5
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        3
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        1 5
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        1 3
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        no
+     intent: negazione
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form senza stop , si cambio metadati in numero_lezioni, tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       coding: livello base
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        inglese
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+         6 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        30 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        0-30
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        sequenze, variabili
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le basi di logica, conoscere le basi della matematica
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        sapere le sequenze, sapere le variabili
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        numero_lezioni
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        65
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        3 4
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        5 4 3
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        1 2 3
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        1 4
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        si
+     intent: conferma
+  - action: ripetizione_esercizi_form
+  -  user: |
+        3 minuti
+     intent: inform_tempo
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form senza stop , si cambio metadati in durata_lezioni, tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       introduziona ai cicli
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        italiano
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        11 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        60 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        0-30
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        cicli for, cicli while
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le basi di logica, conoscere le basi della matematica
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        sapere i cicli for, sapere i cicli while
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        durata_lezioni
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        90-120
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+       1 2 
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        1 5 3
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        1 4 2
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        2 3
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        no
+     intent: negazione
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form senza stop , si cambio metadati in argomenti, tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       basi di coding
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        italiano
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        7 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        55 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        0-30
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        sequenze
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le basi di logica
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        sapere i condizionali
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        argomenti
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        condizionali
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        4 2 1
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        1 3
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        2 3 4
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        1 4
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        si
+     intent: conferma
+  - action: ripetizione_esercizi_form
+  -  user: |
+        10 minuti
+     intent: inform_tempo
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form senza stop , si cambio metadati in abilità, tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       introduzione al coding
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        italiano
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        10 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        20 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        0-30
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        cicli for, cicli while
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le basi di logica, conoscere le basi della matematica
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        sapere i cicli for, sapere i cicli while
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        abilità
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        conoscere le sequenze
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        1 5
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        1 3
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        5 2
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        1 2 
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        no
+     intent: negazione
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form senza stop , si cambio metadati in competenze, tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       coding: livello intermedio
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        italiano
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        6 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        10 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        120
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        condizionali, funzioni
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le basi di logica, conoscere le basi del coding
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        sconoscere if, consoscere if...else
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        competenze
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        consocere i condizionali
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        3 2 1
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        4 2
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        5 4
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        1 3
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        si
+     intent: conferma
+  - action: ripetizione_esercizi_form
+  -  user: |
+        15 minuti
+     intent: inform_tempo
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+
+- story: storia primo form senza stop , si cambio metadati in nome_corso e lingua, tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       coding: livello intermedio
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        italiano
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        6 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        45 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        120
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        funzioni, cicli
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le variabili, sapere le sequenze
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        conoscere le funzioni, conoscere i cicli for, conoscere i cicli while
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        nome_corso
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        imparare il coding
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+        si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+       lingua
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        spagnolo
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+         no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        1 3
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        3
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        1
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        3 5
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        no
+     intent: negazione
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+
+- story: storia primo form senza stop , si cambio metadati in lingau e età  , tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       cicli for e while
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        italiano
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        6 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        10 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        120
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        cicli for, cicli while
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        consocere le sequenze, conoscere le basi della matematica
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        sapere i cicli for, sapere i cicli while
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        lingua
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+       inglese
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+        si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+       età
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        8 anni
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+         no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        2 5
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        1 2
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        1 2 3 4 5
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        2 5 4
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        no
+     intent: conferma
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form senza stop , si cambio metadati in età e numero lezioni , tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       coding: livello avanzato
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        italiano
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        6 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        10 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        120
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        cicli annidati
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le basi di logica, conoscere i cicli
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        sapere annidati
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        età
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+       9 anni
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+        si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+      numero_lezioni
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        50 
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+         no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        4
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        5 2
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        3
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        1 5
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        no
+     intent: negazione
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form senza stop , si cambio metadati in numero lezioni e durata lezioni , tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       coding: livello intermedio
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        inglese
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        8 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+       35 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        120
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        sequenze, variabili, condizionali
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le basi di logica, conoscere le basi della matematica
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        conoscere le variabili, consocere i condizionali, conoscere le sequenze
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        numero_lezioni
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+       70
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+        si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+      durata_lezioni
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        60-90
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+         no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        1 2
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        13 4
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        1 5 2
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        1 3
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        no
+     intent: negazione
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form senza stop , si cambio metadati in durata lezioni e argomenti , tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       cicli while
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        italiano
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        7 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        25 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        30-60
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        sequenze, variabili
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le basi di logica, conoscere le sequenze
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        sapere i cicli while
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        durata_lezioni
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+      0-30
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+        si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+      argomenti
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        cicli while
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+         no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        1
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        2 5 3
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        1 5
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        2 
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        si
+     intent: conferma
+  - action: ripetizione_esercizi_form
+  -  user: |
+        20 minuti
+     intent: inform_tempo
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form senza stop , si cambio metadati in argomenti e abilità , tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       basi di coding
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        italiano
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        9 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        70 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        0-30
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        if...else
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le basi di logica, conoscere le basi del coding
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        consocere if...else
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        argomenti
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+      condizionali
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+        si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+      abilità
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        conoscere i condizionali
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+         no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        2 3
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        1 2 5
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        1 4 5
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        23 4
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        si
+     intent: conferma
+  - action: ripetizione_esercizi_form
+  -  user: |
+        20 minuti
+     intent: inform_tempo
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form senza stop , si cambio metadati in  abilità e competenze , tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       cicli while
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        inglese
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        9 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        30 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        90-120
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        condizionali, cicli
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le basi di logica, conoscere le basi della matematica
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        sapere i cicli for, sapere i condizionali
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        abilità
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        conoscere i cicli
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+        si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+      competenze
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        conoscere i cicli, conoscere i condizionali
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+         no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        2 3 4
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        2 5
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        1 4
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        2 3
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        no
+     intent: negazione
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form senza stop , si cambio metadati in  nome_corso e numero_lezioni , tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       coding: livello intermedio
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        italiano
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        6 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        10 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        120
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        cicli 
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le basi di logica, conoscere le sequenze
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        sapere i cicli for, sapere i cicli while
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        nome_corso
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        introduzione al coding
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+         si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+      numero_lezioni
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        50
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+         no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        1 5 2
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        2 1
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        1 2 3
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        4 5
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        no
+     intent: negazione
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia primo form senza stop , si cambio metadati in  nome_corso e durata lezioni, tutti i formati, si ripetizione esercizi
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+       coding: livello intermedio
+    intent: inform_nome_corso
+  - action: creazione_corso_form
+  - user: |
+        inglese
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - user: |
+        6 anni
+    intent: inform_età
+  - action: creazione_corso_form
+  - user: |
+        10 lezioni
+    intent: inform_numero_lezioni
+  - user: |
+        120
+    intent: inform_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        sequenze, variabili
+    intent: inform_argomenti
+  - action: creazione_corso_form
+  - user: |
+        sapere le basi di logica, conoscere le basi della matematica
+    intent: inform_abilità
+  - action: creazione_corso_form
+  - user: |
+        sapere le sequenze, sapere le variabili
+    intent: inform_competenze
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+          si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+        nome_corso
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        coding: livello avanzato
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+        si
+    intent: conferma
+  - action: modifica_metadati_form
+  - user: |
+      età
+    intent: inform_metadato_da_modificare
+  - action: modifica_metadati_form
+  - user: |
+        11 anni
+    intent: inform_cambio_metadato
+  - action: modifica_metadati_form
+  - user: |
+         no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - user: |
+        1 2 3 4
+    intent: inform_formati
+  - action: proposta_link_form
+  - user: |
+        1 4 3
+    intent: inform_videolezioni
+  - action: proposta_link_form
+  - user: |
+        2 5
+    intent: inform_esercizi
+  - action: proposta_link_form
+  - user: |
+        1 5
+    intent: inform_quiz
+  - action: proposta_link_form
+  - user: |
+        1 2
+    intent: inform_documenti
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        no
+     intent: negazione
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+
+
+
+
+
+
+
+
+
+
+
+

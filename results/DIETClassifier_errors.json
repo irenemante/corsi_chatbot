@@ -1,21 +1,22 @@
 [
   {
-    "text": "15",
-    "entities": [
-      {
-        "start": 0,
-        "end": 2,
-        "value": "15",
-        "entity": "numero_lezioni"
-      }
-    ],
+    "text": "90 - 120",
+    "entities": [],
     "predicted_entities": [
       {
-        "entity": "età",
+        "entity": "formati",
         "start": 0,
         "end": 2,
-        "confidence_entity": 0.6167922616004944,
-        "value": "15",
+        "confidence_entity": 0.9720271825790405,
+        "value": "90",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "formati",
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.9366821646690369,
+        "value": "120",
         "extractor": "DIETClassifier"
       }
     ]
