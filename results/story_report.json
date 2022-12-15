@@ -1,99 +1,9 @@
 {
-  "inform_competenze": {
-    "precision": 0.8235294117647058,
-    "recall": 0.7368421052631579,
-    "f1-score": 0.7777777777777778,
-    "support": 19
-  },
-  "action_parse_all": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 30
-  },
-  "utter_saluto": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 30
-  },
-  "conferma": {
-    "precision": 1.0,
-    "recall": 0.9767441860465116,
-    "f1-score": 0.988235294117647,
-    "support": 43
-  },
-  "proposta_link_form": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 165
-  },
-  "inform_esercizi": {
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1-score": 0.0,
-    "support": 26
-  },
-  "action_user_selection": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 30
-  },
-  "inform_abilità": {
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1-score": 0.0,
-    "support": 19
-  },
-  "action_listen": {
-    "precision": 1.0,
-    "recall": 0.9438405797101449,
-    "f1-score": 0.9711090400745572,
-    "support": 552
-  },
-  "inform_videolezioni": {
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1-score": 0.0,
-    "support": 27
-  },
-  "action_summary_post_modifica": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 30
-  },
-  "modifica_metadati_form": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 141
-  },
-  "creazione_corso_form": {
-    "precision": 1.0,
-    "recall": 0.8701923076923077,
-    "f1-score": 0.9305912596401028,
-    "support": 208
-  },
-  "inform_nome_corso": {
-    "precision": 0.8181818181818182,
-    "recall": 0.9,
-    "f1-score": 0.8571428571428572,
-    "support": 30
-  },
-  "inform_argomenti": {
-    "precision": 0.8666666666666667,
-    "recall": 0.6190476190476191,
-    "f1-score": 0.7222222222222222,
-    "support": 21
-  },
-  "utter_submit_tempo": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 26
+  "ripetizione_esercizi_form": {
+    "precision": 0.9466666666666667,
+    "recall": 0.9861111111111112,
+    "f1-score": 0.9659863945578231,
+    "support": 72
   },
   "inform_formati": {
     "precision": 0.0,
@@ -101,41 +11,35 @@
     "f1-score": 0.0,
     "support": 30
   },
-  "creazione_corso": {
+  "inform_competenze": {
+    "precision": 0.76,
+    "recall": 1.0,
+    "f1-score": 0.8636363636363636,
+    "support": 19
+  },
+  "creazione_corso_form": {
+    "precision": 1.0,
+    "recall": 0.867579908675799,
+    "f1-score": 0.9290953545232273,
+    "support": 219
+  },
+  "action_parse_all": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 30
+    "support": 33
   },
-  "utter_spiegazione": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 30
+  "validate_numero_lezioni": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1
   },
-  "stop_form": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 11
-  },
-  "inform_quiz": {
+  "inform_esercizi": {
     "precision": 0.0,
     "recall": 0.0,
     "f1-score": 0.0,
     "support": 26
-  },
-  "inform_durata_lezioni": {
-    "precision": 0.8421052631578947,
-    "recall": 0.6956521739130435,
-    "f1-score": 0.761904761904762,
-    "support": 23
-  },
-  "negazione": {
-    "precision": 0.975609756097561,
-    "recall": 1.0,
-    "f1-score": 0.9876543209876543,
-    "support": 40
   },
   "inform_documenti": {
     "precision": 0.0,
@@ -143,29 +47,113 @@
     "f1-score": 0.0,
     "support": 26
   },
-  "inform_lingua": {
-    "precision": 0.9090909090909091,
-    "recall": 1.0,
-    "f1-score": 0.9523809523809523,
-    "support": 30
+  "inform_numero_lezioni": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 25
   },
-  "inform_metadato_da_modificare": {
+  "negazione": {
+    "precision": 0.9761904761904762,
+    "recall": 1.0,
+    "f1-score": 0.9879518072289156,
+    "support": 41
+  },
+  "utter_spiegazione": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
+    "support": 33
+  },
+  "inform_età": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
     "support": 27
   },
   "saluto": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 30
+    "support": 33
   },
-  "ripetizione_esercizi_form": {
-    "precision": 0.9436619718309859,
+  "validate_videolezioni": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1
+  },
+  "creazione_corso": {
+    "precision": 1.0,
     "recall": 1.0,
-    "f1-score": 0.9710144927536231,
-    "support": 67
+    "f1-score": 1.0,
+    "support": 33
+  },
+  "validate_nome_corso": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1
+  },
+  "utter_submit_tempo": {
+    "precision": 1.0,
+    "recall": 0.9310344827586207,
+    "f1-score": 0.9642857142857143,
+    "support": 29
+  },
+  "action_listen": {
+    "precision": 0.9785992217898832,
+    "recall": 0.8918439716312057,
+    "f1-score": 0.9332096474953618,
+    "support": 564
+  },
+  "inform_argomenti": {
+    "precision": 0.6451612903225806,
+    "recall": 0.9523809523809523,
+    "f1-score": 0.7692307692307692,
+    "support": 21
+  },
+  "inform_abilità": {
+    "precision": 0.8947368421052632,
+    "recall": 0.8947368421052632,
+    "f1-score": 0.8947368421052632,
+    "support": 19
+  },
+  "utter_saluto": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 33
+  },
+  "action_summary_post_modifica": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 33
+  },
+  "modifica_metadati_form": {
+    "precision": 1.0,
+    "recall": 0.9863945578231292,
+    "f1-score": 0.9931506849315068,
+    "support": 147
+  },
+  "inform_tempo": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 16
+  },
+  "validate_età": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1
+  },
+  "validate_formati": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1
   },
   "inform_cambio_metadato": {
     "precision": 0.0,
@@ -173,53 +161,107 @@
     "f1-score": 0.0,
     "support": 27
   },
-  "inform_numero_lezioni": {
+  "conferma": {
     "precision": 1.0,
-    "recall": 0.76,
-    "f1-score": 0.8636363636363636,
-    "support": 25
+    "recall": 0.9772727272727273,
+    "f1-score": 0.9885057471264368,
+    "support": 44
   },
-  "inform_età": {
-    "precision": 0.8518518518518519,
-    "recall": 0.8518518518518519,
-    "f1-score": 0.8518518518518519,
+  "inform_videolezioni": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
     "support": 27
   },
-  "inform_tempo": {
+  "validate_lingua": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1
+  },
+  "proposta_link_form": {
+    "precision": 1.0,
+    "recall": 0.9884393063583815,
+    "f1-score": 0.994186046511628,
+    "support": 173
+  },
+  "inform_lingua": {
+    "precision": 0.9117647058823529,
+    "recall": 1.0,
+    "f1-score": 0.9538461538461539,
+    "support": 31
+  },
+  "stop_form": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 15
+    "support": 12
+  },
+  "inform_metadato_da_modificare": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 27
+  },
+  "inform_nome_corso": {
+    "precision": 0.7777777777777778,
+    "recall": 0.7,
+    "f1-score": 0.7368421052631577,
+    "support": 30
+  },
+  "inform_durata_lezioni": {
+    "precision": 0.8421052631578947,
+    "recall": 0.6956521739130435,
+    "f1-score": 0.761904761904762,
+    "support": 23
+  },
+  "action_user_selection": {
+    "precision": 1.0,
+    "recall": 0.9696969696969697,
+    "f1-score": 0.9846153846153847,
+    "support": 33
   },
   "action_summary": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 30
+    "support": 33
+  },
+  "validate_durata_lezioni": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1
+  },
+  "inform_quiz": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 27
   },
   "micro avg": {
-    "precision": 0.9800121138703816,
-    "recall": 0.8556319407720783,
-    "f1-score": 0.9136081309994354,
-    "support": 1891
+    "precision": 0.9717548076923077,
+    "recall": 0.8195641155600608,
+    "f1-score": 0.8891943909815783,
+    "support": 1973
   },
   "macro avg": {
-    "precision": 0.7585059893527999,
-    "recall": 0.7380051764704435,
-    "f1-score": 0.746530945287587,
-    "support": 1891
+    "precision": 0.5683250560973224,
+    "recall": 0.5710285750931801,
+    "f1-score": 0.5680295944315616,
+    "support": 1973
   },
   "weighted avg": {
-    "precision": 0.8901551581443263,
-    "recall": 0.8556319407720783,
-    "f1-score": 0.871506245886955,
-    "support": 1891
+    "precision": 0.8571052295886445,
+    "recall": 0.8195641155600608,
+    "f1-score": 0.8365730318590937,
+    "support": 1973
   },
-  "accuracy": 0.8556319407720783,
+  "accuracy": 0.8195641155600608,
   "conversation_accuracy": {
     "accuracy": 0.0,
     "correct": 0,
     "with_warnings": 0,
-    "total": 30
+    "total": 33
   }
 }

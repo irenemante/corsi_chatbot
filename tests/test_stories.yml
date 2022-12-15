@@ -2,6 +2,152 @@
 #### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
 
 stories:
+
+- story: storia uno
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+- story: storia due
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - user: |
+        inglese
+    intent: inform_lingua
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
+
+  
+
+
+- story: storia primo form con stop in argomenti, no cambio metadati, solo esercizi e quiz , si ripetizione esercizi, con slot_was_set
+  steps:
+  - user: |
+      ciao
+    intent: saluto
+  - action: utter_saluto
+  - user: |
+      voglio creare corso
+    intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - slot_was_set:
+    - nome_corso: "intro al coding"
+  - action: validate_nome_corso
+  - action: creazione_corso_form
+  - slot_was_set:
+    - lingua: "italiano"
+  - action: validate_lingua
+  - action: creazione_corso_form
+  - slot_was_set:
+    - età: "10 anni"
+  - action: validate_età
+  - action: creazione_corso_form
+  - slot_was_set:
+    - numero_lezioni: "20"
+  - action: validate_numero_lezioni
+  - action: creazione_corso_form
+  - slot_was_set:
+    - età: "0-30"
+  - action: validate_durata_lezioni
+  - action: creazione_corso_form
+  - user: |
+        stop
+    intent: stop_form
+  - action: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - user: |
+        no
+    intent: negazione
+  - action: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - slot_was_set:
+    - formati: "1 2"
+  - action: validate_formati
+  - action: proposta_link_form
+  - slot_was_set:
+    - videolezioni: "1 "
+  - action: validate_videolezioni
+  - action: proposta_link_form
+  - user: |
+        2 5 3
+    intent: inform_quiz
+  - action: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  -  user: |
+        si
+     intent: conferma
+  - action: ripetizione_esercizi_form
+  -  user: |
+        15 munuti
+     intent: inform_tempo
+  - action: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+
 - story: storia primo form senza stop , si cambio metadati in nome_corso, solo videolezioni, si ripetizione esercizi
   steps:
   - user: |
@@ -2796,3 +2942,5 @@ stories:
 
 
 
+
+  

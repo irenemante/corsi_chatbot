@@ -1,721 +1,5 @@
 version: "3.1"
 stories:
-- story: storia primo form con stop in numero_lezioni, no cambio metadati, tutti i foramti , si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form con stop in durata_lezioni, no cambio metadati, tutti i foramti , si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_età  # predicted: nlu_fallback: 10
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_numero_lezioni  # predicted: nlu_fallback: 70
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form con stop in argomenti, no cambio metadati, tutti i foramti , si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_età  # predicted: nlu_fallback: 8
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_numero_lezioni  # predicted: nlu_fallback: 50
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form con stop in abilità, no cambio metadati, tutti i foramti , si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_età  # predicted: nlu_fallback: 8
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_numero_lezioni  # predicted: nlu_fallback: 55
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_argomenti  # predicted: nlu_fallback: cicli for, cicli while
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form senza stop , si cambio metadati in nome_corso, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form senza stop , si cambio metadati in lingua, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form senza stop , si cambio metadati in età, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form senza stop , si cambio metadati in numero_lezioni, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form senza stop , si cambio metadati in durata_lezioni, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form senza stop , si cambio metadati in argomenti, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form senza stop , si cambio metadati in nome_corso, solo videolezioni, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: action_listen  # predicted: ripetizione_esercizi_form
-- story: storia primo form senza stop , si cambio metadati in abilità, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form senza stop , si cambio metadati in competenze, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni  # predicted: nlu_fallback: 120
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form senza stop , si cambio metadati in nome_corso e lingua, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni  # predicted: nlu_fallback: 120
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form senza stop , si cambio metadati in lingau e età  , tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni  # predicted: nlu_fallback: 120
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form senza stop , si cambio metadati in età e numero lezioni , tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni  # predicted: nlu_fallback: 120
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form senza stop , si cambio metadati in numero lezioni e durata lezioni , tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni  # predicted: nlu_fallback: 120
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form senza stop , si cambio metadati in durata lezioni e argomenti , tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form senza stop , si cambio metadati in argomenti e abilità , tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form senza stop , si cambio metadati in  abilità e competenze , tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form senza stop , si cambio metadati in  nome_corso e numero_lezioni , tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni  # predicted: nlu_fallback: 120
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form con stop in età, no cambio metadati, solo videolezioni e esercizi , si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form senza stop , si cambio metadati in  nome_corso e durata lezioni, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni  # predicted: nlu_fallback: 120
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form con stop in numero_lezioni, no cambio metadati, solo videolezioni  e quiz, si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: action_listen  # predicted: ripetizione_esercizi_form
-- story: storia primo form con stop in durata_lezioni, no cambio metadati, solo videolezioni e documenti , si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_età  # predicted: nlu_fallback: 7
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_numero_lezioni  # predicted: nlu_fallback: 50
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: action_listen  # predicted: ripetizione_esercizi_form
-- story: storia primo form con stop in argomenti, no cambio metadati, solo esercizi e quiz , si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_età
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_numero_lezioni  # predicted: nlu_fallback: 30
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
-- story: storia primo form con stop in abilità, no cambio metadati, solo esercizi e documenti , si ripetizione esercizi (./tests/test_stories.yml)
-  steps:
-  - intent: saluto
-  - action: utter_saluto
-  - intent: creazione_corso
-  - action: utter_spiegazione
-  - action: creazione_corso_form
-  - active_loop: creazione_corso_form
-  - intent: inform_età
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_numero_lezioni  # predicted: nlu_fallback: 55
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - intent: inform_durata_lezioni
-  - action: action_listen  # predicted: action_deactivate_loop
-  - intent: inform_argomenti
-  - action: creazione_corso_form  # predicted: action_deactivate_loop
-  - active_loop: null
-  - action: action_summary
-  - action: modifica_metadati_form
-  - active_loop: modifica_metadati_form
-  - active_loop: null
-  - action: action_summary_post_modifica
-  - action: action_parse_all
-  - action: proposta_link_form
-  - active_loop: proposta_link_form
-  - active_loop: null
-  - action: action_user_selection
-  - action: ripetizione_esercizi_form
-  - active_loop: ripetizione_esercizi_form
-  - active_loop: null
-  - action: utter_submit_tempo
 - story: storia primo form con stop in età, no cambio metadati, solo quiz e documenti , si ripetizione esercizi (./tests/test_stories.yml)
   steps:
   - intent: saluto
@@ -744,7 +28,7 @@ stories:
   - action: utter_spiegazione
   - action: creazione_corso_form
   - active_loop: creazione_corso_form
-  - intent: inform_numero_lezioni
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 20 lezioni
   - action: action_listen  # predicted: action_deactivate_loop
   - intent: inform_durata_lezioni
   - action: creazione_corso_form  # predicted: action_deactivate_loop
@@ -763,6 +47,7 @@ stories:
   - active_loop: ripetizione_esercizi_form
   - active_loop: null
   - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
 - story: storia primo form con stop in età, no cambio metadati, tutti i foramti , si ripetizione esercizi (./tests/test_stories.yml)
   steps:
   - intent: saluto
@@ -786,3 +71,830 @@ stories:
   - active_loop: ripetizione_esercizi_form
   - active_loop: null
   - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form con stop in numero_lezioni, no cambio metadati, tutti i foramti , si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form con stop in durata_lezioni, no cambio metadati, tutti i foramti , si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_età  # predicted: inform_numerics: 10
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 70
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form con stop in argomenti, no cambio metadati, tutti i foramti , si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_età  # predicted: inform_numerics: 8
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 50
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form con stop in abilità, no cambio metadati, tutti i foramti , si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_età  # predicted: inform_numerics: 8
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 55
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_argomenti
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form senza stop , si cambio metadati in nome_corso, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 35 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form senza stop , si cambio metadati in lingua, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 20 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form senza stop , si cambio metadati in età, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 20 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia uno (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection  # predicted: circuit breaker tripped
+  - action: ripetizione_esercizi_form  # predicted: circuit breaker tripped
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo  # predicted: circuit breaker tripped
+  - action: action_listen  # predicted: circuit breaker tripped
+- story: storia primo form senza stop , si cambio metadati in numero_lezioni, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 30 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form senza stop , si cambio metadati in durata_lezioni, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 60 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form senza stop , si cambio metadati in argomenti, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 55 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form senza stop , si cambio metadati in abilità, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 20 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form senza stop , si cambio metadati in competenze, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 10 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni  # predicted: inform_numerics: 120
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form senza stop , si cambio metadati in nome_corso e lingua, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 45 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni  # predicted: inform_numerics: 120
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form senza stop , si cambio metadati in lingau e età  , tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 10 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni  # predicted: inform_numerics: 120
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form senza stop , si cambio metadati in età e numero lezioni , tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 10 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni  # predicted: inform_numerics: 120
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form senza stop , si cambio metadati in numero lezioni e durata lezioni , tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 35 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni  # predicted: inform_numerics: 120
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form senza stop , si cambio metadati in durata lezioni e argomenti , tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 25 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia due (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo  # predicted: circuit breaker tripped
+  - action: action_listen  # predicted: circuit breaker tripped
+- story: storia primo form senza stop , si cambio metadati in argomenti e abilità , tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 70 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form senza stop , si cambio metadati in  abilità e competenze , tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 30 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form senza stop , si cambio metadati in  nome_corso e numero_lezioni , tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 10 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni  # predicted: inform_numerics: 120
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form senza stop , si cambio metadati in  nome_corso e durata lezioni, tutti i formati, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 10 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni  # predicted: inform_numerics: 120
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form con stop in argomenti, no cambio metadati, solo esercizi e quiz , si ripetizione esercizi, con slot_was_set (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - slot_was_set:
+    - nome_corso: intro al coding
+  - slot_was_set:
+    - lingua: italiano
+  - slot_was_set:
+    - età: 10 anni
+  - slot_was_set:
+    - numero_lezioni: '20'
+  - slot_was_set:
+    - età: 0-30
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - slot_was_set:
+    - formati: 1 2
+  - slot_was_set:
+    - videolezioni: '1 '
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form senza stop , si cambio metadati in nome_corso, solo videolezioni, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 20 lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: action_listen  # predicted: ripetizione_esercizi_form
+- story: storia primo form con stop in età, no cambio metadati, solo videolezioni e esercizi , si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form con stop in numero_lezioni, no cambio metadati, solo videolezioni  e quiz, si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: action_listen  # predicted: ripetizione_esercizi_form
+- story: storia primo form con stop in durata_lezioni, no cambio metadati, solo videolezioni e documenti , si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_età  # predicted: inform_numerics: 7
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 50
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: action_listen  # predicted: ripetizione_esercizi_form
+- story: storia primo form con stop in argomenti, no cambio metadati, solo esercizi e quiz , si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_età  # predicted: inform_numerics: 9 anni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 30
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione
+- story: storia primo form con stop in abilità, no cambio metadati, solo esercizi e documenti , si ripetizione esercizi (./tests/test_stories.yml)
+  steps:
+  - intent: saluto
+  - action: utter_saluto
+  - intent: creazione_corso
+  - action: utter_spiegazione
+  - action: creazione_corso_form
+  - active_loop: creazione_corso_form
+  - intent: inform_età  # predicted: inform_numerics: 8 anni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_numero_lezioni  # predicted: inform_numerics: 55
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - intent: inform_durata_lezioni
+  - action: action_listen  # predicted: action_deactivate_loop
+  - intent: inform_argomenti
+  - action: creazione_corso_form  # predicted: action_deactivate_loop
+  - active_loop: null
+  - action: action_summary
+  - action: modifica_metadati_form
+  - active_loop: modifica_metadati_form
+  - active_loop: null
+  - action: action_summary_post_modifica
+  - action: action_parse_all
+  - action: proposta_link_form
+  - active_loop: proposta_link_form
+  - active_loop: null
+  - action: action_user_selection
+  - action: ripetizione_esercizi_form
+  - active_loop: ripetizione_esercizi_form
+  - active_loop: null
+  - action: utter_submit_tempo
+  - action: action_listen  # predicted: utter_ask_valutazione

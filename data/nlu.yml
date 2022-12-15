@@ -74,7 +74,7 @@ nlu:
    - giapponese
    - arabo
 
-- intent: inform_età
+- intent: inform_numerics
   examples: |
    - 6 anni
    - 7 anni
@@ -90,9 +90,6 @@ nlu:
    - 9
    - 10 anni
    - 11 anni
-
-- intent: inform_numero_lezioni
-  examples: |
    - 5 lezioni
    - 10 lezioni
    - 20 lezioni
@@ -119,6 +116,68 @@ nlu:
    - 60 
    - 65 
    - 70 
+   - 1 2 3 4
+   - 3 2 1 4
+   - 2 1 3 4
+   - 4 3 2 1
+   - 1 2 3
+   - 4 1 3
+   - 3 2 1
+   - 1 2
+   - 1 3
+   - 1 4
+   - 2 3
+   - 2 4
+   - 3 1
+   - 3 4
+   - 3 2
+   - 4 2
+   - 4 1
+   - 4 3
+   - 1
+   - 2
+   - 3 
+   - 4
+   - 1 2 3 4 5
+   - 5 3 2 1 4
+   - 2 1 3 4 5
+   - 4 5 3 2 1
+   - 1 2 3 5
+   - 2 1 4 5
+   - 3 2 1
+   - 1 2 5
+   - 1 3 4
+   - 1 4 2
+   - 2 3 1
+   - 2 4 5
+   - 3 1 4
+   - 3 4 1
+   - 3 2 5
+   - 1 5
+   - 1 3 
+   - 1 2 
+   - 3 1
+   - 4 2
+   - 5 3
+   - 4 2
+   - 4 5 
+   - 3 4
+   - 2 1
+   - 10 min
+   - 15 min
+   - 20 min
+   - 25 min
+   - 30 min
+   - 15
+   - 20
+   - 25
+   - 30
+   - 10 minuti
+   - 15 minuti
+   - 20 minuti
+   - 25 minuti
+   - 30 minuti
+
 
 - intent: inform_durata_lezioni
   examples: |
@@ -185,99 +244,6 @@ nlu:
    - abilità
    - competenze
 
-- intent: inform_cambio_metadato
-  examples: |
-    - Coding
-    - Cicli for e while
-    - Cicli for
-    - Cicli annidati
-    - Cicli while
-    - Sequenze
-    - Funzioni
-    - I condizionali
-    - If...else
-    - Introduzone ai cicli
-    - Introduzione al coding
-    - Uso delle sequenze
-    - Funzioni e coding
-    - Coding - livello base
-    - Coding - livello medio
-    - Coding - livello avanzato
-    - Introduzione alla programmazione
-    - Corso base di coding
-    - Corso intermedio di coding
-    - Corso avanzato di coding
-    - italiano
-    - inglese
-    - 6 anni
-    - 7 anni
-    - 8 anni
-    - 9 anni
-    - 6
-    - 7
-    - 8 
-    - 9
-    - 10 
-    - 11
-    - 12 
-    - 9
-    - 10 anni
-    - 11 anni
-    - 5 lezioni
-    - 10 lezioni
-    - 20 lezioni
-    - 25 lezioni
-    - 30 lezioni
-    - 35 lezioni
-    - 40 lezioni
-    - 45 lezioni
-    - 50 lezioni
-    - 55 lezioni
-    - 60 lezioni
-    - 65 lezioni
-    - 70 lezioni
-    - 20
-    - 30
-    - 40
-    - 50
-    - 0-30
-    - 30-60
-    - 60-90
-    - 90 - 120
-    - 120
-    - cicli for, cicli while , cicli annidati
-    - sequenze, funzioni, cicli
-    - sequenze, cicli
-    - condizionali, cicli
-    - if...else, sequenze
-    - variabili, cicli
-    - variabili
-    - sequenze
-    - cicli
-    - funzioni
-    - condizionali
-    - conoscere le basi del coding
-    - conoscere le basi di logica
-    - conoscere le basi di matematica
-    - conoscere i cicli
-    - conoscere le seqenze
-    - consocere le variabili
-    - consocere il concetto di iterazione
-    - conoscere le basi del coding, conoscere i cicli, conoscere le seqenze, conoscere le variabili
-    - conoscere le sequenze, conoscere i cicli
-    - consocere il concetto di condizionale
-    - saper padroneggiare i cicli for
-    - conoscere i cicli while
-    - consocere le sequenze
-    - conoscere i condizionali
-    - conoscere if...else
-    - conoscere le basi del coding, conoscere i cicli, conoscere le sequenze
-    - conoscere le seqenze, conoscere i cicli
-    - saper padroneggiare i cicli e le sequenze
-    - saper utilizzare i condizionali e le variabili
-    - saper utilizzare i condizionali 
-    - saper utilizzare le variabili
-    - saper implementare i cicli
    
    
    
@@ -292,182 +258,8 @@ nlu:
 
 
 
-- intent: inform_formati
-  examples: |
-   - 1 2 3 4
-   - 3 2 1 4
-   - 2 1 3 4
-   - 4 3 2 1
-   - 1 2 3
-   - 4 1 3
-   - 3 2 1
-   - 1 2
-   - 1 3
-   - 1 4
-   - 2 3
-   - 2 4
-   - 3 1
-   - 3 4
-   - 3 2
-   - 4 2
-   - 4 1
-   - 4 3
-   - 1
-   - 2
-   - 3 
-   - 4
-   - 
+
   
-- intent: inform_videolezioni
-  examples: |
-   - 1 2 3 4 5
-   - 5 3 2 1 4
-   - 2 1 3 4 5
-   - 4 5 3 2 1
-   - 1 2 3 5
-   - 2 1 4 5
-   - 3 2 1
-   - 1 2 5
-   - 1 3 4
-   - 1 4 2
-   - 2 3 1
-   - 2 4 5
-   - 3 1 4
-   - 3 4 1
-   - 3 2 5
-   - 1
-   - 2
-   - 3 
-   - 4
-   - 5
-   - 1 5
-   - 1 3 
-   - 1 2 
-   - 3 1
-   - 4 2
-   - 5 3
-   - 4 2
-   - 4 5 
-   - 3 4
-   - 2 1
-
-- intent: inform_esercizi
-  examples: |
-   - 1 2 3 4 5
-   - 5 3 2 1 4
-   - 2 1 3 4 5
-   - 4 5 3 2 1
-   - 1 2 3 5
-   - 2 1 4 5
-   - 3 2 1
-   - 1 2 5
-   - 1 3 4
-   - 1 4 2
-   - 2 3 1
-   - 2 4 5
-   - 3 1 4
-   - 3 4 1
-   - 3 2 5
-   - 1
-   - 2
-   - 3 
-   - 4
-   - 5
-   - 1 5
-   - 1 3 
-   - 1 2 
-   - 3 1
-   - 4 2
-   - 5 3
-   - 4 2
-   - 4 5 
-   - 3 4
-   - 2 1
-
-- intent: inform_quiz
-  examples: |
-   - 1 2 3 4 5
-   - 5 3 2 1 4
-   - 2 1 3 4 5
-   - 4 5 3 2 1
-   - 1 2 3 5
-   - 2 1 4 5
-   - 3 2 1
-   - 1 2 5
-   - 1 3 4
-   - 1 4 2
-   - 2 3 1
-   - 2 4 5
-   - 3 1 4
-   - 3 4 1
-   - 3 2 5
-   - 1
-   - 2
-   - 3 
-   - 4
-   - 5
-   - 1 5
-   - 1 3 
-   - 1 2 
-   - 3 1
-   - 4 2
-   - 5 3
-   - 4 2
-   - 4 5 
-   - 3 4
-   - 2 1
-
-- intent: inform_documenti
-  examples: |
-   - 1 2 3 4 5
-   - 5 3 2 1 4
-   - 2 1 3 4 5
-   - 4 5 3 2 1
-   - 1 2 3 5
-   - 2 1 4 5
-   - 3 2 1
-   - 1 2 5
-   - 1 3 4
-   - 1 4 2
-   - 2 3 1
-   - 2 4 5
-   - 3 1 4
-   - 3 4 1
-   - 3 2 5
-   - 1
-   - 2
-   - 3 
-   - 4
-   - 5
-   - 1 5
-   - 1 3 
-   - 1 2 
-   - 3 1
-   - 4 2
-   - 5 3
-   - 4 2
-   - 4 5 
-   - 3 4
-   - 2 1
-
-- intent: inform_tempo
-  examples: |
-    - 10 min
-    - 15 min
-    - 20 min
-    - 25 min
-    - 30 min
-    - 10
-    - 15
-    - 20
-    - 25
-    - 30
-    - 10 minuti
-    - 15 minuti
-    - 20 minuti
-    - 25 minuti
-    - 30 minuti
-
 
    
    
@@ -486,6 +278,12 @@ nlu:
     - mi sono stufato di rispondere
     - mi sono stufata di rispondere
     - fermati
+
+- intent: inform_valutazione
+  examples: |
+    - [basso] (valutazione)
+    - [medio] (valutazione)
+    - [alto] (valutazione)
 
 
 

@@ -56,6 +56,9 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: utter_submit_tempo
+  - action: utter_ask_valutazione
+  - intent: inform_valutazione
+  - action: action_grazie
   
   
 

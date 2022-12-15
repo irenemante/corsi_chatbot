@@ -42,6 +42,27 @@ def has_numbers(inputString):
 def has_duplicates(seq):
     return len(seq) != len(set(seq))
 
+def eliminate_introduction_slots(lista, slot,dispatcher:CollectingDispatcher):
+    if "sono" in lista[0] and not ":" in lista[0]:
+        a = re.search(r'\b(sono)\b', lista[0])
+        lista[0]=lista[0][a.start()+4+1:]
+        if slot!="cambio":
+            dispatcher.utter_message(
+            text="vuoi aggiungere {aggettivo} {slot}? Clicca su si o no.".format(aggettivo="altri" if slot == "argomenti" else "altre",slot=slot),
+            buttons= [{"title":"si","payload":"si"},
+                {"title":"no","payload":"no"}
+            ])
+        return  lista
+    elif ":" in lista[0]:
+        lista[0]=lista[0].split(':')[1].strip()
+        if slot!="cambio":
+            dispatcher.utter_message(
+            text="vuoi aggiungere {aggettivo} {slot}? Clicca su si o no.".format(aggettivo="altri" if slot == "argomenti" else "altre",slot=slot),
+            buttons= [{"title":"si","payload":"si"},
+                    {"title":"no","payload":"no"}
+                ])
+        return  lista
+
 
 
 
@@ -125,12 +146,17 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        
+        slot=slot_value.lower()
         regex = re.compile('[@_#$%^&*<>\|}{~]')
-        if(re.search(regex,slot_value) != None):
+        if(re.search(regex,slot) != None):
             return {"nome_corso": None}
+        elif "è" in slot or "chiama" in slot:
+            a = re.search(r'\b(è)|(chiama)\b', slot)
+            sum_number= 1 if "è" in slot else 6
+            title=slot[a.start()+sum_number+1:]
+            return  {"nome_corso": title.strip()}
         else:
-            return {"nome_corso": slot_value}
+            return {"nome_corso": slot}
        
 
         
@@ -218,7 +244,7 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         domain: DomainDict,
     ) -> Dict[Text, Any]:
         print("arg " + tracker.get_intent_of_latest_message())
-        lista_argomenti = slot_value.split(',')
+        lista_argomenti = slot_value.lower().split(',')
         lista_argomenti= [i.strip() for i in lista_argomenti]
         if tracker.get_intent_of_latest_message() == "stop_form":
             return {"requested_slot": None,"argomenti": None}
@@ -227,9 +253,11 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
             if(re.search(regex,slot_value) != None):
                 dispatcher.utter_message(text="Indica gli argomenti del corso, separati dalla virgola.")
                 return {"argomenti": None}
+            elif ":"  in lista_argomenti[0] or "sono" in lista_argomenti[0]:
+                return {"argomenti":eliminate_introduction_slots(lista_argomenti,"argomenti", dispatcher)}
             else:
                 dispatcher.utter_message(
-                text="vuoi aggiungere altri argomenti?",
+                text="vuoi aggiungere altri argomenti? Clicca su si o no.",
                 buttons= [{"title":"si","payload":"si"},
                         {"title":"no","payload":"no"}
                 ])
@@ -258,19 +286,22 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
             return {"vuole_altri_argomenti": False}
 
         else:
+            altri_argomenti = slot_value.split(',')
+            altri_argomenti= [i.strip() for i in altri_argomenti]
             regex = re.compile('[@_#$%^&*<>\|}{~]')
             if(re.search(regex,slot_value) != None):
                 dispatcher.utter_message(text="Indica gli altri argomenti del corso, separati dalla virgola.")
                 return{"vuole_altri_argomenti":None}
+            elif ":"  in altri_argomenti[0] or "sono" in altri_argomenti[0]:
+                new_arg=eliminate_introduction_slots(altri_argomenti,"argomenti", dispatcher)
+                return {"argomenti":argomenti + new_arg,"vuole_altri_argomenti":None}
             else:
                 dispatcher.utter_message(
-                text="vuoi aggiungere altri argomenti?",
+                text="vuoi aggiungere altri argomenti? Clicca su si o no.",
                 buttons= [{"title":"si","payload":"si"},
                          {"title":"no","payload":"no"}
             ])
-                new_argomenti = slot_value.split(',')
-                new_argomenti= [i.strip() for i in new_argomenti]
-                new_argomenti= argomenti + new_argomenti
+                new_argomenti= argomenti + altri_argomenti
                 return {"argomenti": new_argomenti, "vuole_altri_argomenti":None}
        
         
@@ -285,7 +316,7 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         domain: DomainDict,
     ) -> Dict[Text, Any]:
         print("ab " + tracker.get_intent_of_latest_message())
-        lista_abilità = slot_value.split(',')
+        lista_abilità = slot_value.lower().split(',')
         lista_abilità= [i.strip() for i in lista_abilità]
         if tracker.get_intent_of_latest_message() == "stop_form":
             return {"requested_slot": None,"abilità": None}
@@ -294,9 +325,11 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
             if(re.search(regex,slot_value) != None):
                 dispatcher.utter_message(text="Indica le abilità iniziali che lo studente deve avere prima del corso, separati dalla virgola.")
                 return{"abilità":None}
+            elif ":"  in lista_abilità[0] or "sono" in lista_abilità[0]:
+                return {"abilità":eliminate_introduction_slots(lista_abilità,"abilità", dispatcher)}
             else:
                 dispatcher.utter_message(
-                text="vuoi aggiungere altre abilità?",
+                text="vuoi aggiungere altre abilità? Clicca su si o no.",
                 buttons= [{"title":"si","payload":"si"},
                       {"title":"no","payload":"no"}
             ])
@@ -325,19 +358,22 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
             return {"vuole_altre_abilità": False}
 
         else:
+            altre_abilità = slot_value.split(',')
+            altre_abilità= [i.strip() for i in altre_abilità]
             regex = re.compile('[@_#$%^&*<>\|}{~]')
             if(re.search(regex,slot_value) != None):
                 dispatcher.utter_message(text="Indica le altre abilità iniziali del corso, separate dalla virgola.")
                 return{"vuole_altre_abilità":None}
+            elif ":"  in altre_abilità[0] or "sono" in altre_abilità[0]:
+                new_ab=eliminate_introduction_slots(altre_abilità,"abilità", dispatcher)
+                return {"abilità":abilità + new_ab, "vuole_altre_abilità":None}
             else:
                 dispatcher.utter_message(
-                    text="vuoi aggiungere altre abilità?",
+                    text="vuoi aggiungere altre abilità? Clicca su si o no.",
                     buttons= [{"title":"si","payload":"si"},
                             {"title":"no","payload":"no"}
             ])
-                new_abilità = slot_value.split(',')
-                new_abilità= [i.strip() for i in new_abilità]
-                new_abilità= abilità + new_abilità
+                new_abilità= abilità + altre_abilità
                 return {"abilità": new_abilità, "vuole_altre_abilità":None}
             
             
@@ -353,7 +389,7 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         domain: DomainDict,
     ) -> Dict[Text, Any]:
         print("comp " + tracker.get_intent_of_latest_message())
-        lista_competenze = slot_value.split(',')
+        lista_competenze = slot_value.lower().split(',')
         lista_competenze= [i.strip() for i in lista_competenze]
         if tracker.get_intent_of_latest_message() == "stop_form":
             return {"requested_slot": None,"competenze": None}
@@ -362,9 +398,11 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
             if(re.search(regex,slot_value) != None):
                 dispatcher.utter_message(text="Indica le competenze che lo studente deve raggiungere alla fine del corso, separate dalla virgola.")
                 return{"competenze":None}
+            elif ":"  in lista_competenze[0] or "sono" in lista_competenze[0]:
+                return {"competenze":eliminate_introduction_slots(lista_competenze,"competenze", dispatcher)}
             else:
                 dispatcher.utter_message(
-                text="vuoi aggiungere altre competenze?",
+                text="vuoi aggiungere altre competenze? Clicca su si o no.",
                 buttons= [{"title":"si","payload":"si"},
                         {"title":"no","payload":"no"}
             ])
@@ -391,19 +429,22 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
             return {"vuole_altre_competenze": False}
 
         else:
+            altre_competenze = slot_value.split(',')
+            altre_competenze= [i.strip() for i in altre_competenze]
             regex = re.compile('[@_#$%^&*<>\|}{~]')
             if(re.search(regex,slot_value) != None):
                 dispatcher.utter_message(text="Indica le altre competenze che lo studente deve raggiungere  alla fine del corso, separate dalla virgola.")
                 return{"vuole_altre_competenze":None}
+            elif ":"  in altre_competenze[0] or "sono" in altre_competenze[0]:
+                new_comp=eliminate_introduction_slots(altre_competenze,"competenze", dispatcher)
+                return {"competenze":competenze + new_comp , "vuole_altre_competenze":None}
             else:
                 dispatcher.utter_message(
-                    text="vuoi aggiungere altre competenze?",
+                    text="vuoi aggiungere altre competenze? Clicca su si o no.",
                     buttons= [{"title":"si","payload":"si"},
                             {"title":"no","payload":"no"}
             ])
-                new_competenze = slot_value.split(',')
-                new_competenze= [i.strip() for i in new_competenze]
-                new_competenze= competenze + new_competenze
+                new_competenze= competenze + altre_competenze
                 return {"competenze": new_competenze, "vuole_altre_competenze":None}
             
             
@@ -464,12 +505,14 @@ class ValidateModificaMetadati(FormValidationAction):
         metadato= tracker.slots.get("metadato_da_modificare")
         if metadato == "abilità" or metadato == "competenze" or metadato == "argomenti":
             regex = re.compile('[@_#$%^&*<>\|}{~]')
-            lista_elementi = slot_value.split(',')
+            lista_elementi = slot_value.lower().split(',')
             lista_elementi= [i.strip() for i in lista_elementi]
             if(re.search(regex,slot_value) != None):
                 response= "Inserisci  {pronome} {aggettivo} {metadato}, {separazione} dalla virgola.".format(pronome="i" if metadato == "argomenti" else "le",aggettivo="nuovi" if metadato == "argomenti" else "nuove",metadato=metadato,separazione="separati" if metadato == "argomenti" else "separate" )
                 dispatcher.utter_message(text=response)
                 return {"cambio_metadato": None}
+            elif ":"  in lista_elementi[0] or "sono" in lista_elementi[0]:
+                return {f"{metadato}":eliminate_introduction_slots(lista_elementi,"cambio", dispatcher)}
             else:
                 return {f"{metadato}": lista_elementi}
         elif metadato=="età" or metadato=="numero_lezioni":
@@ -495,6 +538,11 @@ class ValidateModificaMetadati(FormValidationAction):
             if(re.search(regex,slot_value) != None):
                 dispatcher.utter_message(text=f"Inserisci il nuovo valore per il campo {metadato}")
                 return {"cambio_metadato": None}
+            elif "è" in slot_value.lower() or "chiama" in slot_value.lower():
+                a = re.search(r'\b(è)|(chiama)\b', slot_value.lower())
+                sum_number= 1 if "è" in slot_value.lower() else 6
+                title=slot_value[a.start()+sum_number+1:].lower()
+                return  {f"{metadato}": title.strip()}
             else:
                 return  {f"{metadato}": slot_value}
         else:
@@ -598,7 +646,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"videolezioni":None}
             dispatcher.utter_message(
-                    text="desideri aggiungere altre videolezioni?",
+                    text="desideri aggiungere altre videolezioni? Clicca su si o no.",
                     buttons= [{"title":"si","payload":"si"},
                         {"title":"no","payload":"no"}
                 ])
@@ -634,7 +682,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
             else:
                 controller_videolezioni=True
                 dispatcher.utter_message(
-                    text="vuoi aggiungere altre videolezioni?",
+                    text="vuoi aggiungere altre videolezioni? Clicca su si o no.",
                     buttons= [{"title":"si","payload":"si"},
                             {"title":"no","payload":"no"}
                     ])
@@ -664,7 +712,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"esercizi":None}
             dispatcher.utter_message(
-                text="vuoi aggiungere altri esercizi?",
+                text="vuoi aggiungere altri esercizi? Clicca su si o no.",
                 buttons= [{"title":"si","payload":"si"},
                         {"title":"no","payload":"no"}
                 ])
@@ -701,7 +749,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
             else:
                 controller_esercizi=True
                 dispatcher.utter_message(
-                    text="vuoi aggiungere altri esercizi?",
+                    text="vuoi aggiungere altri esercizi? Clicca su si o no.",
                     buttons= [{"title":"si","payload":"si"},
                       {"title":"no","payload":"no"}
                     ])
@@ -729,7 +777,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"quiz":None}
             dispatcher.utter_message(
-                text="vuoi aggiungere altri quiz?",
+                text="vuoi aggiungere altri quiz? Clicca su si o no.",
                 buttons= [{"title":"si","payload":"si"},
                         {"title":"no","payload":"no"}
                 ])
@@ -767,7 +815,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
             else:
                 controller_quiz=True
                 dispatcher.utter_message(
-                    text="vuoi aggiungere altri quiz?",
+                    text="vuoi aggiungere altri quiz? Clicca su si o no.",
                     buttons= [{"title":"si","payload":"si"},
                         {"title":"no","payload":"no"}
                     ])
@@ -793,7 +841,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
                 dispatcher.utter_message(text="Attenzione! Inserisci i numeri associati ai link che desideri")
                 return {"documenti":None}
             dispatcher.utter_message(
-                text="vuoi aggiungere altri documenti?",
+                text="vuoi aggiungere altri documenti? Clicca su si o no.",
                 buttons= [{"title":"si","payload":"si"},
                         {"title":"no","payload":"no"}
                     ])
@@ -830,7 +878,7 @@ class ValidatePropostaLinkForm(FormValidationAction):
             else:
                 controller_documenti=True
                 dispatcher.utter_message(
-                    text="vuoi aggiungere altri documenti?",
+                    text="vuoi aggiungere altri documenti? Clicca su si o no.",
                     buttons= [{"title":"si","payload":"si"},
                          {"title":"no","payload":"no"}
                     ])
@@ -1092,5 +1140,19 @@ class ActionSummaryPostModifica(Action):
             dispatcher.utter_message(text=testo)
         else:
             dispatcher.utter_message(text="Non è stata richiesta alcuna modifica dei campi.")
+        
+        return []
+
+class ActionGrazie(Action):
+    def name(self) -> Text:
+        return "action_grazie"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text,Any])-> List[Dict[Text,Any]]:
+        valutazione= tracker.get_slot("valutazione")
+        print("val"+ " "+ valutazione)
+        if valutazione == "no":
+            dispatcher.utter_message(text="Grazie lo stesso!")
+        else:
+             dispatcher.utter_message(text="Grazie mille per la tua valutazione!")       
         
         return []

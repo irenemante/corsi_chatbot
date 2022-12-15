@@ -10,19 +10,14 @@ intents:
   - stop_form
   - inform_nome_corso
   - inform_lingua
-  - inform_età
   - inform_durata_lezioni
-  - inform_numero_lezioni
   - inform_argomenti
   - inform_abilità
   - inform_competenze
+  - inform_numerics
   - inform_metadato_da_modificare
-  - inform_cambio_metadato
-  - inform_videolezioni
-  - inform_quiz
-  - inform_documenti
-  - inform_esercizi
-  - inform_tempo 
+  - inform_valutazione
+ 
 
 
   
@@ -43,6 +38,7 @@ entities:
   - esercizi
   - quiz
   - materiali_aggiuntivi
+  
   
  
  
@@ -417,7 +413,12 @@ slots:
         conditions:
         - active_loop: modifica_metadati_form
           requested_slot: vuole_modifica_altro
-  
+  valutazione:
+    type: text
+    mappings:
+    - type: from_text
+      entity: valutazione
+      
   
   
       
@@ -492,7 +493,7 @@ responses:
   - text: "Qual è il numero delle lezioni di cui è composto il corso? Indica il numero usando le cifre."
 
   utter_ask_durata_lezioni:
-  - text: Seleziona la durata media delle lezioni che desideri.
+  - text: Clicca sulla durata media delle lezioni che desideri.
     buttons:
     - title: 0-30
       payload: 0-30
@@ -510,9 +511,7 @@ responses:
   - text: "In quale lingua verrà tenuto il corso?"
   - text: "Qual è la lingua in cui sarà tenuto il corso?"
 
-  utter_ask_continuare:
-  - text: "Vuoi continuare?"
-  - text: "Vuoi continuare a inserire i dati del corso?"
+
 
   utter_submit_link:
   - text: "i formati sono: {formati}\n
@@ -549,7 +548,7 @@ responses:
       text: "Il docente non ha inserito gli esercizi tra le tipologie di materiale."
           
   utter_ask_vuole_ripetizione:
-  - text: "Desideri che lo studente ripeta l'esercizio qualora non riesca a completarlo entro un tempo considerato?"
+  - text: "Desideri che lo studente ripeta l'esercizio qualora non riesca a completarlo entro un tempo considerato? Clicca su si o no."
     buttons:
     - title: si
       payload: si
@@ -572,7 +571,7 @@ responses:
       \n\n Per indicare i formati di materiale desiderati e i link scelti scrivi i numeri in cifre."
   
   utter_ask_vuole_modifica:
-  - text: "Vuoi cambiare qualche campo?"
+  - text: "Vuoi cambiare qualche campo? Clicca su si o no."
     buttons:
     - title: si
       payload: si
@@ -580,7 +579,7 @@ responses:
       payload: no
 
   utter_ask_metadato_da_modificare:
-  - text: Premi sul campo che vuoi modificare.
+  - text: Clicca sul campo che vuoi modificare.
     buttons:
     - title: nome del corso
       payload: nome_corso
@@ -601,7 +600,7 @@ responses:
 
 
   utter_ask_vuole_modifica_altro:
-  - text: "Vuoi cambiare altri campi?"
+  - text: "Vuoi cambiare altri campi? Clicca su si o no."
     buttons:
     - title: si
       payload: si
@@ -627,6 +626,19 @@ responses:
           name: vuole_modifica
           value: false
       text: "Non è stata richiesta alcuna modifica dei campi."
+  utter_ask_valutazione:
+  - text: "Se vuoi dare una valutazione al chatbot, clicca sul punteggio che vuoi dare."
+    buttons:
+    - title: basso 
+      payload: basso
+    - title: medio
+      payload: medio
+    - title: alto
+      payload: alto
+   
+  
+  
+
 
   
 
@@ -641,6 +653,7 @@ actions:
   - action_user_selection
   - action_summary
   - action_summary_post_modifica
+  - action_grazie
 
   
 
