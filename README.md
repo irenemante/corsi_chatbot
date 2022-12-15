@@ -1,9 +1,15 @@
 # CHATBOT PER LA CREAZIONE DI CORSI DIDATTICI
 
-## Utilizzo del RS
-Avviare il file rsServer da dentro la cartella SanicRS
-Avviare rasa con rasa run --enable-api --cors="*"
-Avviare le actions con rasa run actions
+## Aprire il chatbot 
+- installare Rasa sul proprio pc
+- andare nella directory del chatbot
+- fare rasa train
+- avviare rasa con rasa run --enable-api --cors="*"
+- in un'altra finestra del terminale, sempre andando nella directory del chatbot, avviare il file rsCode.py 
+- in un'altra finestra del terminale avviare le actions con rasa run actions (sempre nella directory del chatbot)
+- attendere 60 secondi dall'avvio del file rsCode
+- il chatbot si trova alla pagina  127.0.0.1/frontpage 
 
-La front end si trova a 127.0.0.1/frontpage (bisogna attendere che il server sia online, circa 60/70 secondi dall'avvio di rsServer.py)
-Si puó modificare la linea 109 di rsServer.py cambiando numero nella funzione head per avere piú o meno raccomandazioni
+
+## Utilizzo del RS
+Si puó modificare la linea 119 di rsCode.py cambiando numero nella funzione head per avere piú o meno raccomandazioni
