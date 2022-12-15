@@ -1,26 +1,26 @@
 [
   {
-    "text": "90 - 120",
-    "intent": "inform_durata_lezioni",
+    "text": "Sequenze",
+    "intent": "inform_nome_corso",
     "intent_prediction": {
-      "name": "inform_numerics",
-      "confidence": 0.9975347518920898
+      "name": "inform_argomenti",
+      "confidence": 0.9993141889572144
     }
   },
   {
-    "text": "120",
-    "intent": "inform_durata_lezioni",
+    "text": "consocere le sequenze",
+    "intent": "inform_competenze",
     "intent_prediction": {
-      "name": "inform_numerics",
-      "confidence": 0.9961102604866028
+      "name": "inform_abilità",
+      "confidence": 0.9997126460075378
     }
   },
   {
-    "text": "conoscere le sequenze, conoscere i cicli",
-    "intent": "inform_abilità",
+    "text": "If...else",
+    "intent": "inform_nome_corso",
     "intent_prediction": {
-      "name": "inform_competenze",
-      "confidence": 0.6638422608375549
+      "name": "inform_argomenti",
+      "confidence": 0.9999129772186279
     }
   },
   {
@@ -28,7 +28,39 @@
     "intent": "inform_competenze",
     "intent_prediction": {
       "name": "inform_abilità",
-      "confidence": 0.6308121681213379
+      "confidence": 0.9982012510299683
+    }
+  },
+  {
+    "text": "Cicli annidati",
+    "intent": "inform_nome_corso",
+    "intent_prediction": {
+      "name": "inform_argomenti",
+      "confidence": 0.9998123049736023
+    }
+  },
+  {
+    "text": "consocere le variabili",
+    "intent": "inform_abilità",
+    "intent_prediction": {
+      "name": "inform_competenze",
+      "confidence": 0.5153056979179382
+    }
+  },
+  {
+    "text": "cicli for, cicli while , cicli annidati",
+    "intent": "inform_argomenti",
+    "intent_prediction": {
+      "name": "inform_nome_corso",
+      "confidence": 0.999893307685852
+    }
+  },
+  {
+    "text": "conoscere i cicli",
+    "intent": "inform_abilità",
+    "intent_prediction": {
+      "name": "inform_competenze",
+      "confidence": 0.9949670433998108
     }
   },
   {
@@ -36,7 +68,55 @@
     "intent": "inform_competenze",
     "intent_prediction": {
       "name": "inform_abilità",
-      "confidence": 0.7290982604026794
+      "confidence": 0.998799204826355
+    }
+  },
+  {
+    "text": "conoscere le basi del coding",
+    "intent": "inform_abilità",
+    "intent_prediction": {
+      "name": "inform_competenze",
+      "confidence": 0.5388965010643005
+    }
+  },
+  {
+    "text": "conoscere i condizionali",
+    "intent": "inform_competenze",
+    "intent_prediction": {
+      "name": "inform_abilità",
+      "confidence": 0.9235756993293762
+    }
+  },
+  {
+    "text": "conoscere le seqenze",
+    "intent": "inform_abilità",
+    "intent_prediction": {
+      "name": "inform_competenze",
+      "confidence": 0.997430145740509
+    }
+  },
+  {
+    "text": "conoscere if...else",
+    "intent": "inform_competenze",
+    "intent_prediction": {
+      "name": "inform_abilità",
+      "confidence": 0.9749992489814758
+    }
+  },
+  {
+    "text": "conoscere le sequenze, conoscere i cicli",
+    "intent": "inform_abilità",
+    "intent_prediction": {
+      "name": "inform_competenze",
+      "confidence": 0.990832507610321
+    }
+  },
+  {
+    "text": "conoscere i cicli while",
+    "intent": "inform_competenze",
+    "intent_prediction": {
+      "name": "inform_abilità",
+      "confidence": 0.8584421277046204
     }
   }
 ]
