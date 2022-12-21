@@ -212,12 +212,24 @@ class ValidateCreazioneCorsoForm(FormValidationAction):
         if tracker.get_intent_of_latest_message() == "stop_form":
             
             return {"requested_slot": None,"durata_lezioni": None}
-        elif slot_value not in ["0-30","30-60","60-90","90-120","120"]:
-            
-            return {"durata_lezioni": None}
         else:
             dispatcher.utter_message(text="Indica gli argomenti del corso, separati dalla virgola.")
             return {"durata_lezioni": slot_value}
+    
+    def validate_difficoltà(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict
+    ) -> Dict[Text, Any]:
+     
+     
+        if tracker.get_intent_of_latest_message() == "stop_form":
+            
+            return {"requested_slot": None,"difficoltà": None}
+        else:
+            return {"difficoltà": slot_value}
 
     
     def validate_lingua(
@@ -484,6 +496,8 @@ class ValidateModificaMetadati(FormValidationAction):
         
         if slot_value == "durata_lezioni":
             dispatcher.utter_message(response="utter_ask_durata_lezioni")
+        elif slot_value== "difficoltà":
+            dispatcher.utter_message(response="utter_ask_difficoltà")
         elif slot_value in ["argomenti","abilità","competenze"]:
             response= "Inserisci  {pronome} {aggettivo} {metadato}, {separazione} dalla virgola.".format(pronome="i" if slot_value == "argomenti" else "le",aggettivo="nuovi" if slot_value == "argomenti" else "nuove",metadato=slot_value,separazione="separati" if slot_value == "argomenti" else "separate" )
             dispatcher.utter_message(text=response)
@@ -1092,6 +1106,7 @@ class ActionSummary(Action):
         nome_corso= tracker.get_slot("nome_corso")
         lingua= tracker.get_slot("lingua")
         età= tracker.get_slot("età")
+        difficoltà= tracker.get_slot("difficoltà")
         numero_lezioni= tracker.get_slot("numero_lezioni")
         durata_lezioni= tracker.get_slot("durata_lezioni")
         argomenti= tracker.get_slot("argomenti")
@@ -1102,6 +1117,7 @@ class ActionSummary(Action):
         testo+= f"- nome del corso: {nome_corso}\n"
         testo+= f"- lingua: {lingua}\n"
         testo+= "- età: {valore}\n".format(valore="non indicata" if età==None else età)
+        testo+= "- difficoltà: {valore}\n".format(valore="non indicata" if difficoltà==None else difficoltà)
         testo+= "- numero delle lezioni: {valore}\n".format(valore="non indicato" if numero_lezioni==None else numero_lezioni)
         testo+= "- durata delle lezioni: {valore}\n".format(valore="non indicata" if durata_lezioni==None else durata_lezioni)
         testo+= "- argomenti: {valore}\n".format(valore="non indicati" if argomenti==None else argomenti)
@@ -1122,6 +1138,7 @@ class ActionSummaryPostModifica(Action):
         età= tracker.get_slot("età")
         numero_lezioni= tracker.get_slot("numero_lezioni")
         durata_lezioni= tracker.get_slot("durata_lezioni")
+        difficoltà= tracker.get_slot("difficoltà")
         argomenti= tracker.get_slot("argomenti")
         abilità= tracker.get_slot("abilità")
         competenze= tracker.get_slot("competenze")
@@ -1131,6 +1148,7 @@ class ActionSummaryPostModifica(Action):
             testo+= f"- nome del corso: {nome_corso}\n"
             testo+= f"- lingua: {lingua}\n"
             testo+= "- età: {valore}\n".format(valore="non indicata" if età==None else età)
+            testo+= "- difficoltà: {valore}\n".format(valore="non indicata" if difficoltà==None else difficoltà)
             testo+= "- numero delle lezioni: {valore}\n".format(valore="non indicato" if numero_lezioni==None else numero_lezioni)
             testo+= "- durata delle lezioni: {valore}\n".format(valore="non indicata" if durata_lezioni==None else durata_lezioni)
             testo+= "- argomenti: {valore}\n".format(valore="non indicati" if argomenti==None else argomenti)

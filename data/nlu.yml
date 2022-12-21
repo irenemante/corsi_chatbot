@@ -74,6 +74,14 @@ nlu:
    - giapponese
    - arabo
 
+- intent: inform_difficoltà
+  examples: |
+   - facile
+   - media
+   - difficile
+   
+
+
 - intent: inform_numerics
   examples: |
    - 6 anni

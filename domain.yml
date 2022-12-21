@@ -82,6 +82,15 @@ slots:
       conditions:
       - active_loop: creazione_corso_form
         requested_slot: durata_lezioni
+  
+  difficoltà:
+    type: text
+    mappings:
+    - type: from_text
+      entity: difficoltà
+      conditions:
+      - active_loop: creazione_corso_form
+        requested_slot: difficoltà
 
 
 
@@ -429,6 +438,7 @@ forms:
         - nome_corso
         - lingua
         - età
+        - difficoltà
         - numero_lezioni
         - durata_lezioni
         - argomenti
@@ -492,6 +502,18 @@ responses:
   - text: "Quante lezioni vuoi inserire nel corso? Indica il numero usando le cifre."
   - text: "Qual è il numero delle lezioni di cui è composto il corso? Indica il numero usando le cifre."
 
+  
+  utter_ask_difficoltà:
+  - text: Clicca sulla difficoltà del corso.
+    buttons:
+    - title: facile
+      payload: facile
+    - title: media
+      payload: media
+    - title: difficile
+      payload: difficile
+    
+   
   utter_ask_durata_lezioni:
   - text: Clicca sulla durata media delle lezioni che desideri.
     buttons:
@@ -587,6 +609,8 @@ responses:
       payload: lingua
     - title: età
       payload: età
+    - title: difficoltà
+      payload: difficoltà
     - title: numero delle lezioni
       payload: numero_lezioni
     - title: durata delle lezioni
