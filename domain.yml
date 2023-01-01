@@ -464,7 +464,7 @@ forms:
   ripetizione_esercizi_form:
     required_slots:
         - vuole_ripetizione
-        - tempo
+        
   
 
 
@@ -527,6 +527,7 @@ responses:
       payload: 90-120
     - title: 120+
       payload: '120'
+    
  
 
   utter_ask_lingua:
@@ -579,7 +580,18 @@ responses:
 
   
   utter_ask_tempo:
-  - text: "Indica il tempo massimo entro cui lo studente deve completare l'esercizio (espresso in minuti)"
+  - text: Clicca sulla durata degli esercizi che desideri. Se gli studenti non completano l'esercizio nella durata considerata, dovranno ripeterlo.
+    buttons:
+    - title: 0-30
+      payload: 0-30
+    - title: 30-60
+      payload: 30-60
+    - title: 60-90
+      payload: 60-90
+    - title: 90-120
+      payload: 90-120
+    - title: 120+
+      payload: '120'
 
   
 

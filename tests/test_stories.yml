@@ -84,25 +84,29 @@ stories:
   - action: utter_spiegazione
   - action: creazione_corso_form
   - active_loop: creazione_corso_form
+  - action: validate_nome_corso
   - slot_was_set:
     - nome_corso: "intro al coding"
-  - action: validate_nome_corso
+  - action: utter_ask_lingua
   - action: creazione_corso_form
   - slot_was_set:
     - lingua: "italiano"
   - action: validate_lingua
   - action: creazione_corso_form
-  - slot_was_set:
-    - età: "10 anni"
   - action: validate_età
+  - slot_was_set:
+    - età: "10"
+  - action: "utter_ask_numero_lezioni"
   - action: creazione_corso_form
+  - action: validate_numero_lezioni
   - slot_was_set:
     - numero_lezioni: "20"
-  - action: validate_numero_lezioni
+  - action: utter_ask_durata_lezioni
   - action: creazione_corso_form
+  - action: validate_durata_lezioni
   - slot_was_set:
     - età: "0-30"
-  - action: validate_durata_lezioni
+  - action: utter_ask_argomenti
   - action: creazione_corso_form
   - user: |
         stop
@@ -121,10 +125,12 @@ stories:
   - action: action_parse_all
   - action: proposta_link_form
   - active_loop: proposta_link_form
+  - action: validate_formati
   - slot_was_set:
     - formati: "1 2"
-  - action: validate_formati
+  - action: utter_ask_videolezioni
   - action: proposta_link_form
+  - action: validate_videolezioni
   - slot_was_set:
     - videolezioni: "1 "
   - action: validate_videolezioni

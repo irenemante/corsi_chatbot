@@ -79,60 +79,21 @@ class ValidateRipetizioneEserciziForm(FormValidationAction):
         domain: DomainDict,
     ) -> List[Text]:
        
-       
+        additional_slots = []
         lista_formati= tracker.slots.get("formati")
+        vuole_ripetizione=tracker.get_slot("vuole_ripetizione")
         if "esercizi" not in lista_formati:
             return []
         else:
-            return  domain_slots
-
-
-    def validate_vuole_ripetizione(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-    ) -> Dict[Text, Any]:
-   
-        
-        if tracker.get_intent_of_latest_message() == "conferma":
-            
-            return {"vuole_ripetizione": True}
-        else:
-            SlotSet("vuole_ripetizione",False)
-            
-            return {"requested_slot": None}
-
-        return {"vuole_ripetizione": None}
-        
-
-    def validate_tempo(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict
-    ) -> Dict[Text, Any]:
-     
-     
-        valore = tracker.get_slot("vuole_ripetizione")
-        print(valore)
-        minuti_number = re.findall('[0-9]+', slot_value)
-        if valore:
-            if not has_numbers(slot_value) and tracker.get_intent_of_latest_message() != "stop_form":
-                return {"tempo":None}
-            elif tracker.get_intent_of_latest_message() == "stop_form" and not has_numbers(slot_value):
-                    return {"requested_slot": None,"tempo": None}
+            if not vuole_ripetizione:
+                return  domain_slots
             else:
-                minuti_number = re.findall('[0-9]+', slot_value)
-                if  int(minuti_number[0])<1 or int(minuti_number[0]) >=60 :
-                    return {"tempo": None}
-                else:    
-                    return {"tempo": int(minuti_number[0])}
-            
-        else:
-                return {"tempo": None}
+                additional_slots.append("tempo")
+                return domain_slots + additional_slots
+
+
+    
+    
 
 class ValidateCreazioneCorsoForm(FormValidationAction):
     def name(self) -> Text:
@@ -985,6 +946,7 @@ class ActionParseAll(Action):
             #save the queries in a list
             total_kw_list = []
             queries = slotdict[key].split(", ")
+            print("queries "+ str(queries))
             dir = os.getcwd()
             #create the embeddings of all the possible values in MERLOT
             file = open(f'actions/Dataset/{key}.txt')
@@ -1001,12 +963,14 @@ class ActionParseAll(Action):
             for query in queries:
                 query_embedding = embedder.encode(query, convert_to_tensor=True)
                 hits = util.semantic_search(query_embedding, corpus_embeddings, top_k=5)
+                print("hits" + " "+str(hits))
                 hits = hits[0]
                 print("Query: "+ query)
                 #insert the hits into the Json
                 if key != "Keywords":
                     hit = hits[0]
                     item_to_append = {key: corpus[hit["corpus_id"]]}
+                    print("item_to_append"+" "+ str(item_to_append))
                     request.update(item_to_append)
                 #keyword is a multi field and dictionaries cant have multiple objects with the same key
                 #so the top hit for every keyword is saved to a list and later put into the json
@@ -1019,12 +983,16 @@ class ActionParseAll(Action):
                 keyword_item = {key: total_kw_list}
                 print("TotalKwLisis")
                 print(total_kw_list)
+                #if tracker.get_slot("argomenti") == None:
+                   # request["Keywords"]= tracker.get_slot("argomenti")
+                #else:
                 request.update(keyword_item)
-                print("requestis")
+                print("requests")
                 print(request)
 
             #placeholder print,, not needed in production
             request["Età"] = tracker.get_slot('età')
+            #request["Durata"] = tracker.get_slot('durata_lezioni')
             request["Lingua"] = "Inglese"
             print(json.dumps(request))
 

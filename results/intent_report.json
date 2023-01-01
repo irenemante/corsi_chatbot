@@ -1,66 +1,132 @@
 {
-  "inform_numerics": {
+  "saluto": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
+    "support": 5,
+    "confused_with": {}
+  },
+  "inform_lingua": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 9,
+    "confused_with": {}
+  },
+  "stop_form": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 8,
+    "confused_with": {}
+  },
+  "inform_numerics": {
+    "precision": 0.978021978021978,
+    "recall": 1.0,
+    "f1-score": 0.9888888888888888,
     "support": 89,
     "confused_with": {}
   },
-  "inform_nome_corso": {
-    "precision": 0.8571428571428571,
-    "recall": 0.5714285714285714,
-    "f1-score": 0.6857142857142857,
-    "support": 21,
+  "creazione_corso": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 9,
+    "confused_with": {}
+  },
+  "inform_durata_lezioni": {
+    "precision": 1.0,
+    "recall": 0.6,
+    "f1-score": 0.7499999999999999,
+    "support": 5,
     "confused_with": {
-      "inform_argomenti": 6,
-      "inform_competenze": 3
+      "inform_numerics": 2
     }
   },
-  "inform_argomenti": {
-    "precision": 0.5714285714285714,
-    "recall": 0.7272727272727273,
-    "f1-score": 0.64,
-    "support": 11,
+  "inform_metadato_da_modificare": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 8,
+    "confused_with": {}
+  },
+  "inform_difficoltà": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3,
+    "confused_with": {}
+  },
+  "inform_competenze": {
+    "precision": 0.9090909090909091,
+    "recall": 0.8333333333333334,
+    "f1-score": 0.8695652173913043,
+    "support": 12,
     "confused_with": {
-      "inform_nome_corso": 2,
+      "inform_abilità": 2
+    }
+  },
+  "inform_valutazione": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3,
+    "confused_with": {}
+  },
+  "inform_argomenti": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 11,
+    "confused_with": {}
+  },
+  "negazione": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3,
+    "confused_with": {}
+  },
+  "inform_nome_corso": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 21,
+    "confused_with": {}
+  },
+  "inform_abilità": {
+    "precision": 0.8181818181818182,
+    "recall": 0.9,
+    "f1-score": 0.8571428571428572,
+    "support": 10,
+    "confused_with": {
       "inform_competenze": 1
     }
   },
-  "inform_abilità": {
-    "precision": 0.5,
-    "recall": 0.6,
-    "f1-score": 0.5454545454545454,
-    "support": 10,
-    "confused_with": {
-      "inform_competenze": 4
-    }
+  "conferma": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 2,
+    "confused_with": {}
   },
-  "inform_competenze": {
-    "precision": 0.42857142857142855,
-    "recall": 0.5,
-    "f1-score": 0.4615384615384615,
-    "support": 12,
-    "confused_with": {
-      "inform_abilità": 6
-    }
-  },
-  "accuracy": 0.8461538461538461,
+  "accuracy": 0.9747474747474747,
   "macro avg": {
-    "precision": 0.6714285714285715,
-    "recall": 0.6797402597402598,
-    "f1-score": 0.6665414585414585,
-    "support": 143
+    "precision": 0.9803529803529804,
+    "recall": 0.9555555555555556,
+    "f1-score": 0.9643731308948701,
+    "support": 198
   },
   "weighted avg": {
-    "precision": 0.8631368631368631,
-    "recall": 0.8461538461538461,
-    "f1-score": 0.849181867083965,
-    "support": 143
+    "precision": 0.975428611792248,
+    "recall": 0.9747474747474747,
+    "f1-score": 0.973572334804219,
+    "support": 198
   },
   "micro avg": {
-    "precision": 0.8461538461538461,
-    "recall": 0.8461538461538461,
-    "f1-score": 0.8461538461538461,
-    "support": 143
+    "precision": 0.9747474747474747,
+    "recall": 0.9747474747474747,
+    "f1-score": 0.9747474747474747,
+    "support": 198
   }
 }
